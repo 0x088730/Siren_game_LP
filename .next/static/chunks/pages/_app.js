@@ -145,7 +145,7 @@ module.exports = __webpack_require__.p + "static/media/bg.331e9c35.jpg";
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
-module.exports = __webpack_require__.p + "static/media/buy-btn.f44dd90f.png";
+module.exports = __webpack_require__.p + "static/media/buy-btn.e8c3275c.png";
 
 /***/ }),
 
