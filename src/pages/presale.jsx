@@ -144,14 +144,9 @@ export default function Presale() {
 
   // );
   return (
-    <div className="relative  overflow-auto md:w-full h-screen min-w-[1024px]">
-      <img
-        src="assets/images/bg.jpg"
-        alt=""
-        className="absolute object-cover w-full h-screen -z-10"
-      />
+    <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
       <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center justify-center">
-        <div className="flex justify-between w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px] items-center">
+        <div className="absolute top-0 translate-y-16 flex justify-between w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px] items-center">
           <div className="pt-2 text-3xl text-left text-white xl:text-3xl 2xl:text-4xl font-animeace">
             {t("CSC TOKEN PRESALE")}
           </div>
@@ -170,7 +165,7 @@ export default function Presale() {
             </span>
           </div>
         </div>
-        <div className="flex w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
+        <div className="absolute top-0 translate-y-28 flex w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
           <div className="text-left text-white text-2xl font-animeace px-2 py-1 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-40 text-center border-4 border-[#361432]">
             {t("PRESALE")}
           </div>
@@ -185,43 +180,43 @@ export default function Presale() {
           <div className=" rounded-3xl shadow-2xl shadow-[0_0_30px_#FF21E9]">
             <video
               src="assets/videos/intro.mp4"
-              className="object-cover object-center rounded-3xl shadow-1xl shadow-[0_0_20px_#B31FA4] brightness-50"
+              className="absolute top-0 translate-y-52 object-cover object-center rounded-3xl shadow-1xl shadow-[0_0_20px_#B31FA4] brightness-50 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]"
               autoPlay
               loop
               muted
             />
-          </div>
-          <div className="absolute top-0 translate-y-52 p-5 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
-            <div className="w-full border-b-2 border-black mb-10">
-              <div className="flex justify-between">
-                <div className="text-1xl font-bold text-white font-animeace">
-                  {t("NEXT PRICE UPDATE:")}
-                  <span className="text-[#dcc90a]">{t(" 00 DAYS: 02 HOURS")}</span>
-                  <span className="text-[#00ce2d]">{t(" (+10%)")}</span>
+            <div className="absolute top-0 translate-y-52 p-5 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
+              <div className="w-full border-b-2 border-black mb-10">
+                <div className="flex justify-between">
+                  <div className="text-1xl font-bold text-white font-animeace">
+                    {t("NEXT PRICE UPDATE:")}
+                    <span className="text-[#dcc90a]">{t(" 00 DAYS: 02 HOURS")}</span>
+                    <span className="text-[#00ce2d]">{t(" (+10%)")}</span>
+                  </div>
+                  <div className="flex">
+                    <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] mx-2 w-40 h-10 text-center opacity-90">
+                      <img src="assets/images/blue_gem.png" alt="" className="w-6 inline me-1" />{t("USDT")}
+                    </div>
+                    <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
+                      {t("NETWORK: ")}<span className="text-[#dcc90a]">{t("BNB")}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex">
-                  <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] mx-2 w-40 h-10 text-center opacity-90">
-                    <img src="assets/images/blue_gem.png" alt="" className="w-6 inline me-1" />{t("USDT")}
-                  </div>
-                  <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
-                    {t("NETWORK: ")}<span className="text-[#dcc90a]">{t("BNB")}</span>
-                  </div>
+                <div className="text-2xl font-bold text-white font-animeace">
+                  {t("CSC ACTUAL PRICE: ")}
+                  <span className="text-[#dcc90a]">{t("0.07 USDT")}</span>
                 </div>
               </div>
-              <div className="text-2xl font-bold text-white font-animeace">
-                {t("CSC ACTUAL PRICE: ")}
-                <span className="text-[#dcc90a]">{t("0.07 USDT")}</span>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center space-y-5">
-              <LabelButton title={"YOU PAY"} img="assets/images/blue_gem.png" onChange={(e) => onAmountClick(e)} />
-              <img src="assets/images/arrow.png" alt="" className="w-8" />
-              <LabelButton title={"YOU RECEIVE"} img="assets/images/yellow_gem.png" onChange={(e) => getReceiveValue(e)} />
-              <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
-              <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={onBtnClick}>{btnType}</div>
-              <div className="font-bold text-white font-animeace">
-                <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
-                <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
+              <div className="flex flex-col justify-center items-center space-y-5">
+                <LabelButton title={"YOU PAY"} color="text-blue-500" img="assets/images/blue_gem.png" onChange={(e) => onAmountClick(e)} />
+                <img src="assets/images/arrow.png" alt="" className="w-8" />
+                <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" onChange={(e) => getReceiveValue(e)} />
+                <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
+                <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={onBtnClick}>{btnType}</div>
+                <div className="font-bold text-white font-animeace">
+                  <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
+                  <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
+                </div>
               </div>
             </div>
           </div>

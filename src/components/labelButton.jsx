@@ -12,7 +12,7 @@ export default function LabelButton(props) {
             <input
                 type="text"
                 name={props.title}
-                class="block w-full rounded-xl border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className={`block w-full rounded-xl border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-lg sm:leading-6 font-bold ${props.color ? `${props.color}` : ''} font-animeac`}
                 onChange={(e) => props.onChange(e.target.value)}
             />
         </div>

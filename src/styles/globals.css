@@ -64,7 +64,10 @@
   background-image: url("../../public/assets/images/buy-btn.png");
   background-size: 100% 100%;
 }
-
+.presale-bg {
+  background-image: url("../../public/assets/images/bg.jpg") !important;
+  background-size: 100% 100%;
+}
 .flex-center {
   display: flex;
   align-items: center;
