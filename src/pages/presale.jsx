@@ -5,6 +5,7 @@ import LabelButton from "~/components/labelButton";
 
 export default function Presale() {
   const { t, i18n } = useTranslation();
+  const [address, setAddress] = useState("");
   const [btnType, setBtnType] = useState("Connect");
   const [btnColor, setBtnColor] = useState("grayscale");
   const [date, setDate] = useState({
@@ -30,9 +31,9 @@ export default function Presale() {
 
   };
 
-  const onBtnClick = async () => {
+  const onBtnClick = async (type) => {
     setBtnColor("grayscale-0");
-    switch (btnType) {
+    switch (type) {
       case "Connect":
         try {
           // Request access to the user's accounts
@@ -41,7 +42,7 @@ export default function Presale() {
           // Get the user's current address
           const accounts = await web3.eth.getAccounts();
           const userAddress = accounts[0];
-
+          setAddress(userAddress.slice(0, 4) + " ... " + userAddress.slice(-4));
           console.log(`Connected with address: ${userAddress}`);
           // Proceed to Buy functionality
           setBtnType("Buy");
@@ -157,73 +158,74 @@ export default function Presale() {
           <div className="pt-2 text-3xl text-left text-white xl:text-3xl 2xl:text-4xl font-animeace">
             {t("CSC TOKEN PRESALE")}
           </div>
-          <div className="text-md text-left text-white font-animeace bg-[#fab700] rounded-full border border-y-4 border-r-4 border-black opacity-90 py-1">
+          <div
+            className="text-md text-left text-white font-animeace bg-[#fab700] rounded-full border border-y-4 border-r-4 border-black opacity-90 py-1 cursor-pointer"
+            onClick={() => onBtnClick("Connect")}
+          >
             <span className="border-4 border-black rounded-full px-5 py-2 bg-[#473845]">{t("YOUR WALLET: ")}</span>
             <span className="px-5">
               {btnType === "Connect" ?
                 <>
-                  {t("NO WALLET")}
+                  <img src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{t("CONNECT METAMASK")}
                 </>
                 :
                 <>
-                  <img src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{t("CONNECT METAMASK")}
+                  <img src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{address}
                 </>
               }
             </span>
           </div>
         </div>
-        <div className="absolute top-0 translate-y-28 flex w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
-          <div className="text-left text-white text-2xl font-animeace px-2 py-1 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-40 text-center border-4 border-[#361432]">
+        <div className="absolute top-0 translate-y-28 flex w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px] ml-3">
+          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432]">
             {t("PRESALE")}
           </div>
-          <div className="text-left text-white text-2xl font-animeace px-2 py-1 bg-gradient-to-t from-[#a42c97] to-[#5d3758] rounded-full mx-1.5 w-40 text-center border-4 border-[#361432]">
+          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-t from-[#a42c97] to-[#5d3758] rounded-full mx-1.5 w-32 text-center border-4 border-[#361432]">
             {t("CHART")}
           </div>
-          <div className="text-left text-white text-2xl font-animeace px-2 py-1 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-40 text-center border-4 border-[#361432]">
+          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432]">
             {t("ACCOUNT")}
           </div>
         </div>
         <div className="w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
-          <div className=" rounded-3xl shadow-2xl shadow-[0_0_30px_#FF21E9]">
-            <video
-              src="assets/videos/intro.mp4"
-              className="absolute top-0 translate-y-52 object-cover object-center rounded-3xl shadow-1xl shadow-[0_0_20px_#B31FA4] brightness-50 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]"
-              autoPlay
-              loop
-              muted
-            />
-            <div className="absolute top-0 translate-y-52 p-5 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
-              <div className="w-full border-b-2 border-black mb-10">
-                <div className="flex justify-between">
-                  <div className="text-1xl font-bold text-white font-animeace">
-                    {t("NEXT PRICE UPDATE: ")}
-                    <span className="text-[#dcc90a]">{date.day + " DAYS: " + date.hour + " HOURS"}</span>
-                    <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
-                  </div>
-                  <div className="flex">
-                    <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] mx-2 w-40 h-10 text-center opacity-90">
-                      <img src="assets/images/blue_gem.png" alt="" className="w-6 inline me-1" />{t("USDT")}
-                    </div>
-                    <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
-                      {t("NETWORK: ")}<span className="text-[#dcc90a]">{t("BNB")}</span>
-                    </div>
-                  </div>
+          <video
+            src="assets/videos/intro.mp4"
+            className="absolute top-0 translate-y-40 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]"
+            autoPlay
+            loop
+            muted
+          />
+          <div className="absolute top-0 translate-y-40 p-5 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
+            <div className="w-full border-b-2 border-black mb-10">
+              <div className="flex justify-between">
+                <div className="text-1xl font-bold text-white font-animeace">
+                  {t("NEXT PRICE UPDATE: ")}
+                  <span className="text-[#dcc90a]">{date.day + " DAYS: " + date.hour + " HOURS"}</span>
+                  <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
                 </div>
-                <div className="text-2xl font-bold text-white font-animeace">
-                  {t("CSC ACTUAL PRICE: ")}
-                  <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
+                <div className="flex">
+                  <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] mx-2 w-40 h-10 text-center opacity-90">
+                    <img src="assets/images/usdt.png" alt="" className="w-6 inline me-1" />{t("USDT")}
+                  </div>
+                  <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
+                    {t("NETWORK: ")}<span className="text-[#dcc90a]">{t("BNB")}</span>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-center items-center space-y-5">
-                <LabelButton title={"YOU PAY"} color="text-blue-500" img="assets/images/blue_gem.png" onChange={(e) => onAmountClick(e)} />
-                <img src="assets/images/arrow.png" alt="" className="w-8" />
-                <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" onChange={(e) => getReceiveValue(e)} />
-                <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
-                <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={onBtnClick}>{btnType}</div>
-                <div className="font-bold text-white font-animeace">
-                  <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
-                  <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
-                </div>
+              <div className="text-2xl font-bold text-white font-animeace">
+                {t("CSC ACTUAL PRICE: ")}
+                <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center space-y-5">
+              <LabelButton title={"YOU PAY"} color="text-blue-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+              <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
+              <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" onChange={(e) => getReceiveValue(e)} />
+              <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
+              <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={() => onBtnClick("Buy")}>BUY</div>
+              <div className="font-bold text-white font-animeace">
+                <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
+                <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
               </div>
             </div>
           </div>
