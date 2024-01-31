@@ -2,6 +2,7 @@ import { useState } from "react";
 import Web3 from 'web3'
 import { useTranslation } from "react-i18next";
 import LabelButton from "~/components/labelButton";
+import Header from "~/components/screens/header";
 
 export default function Presale() {
   const { t, i18n } = useTranslation();
@@ -29,7 +30,7 @@ export default function Presale() {
 
   const onAmountClick = (amount) => {
     setusdtamount(amount);
-    setreceiveAmount(amount*14.4)
+    setreceiveAmount(amount * 14.4)
     console.log(amount)
 
   };
@@ -56,7 +57,7 @@ export default function Presale() {
         break;
 
       case "Buy":
-        if(btnType != "Buy"){
+        if (btnType != "Buy") {
           alert("Please connect wallet");
           return;
         }
@@ -157,9 +158,10 @@ export default function Presale() {
   // );
   return (
     <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
+      <Header  currentMenu="Home" />
       <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center justify-center">
-        <div className="absolute top-0 translate-y-16 flex justify-between w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px] items-center">
-          <div className="pt-2 text-3xl text-left text-white xl:text-3xl 2xl:text-4xl font-animeace">
+        <div className="absolute top-0 translate-y-28 flex justify-between items-end w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
+          <div className="pt-2 text-4xl text-left text-white xl:text-4xl 2xl:text-4xl font-animeace">
             {t("CSC TOKEN PRESALE")}
           </div>
           <div
@@ -180,7 +182,7 @@ export default function Presale() {
             </span>
           </div>
         </div>
-        <div className="absolute top-0 translate-y-28 flex w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px] ml-3">
+        <div className="absolute top-0 translate-y-40 flex w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] ml-3">
           <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432]">
             {t("PRESALE")}
           </div>
@@ -191,16 +193,16 @@ export default function Presale() {
             {t("ACCOUNT")}
           </div>
         </div>
-        <div className="w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
+        <div className="w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
           <video
             src="assets/videos/intro.mp4"
-            className="absolute top-1 translate-y-40 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]"
+            className="absolute top-1 translate-y-52 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]"
             autoPlay
             loop
             muted
           />
-          <div className="absolute top-0 translate-y-40 p-5 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
-            <div className="w-full border-b-2 border-black mb-10">
+          <div className="absolute top-0 translate-y-52 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
+            <div className="w-full mb-10">
               <div className="flex justify-between">
                 <div className="text-1xl font-bold text-white font-animeace">
                   {t("NEXT PRICE UPDATE: ")}
@@ -212,7 +214,7 @@ export default function Presale() {
                     <img src="assets/images/usdt.png" alt="" className="w-6 inline me-1" />{t("USDT")}
                   </div>
                   <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
-                    {t("NETWORK: ")}<span className="text-[#dcc90a]">{t("BNB")}</span>
+                    {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span>
                   </div>
                 </div>
               </div>
@@ -220,8 +222,9 @@ export default function Presale() {
                 {t("CSC ACTUAL PRICE: ")}
                 <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
               </div>
+              <hr className="shadow-[0_5px_10px_#272525] border-2 border-[#DADADA] rounded-full"></hr>
             </div>
-            <div className="flex flex-col justify-center items-center space-y-5">
+            <div className="flex flex-col justify-center items-center space-y-6">
               <LabelButton title={"YOU PAY"} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
               <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
               <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
