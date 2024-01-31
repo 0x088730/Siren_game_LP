@@ -8,6 +8,8 @@ export default function Presale() {
   const [address, setAddress] = useState("");
   const [btnType, setBtnType] = useState("Connect");
   const [btnColor, setBtnColor] = useState("grayscale");
+  const [receiveAmount, setreceiveAmount] = useState();
+  const [usdtamount, setusdtamount] = useState(null);
   const [date, setDate] = useState({
     day: "00",
     hour: "02",
@@ -25,9 +27,10 @@ export default function Presale() {
   }
 
 
-  let busdamount = null;
   const onAmountClick = (amount) => {
-    busdamount = amount;
+    setusdtamount(amount);
+    setreceiveAmount(amount*14.4)
+    console.log(amount)
 
   };
 
@@ -53,23 +56,24 @@ export default function Presale() {
         break;
 
       case "Buy":
+        if(btnType != "Buy"){
+          alert("Please connect wallet");
+          return;
+        }
         try {
 
           const BigNumber = require('bignumber.js');
-          //const tokenContractAddress = '0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7';
-          const tokenContractAddress = '0xe9e7cea3dedca5984780bafc599bd69add087d56';
+          const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
-
           const recipientAddress = '0x8e946b7453320383df75f080F7DA843c043DfB47';
-
           // Convert 100 USDT to wei - assuming 6 decimal places
-          if (busdamount === null) {
-            alert("Please select BUSD")
+          if (usdtamount === null) {
+            alert("Please select USDT")
           }
           else {
 
             const decimals = 18;
-            const amountToSend = new BigNumber(busdamount).multipliedBy(new BigNumber(10).pow(decimals)).toString();
+            const amountToSend = new BigNumber(usdtamount).multipliedBy(new BigNumber(10).pow(decimals)).toString();
             //console.log(amountToSend);
             const gasPrice = await web3.eth.getGasPrice();
             const gasLimit = 1000000;
@@ -190,7 +194,7 @@ export default function Presale() {
         <div className="w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]">
           <video
             src="assets/videos/intro.mp4"
-            className="absolute top-0 translate-y-40 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]"
+            className="absolute top-1 translate-y-40 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-8/12 min-w-[1024px]"
             autoPlay
             loop
             muted
@@ -218,9 +222,9 @@ export default function Presale() {
               </div>
             </div>
             <div className="flex flex-col justify-center items-center space-y-5">
-              <LabelButton title={"YOU PAY"} color="text-blue-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+              <LabelButton title={"YOU PAY"} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
               <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
-              <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" onChange={(e) => getReceiveValue(e)} />
+              <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
               <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
               <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={() => onBtnClick("Buy")}>BUY</div>
               <div className="font-bold text-white font-animeace">
