@@ -3,20 +3,16 @@ import Web3 from 'web3'
 import { useTranslation } from "react-i18next";
 import LabelButton from "~/components/labelButton";
 import Header from "~/components/screens/header";
+import MainPresale from "~/components/presale/main";
+import Account from "~/components/presale/account";
 
 export default function Presale() {
   const { t, i18n } = useTranslation();
   const [address, setAddress] = useState("");
   const [btnType, setBtnType] = useState("Connect");
   const [btnColor, setBtnColor] = useState("grayscale");
-  const [receiveAmount, setreceiveAmount] = useState();
   const [usdtamount, setusdtamount] = useState(null);
-  const [date, setDate] = useState({
-    day: "00",
-    hour: "02",
-    percentage: "+10"
-  })
-  const [usdt, setUsdt] = useState("0.07");
+  const [page, setPage] = useState("main");
 
   const BEP20TokenABI = [{ "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "constant": true, "inputs": [], "name": "_decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getOwner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "mint", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "renounceOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
   let web3;
@@ -26,14 +22,6 @@ export default function Presale() {
     const provider = new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/');
     web3 = new Web3(provider);
   }
-
-
-  const onAmountClick = (amount) => {
-    setusdtamount(amount);
-    setreceiveAmount(amount * 14.4)
-    console.log(amount)
-
-  };
 
   const onBtnClick = async (type) => {
     setBtnColor("grayscale-0");
@@ -94,15 +82,6 @@ export default function Presale() {
         break;
     }
   }
-  const getPayValue = (value) => {
-    console.log("getPayValue", value)
-  }
-  const getReceiveValue = (value) => {
-    console.log("getReceiveValue", value)
-  }
-  const getEnterCode = (value) => {
-    console.log("getEnterCode", value)
-  }
   // return (
   //   <div className="w-full h-screen pt-16 lg:pt-48 bg-[url('../../public/assets/images/footer/back.jpg')] bg-cover">
   //     <div className="relative w-full lg:h-[700px] bottom-0">
@@ -158,7 +137,7 @@ export default function Presale() {
   // );
   return (
     <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
-      <Header  currentMenu="Home" />
+      <Header currentMenu="Home" />
       <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center justify-center">
         <div className="absolute top-0 translate-y-28 flex justify-between items-end w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
           <div className="pt-2 text-4xl text-left text-white xl:text-4xl 2xl:text-4xl font-animeace">
@@ -183,13 +162,19 @@ export default function Presale() {
           </div>
         </div>
         <div className="absolute top-0 translate-y-40 flex w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] ml-3">
-          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432]">
+          <div
+            className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432] cursor-pointer"
+            onClick={() => setPage("main")}
+          >
             {t("PRESALE")}
           </div>
-          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-t from-[#a42c97] to-[#5d3758] rounded-full mx-1.5 w-32 text-center border-4 border-[#361432]">
+          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-t from-[#a42c97] to-[#5d3758] rounded-full mx-1.5 w-32 text-center border-4 border-[#361432] cursor-pointer">
             {t("CHART")}
           </div>
-          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432]">
+          <div
+            className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432] cursor-pointer"
+            onClick={() => setPage("account")}
+          >
             {t("ACCOUNT")}
           </div>
         </div>
@@ -201,41 +186,11 @@ export default function Presale() {
             loop
             muted
           />
-          <div className="absolute top-0 translate-y-52 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
-            <div className="w-full mb-10">
-              <div className="flex justify-between">
-                <div className="text-1xl font-bold text-white font-animeace">
-                  {t("NEXT PRICE UPDATE: ")}
-                  <span className="text-[#dcc90a]">{date.day + " DAYS: " + date.hour + " HOURS"}</span>
-                  <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
-                </div>
-                <div className="flex">
-                  <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] mx-2 w-40 h-10 text-center opacity-90">
-                    <img src="assets/images/usdt.png" alt="" className="w-6 inline me-1" />{t("USDT")}
-                  </div>
-                  <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
-                    {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-white font-animeace">
-                {t("CSC ACTUAL PRICE: ")}
-                <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
-              </div>
-              <hr className="shadow-[0_5px_10px_#272525] border-2 border-[#DADADA] rounded-full"></hr>
-            </div>
-            <div className="flex flex-col justify-center items-center space-y-6">
-              <LabelButton title={"YOU PAY"} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
-              <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
-              <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
-              <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
-              <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={() => onBtnClick("Buy")}>BUY</div>
-              <div className="font-bold text-white font-animeace">
-                <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
-                <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
-              </div>
-            </div>
-          </div>
+          {page === "main" ?
+            <MainPresale btnType={btnType} setBtnType={setBtnType} usdtamount={usdtamount} setusdtamount={setusdtamount} onBtnClick={onBtnClick} />
+            :
+            <Account />
+          }
         </div>
       </div>
     </div>

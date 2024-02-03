@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 export default function LabelButton(props) {
     const { t, i18n } = useTranslation();
     return <div className="w-60">
-        <label class="text-md font-bold text-white font-animeace text-left">{t(props.title)}</label>
-        <div class="relative mt-1 rounded-md shadow-sm">
-            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+        <label className="text-md font-bold text-white font-animeace text-left">{t(props.title)}</label>
+        <div className="relative mt-1 rounded-md shadow-sm">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <img src={props.img} alt="" className="w-6 inline me-1" />
             </div>
             {
