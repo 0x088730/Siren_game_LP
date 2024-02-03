@@ -3,15 +3,13 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from 'react-router-dom'
 
 export default function Account() {
-    const location = useLocation();
     const { t, i18n } = useTranslation();
-    const [ref, setRef] = useState("test ref");
+    const [ref, setRef] = useState("000000");
     const [bonusRate, setBonusRate] = useState(7);
 
     const createRef = () => {
-        // const ref_test = new URLSearchParams(location.search).get('ref')
-        // const value = `${ref_test?.toString()}`
-        console.log(location)
+        const hexString = Math.floor(Math.random() * 16777215).toString(16);
+        setRef(hexString.padStart(6, "0"));
     }
 
     return (
