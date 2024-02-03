@@ -2,7 +2,13 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LabelButton from "../labelButton";
 
-export default function MainPresale({btnType, setBtnType, usdtamount, setusdtamount, onBtnClick}) {
+export default function MainPresale({
+    usdtamount, 
+    setusdtamount,
+    receiveAmount,
+    setReceiveAmount,
+    onBtnClick
+}) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
         day: "00",
@@ -10,13 +16,10 @@ export default function MainPresale({btnType, setBtnType, usdtamount, setusdtamo
         percentage: "+10"
     })
     const [usdt, setUsdt] = useState("0.07");
-    const [receiveAmount, setreceiveAmount] = useState();
-    const [btnColor, setBtnColor] = useState("grayscale");
-    // const [btnType, setBtnType] = useState("Connect");
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
-        setreceiveAmount(amount * 14.4)
+        setReceiveAmount(amount * 14.4)
         console.log(amount)
 
     };

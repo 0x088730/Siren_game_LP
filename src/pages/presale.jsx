@@ -13,6 +13,11 @@ export default function Presale() {
   const [btnColor, setBtnColor] = useState("grayscale");
   const [usdtamount, setusdtamount] = useState(null);
   const [page, setPage] = useState("main");
+  const [receiveAmount, setReceiveAmount] = useState(0);
+  const [tokenAmount, setTokenAmount] = useState({
+    csc: 0,
+    usdt: 0
+  });
 
   const BEP20TokenABI = [{ "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "constant": true, "inputs": [], "name": "_decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getOwner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "mint", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "renounceOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
   let web3;
@@ -35,7 +40,7 @@ export default function Presale() {
           const accounts = await web3.eth.getAccounts();
           const userAddress = accounts[0];
           setAddress(userAddress.slice(0, 4) + " ... " + userAddress.slice(-4));
-          console.log(`Connected with address: ${userAddress}`);
+          // console.log(`Connected with address: ${userAddress}`);
           // Proceed to Buy functionality
           setBtnType("Buy");
         } catch (error) {
@@ -50,7 +55,7 @@ export default function Presale() {
           return;
         }
         try {
-
+          setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
           const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
@@ -60,7 +65,6 @@ export default function Presale() {
             alert("Please select USDT")
           }
           else {
-
             const decimals = 18;
             const amountToSend = new BigNumber(usdtamount).multipliedBy(new BigNumber(10).pow(decimals)).toString();
             //console.log(amountToSend);
@@ -71,7 +75,7 @@ export default function Presale() {
 
 
             await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
-
+            setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
           }
         } catch (error) {
           console.error(error);
@@ -82,59 +86,7 @@ export default function Presale() {
         break;
     }
   }
-  // return (
-  //   <div className="w-full h-screen pt-16 lg:pt-48 bg-[url('../../public/assets/images/footer/back.jpg')] bg-cover">
-  //     <div className="relative w-full lg:h-[700px] bottom-0">
-  //       <a href="/">
-  //         <div className="w-48 lg:w-1/6 duration-500 overflow-hidden cursor-pointer hover:brightness-125 ml-12 lg:ml-auto">
-  //           <img className="w-12 h-12 lg:w-20 lg:h-20" src="../assets/images/come-back.png" alt="" />
-  //         </div>
-  //       </a>
-  //       <div className="mt-8 w-4/5 text-2xl lg:text-5xl text-center text-gray-200 font-animeace mx-auto">
-  //         Crypto Showdown Pre-Sale
 
-  //       </div>
-
-  //       <div className="w-4/5 text-center flex mx-auto justify-center">
-  //         <img className="w-12 h-12 lg:w-24 lg:h-24 mt-16" src="../assets/images/coinbtn.png" alt="" />
-  //         <div className="pt-16 lg:pt-24 text-xl lg:text-4xl mx-2 lg:mx-8 text-center text-gray-200 font-animeace">
-  //           Price: 1 Token = 0.02$
-  //         </div>
-  //         <img className="w-12 h-12 lg:w-24 lg:h-24 mt-16" src="../assets/images/coinbtn.png" alt="" />
-
-  //       </div>
-  //       <div className="flex px-20 pt-24 lg:pt-36 justify-center items-center text-white">
-  //         <div className="text-xl lg:text-2xl font-animeace text-right">Buy For:</div>
-  //         <div className="h-fit mx-4 lg:flex lg:mx-8 relative space-y-4 lg:space-y-0">
-  //           {[100, 200, 300, 400, 500].map((amount) => (
-  //             <div
-  //               key={amount}
-  //               tabIndex={0} // Add tabindex to make the div focusable
-  //               className={`w-48 lg:w-1/5 duration-500 relative overflow-hidden cursor-pointer hover:brightness-125 focus:outline-dashed ${btnColor}`}
-  //               onClick={() => onAmountClick(amount)}
-  //             >
-  //               <div className="w-full h-full absolute flex items-center justify-between">
-  //                 <div className="mx-auto text-xl font-animeace">{amount} BUSD</div>
-  //               </div>
-  //               <img src="../assets/images/busdbtn.png" alt="" className="block w-full top-0 px-4" />
-  //             </div>
-  //           ))}
-  //         </div>
-
-  //       </div>
-  //       <div className="mt-24 w-48 lg:w-1/6 relative duration-500 overflow-hidden mx-auto cursor-pointer hover:brightness-125" onClick={onBtnClick}>
-  //         <div className="w-full h-full absolute flex items-center text-white justify-center space-x-4">
-  //         <img src="../assets/images/icon_metamask.png" alt="" className="h-full z-10"/>
-  //           <div className="text-xm lg:text-xl font-animeace">
-  //             {btnType}
-  //           </div>
-  //         </div>
-  //         <img src="../assets/images/big-button.png" alt="" className="w-full top-0" />
-  //       </div>
-  //     </div>
-  //   </div>
-
-  // );
   return (
     <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
       <Header currentMenu="Home" />
@@ -187,9 +139,15 @@ export default function Presale() {
             muted
           />
           {page === "main" ?
-            <MainPresale btnType={btnType} setBtnType={setBtnType} usdtamount={usdtamount} setusdtamount={setusdtamount} onBtnClick={onBtnClick} />
+            <MainPresale
+              usdtamount={usdtamount}
+              setusdtamount={setusdtamount}
+              receiveAmount={receiveAmount}
+              setReceiveAmount={setReceiveAmount}
+              onBtnClick={onBtnClick}
+            />
             :
-            <Account />
+            <Account tokenAmount={tokenAmount} />
           }
         </div>
       </div>
