@@ -56,7 +56,9 @@ export default function Presale() {
         }
         try {
           setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
-          const BigNumber = require('bignumber.js');
+
+          //////// for test
+          /* const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
           const recipientAddress = '0x8e946b7453320383df75f080F7DA843c043DfB47';
@@ -76,7 +78,7 @@ export default function Presale() {
 
             await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
             setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
-          }
+          } */
         } catch (error) {
           console.error(error);
           alert("Failed to transfer tokens. Please try again.");
@@ -96,11 +98,10 @@ export default function Presale() {
             {t("CSC TOKEN PRESALE")}
           </div>
           <div
-            className="text-md text-left text-white font-animeace bg-[#fab700] rounded-full border border-y-4 border-r-4 border-black opacity-90 py-1 cursor-pointer"
+            className="wallet-connect text-md text-left text-white font-animeace cursor-pointer w-[450px] h-[54px] flex items-center justify-end"
             onClick={() => onBtnClick("Connect")}
           >
-            <span className="border-4 border-black rounded-full px-5 py-2 bg-[#473845]">{t("YOUR WALLET: ")}</span>
-            <span className="px-5">
+            <span className="w-[300px] text-center font-[900]" style={{ textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}>
               {btnType === "Connect" ?
                 <>
                   <img src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{t("CONNECT METAMASK")}
@@ -113,24 +114,39 @@ export default function Presale() {
             </span>
           </div>
         </div>
-        <div className="absolute top-0 translate-y-40 flex w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] ml-3">
+        <div className="absolute top-0 translate-y-40 flex w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] ml-3 z-[1]">
           <div
-            className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432] cursor-pointer"
+            className = {`text-white text-1xl font-animeace w-[9rem] h-[3.5rem] cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
             onClick={() => setPage("main")}
           >
-            {t("PRESALE")}
+            <span
+              className="absolute right-[1.1rem] top-[8px] text-[18px] text-[#FFBF80] font-lightest"
+              style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+            >
+              {t("PRESALE")}
+            </span>
           </div>
-          <div className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-t from-[#a42c97] to-[#5d3758] rounded-full mx-1.5 w-32 text-center border-4 border-[#361432] cursor-pointer">
-            {t("CHART")}
+          <div className={`text-white text-1xl font-animeace w-[9rem] h-[3.5rem] cursor-pointer relative ${page === "chart" ? "green-btn" : "inactive-btn"}`}>
+            <span
+              className="absolute right-[1.9rem] top-[8px] text-[18px] text-[#FFBF80] font-lightest"
+              style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+            >
+              {t("CHART")}
+            </span>
           </div>
           <div
-            className="text-white text-1xl font-animeace px-2 py-0.5 bg-gradient-to-b from-[#5d3758] to-[#a42c97] rounded-full w-32 text-center border-4 border-[#361432] cursor-pointer"
+            className={`text-white text-1xl font-animeace w-[9rem] h-[3.5rem] cursor-pointer relative ${page === "account" ? "green-btn" : "inactive-btn"}`}
             onClick={() => setPage("account")}
           >
-            {t("ACCOUNT")}
+            <span
+              className="absolute right-[1rem] top-[8px] text-[18px] text-[#FFBF80] font-lightest"
+              style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+            >
+              {t("ACCOUNT")}
+            </span>
           </div>
         </div>
-        <div className="w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
+        <div className="w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] z-0">
           <video
             src="assets/videos/intro.mp4"
             className="absolute top-1 translate-y-52 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]"

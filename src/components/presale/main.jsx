@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import LabelButton from "../labelButton";
 
 export default function MainPresale({
-    usdtamount, 
+    usdtamount,
     setusdtamount,
     receiveAmount,
     setReceiveAmount,
@@ -23,7 +23,7 @@ export default function MainPresale({
         console.log(amount)
 
     };
-    
+
     const getEnterCode = (value) => {
         console.log("getEnterCode", value)
     }
@@ -33,23 +33,32 @@ export default function MainPresale({
             <div className="absolute top-0 translate-y-52 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
                 <div className="w-full mb-10">
                     <div className="flex justify-between">
-                        <div className="text-1xl font-bold text-white font-animeace">
-                            {t("NEXT PRICE UPDATE: ")}
-                            <span className="text-[#dcc90a]">{date.day + " DAYS: " + date.hour + " HOURS"}</span>
-                            <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
-                        </div>
-                        <div className="flex">
-                            <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] mx-2 w-40 h-10 text-center opacity-90">
-                                <img src="assets/images/usdt.png" alt="" className="w-6 inline me-1" />{t("USDT")}
+                        <div className="flex justify-evenly flex-col">
+                            <div className="text-1xl font-bold text-white font-animeace">
+                                {t("NEXT PRICE UPDATE: ")}
+                                <span className="text-[#dcc90a]">{date.day + " DAYS: " + date.hour + " HOURS"}</span>
+                                <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
                             </div>
-                            <div className="py-1 text-1xl text-white font-animeace border border-4 border-black rounded-full bg-[#473845] w-40 h-10 text-center opacity-90">
-                                {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span>
+                            <div className="text-2xl font-bold text-white font-animeace">
+                                {t("CSC ACTUAL PRICE: ")}
+                                <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
                             </div>
                         </div>
-                    </div>
-                    <div className="text-2xl font-bold text-white font-animeace">
-                        {t("CSC ACTUAL PRICE: ")}
-                        <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
+                        <div className="flex justify-evenly flex-col">
+                            <div className="flex">
+                                <div className="usdt-btn w-40 h-10 flex items-center">
+                                    {/* <img src="assets/images/usdt.png" alt="" className="w-6 ml-[1.6rem]" /> */}
+                                </div>
+                                <div className="network-btn w-40 h-10 flex items-center">
+                                    {/* {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span> */}
+                                </div>
+                            </div>
+                            <div>
+                                <div className="ref-btn w-40 h-10 flex items-center w-full">
+                                    {/* {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span> */}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr className="shadow-[0_5px_10px_#272525] border-2 border-[#DADADA] rounded-full"></hr>
                 </div>

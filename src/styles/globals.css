@@ -3,42 +3,53 @@
 @tailwind utilities;
 
 @keyframes whitepaper-bounce {
-  0%, 100% {
-      transform: translateY(-50%);
-      /* animation-timing-function: cubic-bezier(0.8,0,1,1); */
+
+  0%,
+  100% {
+    transform: translateY(-50%);
+    /* animation-timing-function: cubic-bezier(0.8,0,1,1); */
   }
+
   50% {
-    
-      transform: translateY(-40%);;
-      /* animation-timing-function: cubic-bezier(0,0,0.2,1); */
+
+    transform: translateY(-40%);
+    ;
+    /* animation-timing-function: cubic-bezier(0,0,0.2,1); */
   }
 }
+
 @font-face {
   font-family: Anime Ace;
   src: url('../../public/assets/fonts/anime-ace/animeace.ttf');
 }
+
 .animate-whitepaper-bounce {
   animation: whitepaper-bounce 3s infinite;
 }
+
 .text-shadow-sm-gray {
   text-shadow: 5px 5px #558ABB;
 }
+
 .text-shadow-sm-red {
   text-shadow: 2px 2px #ee6161;
 }
+
 .overflow-y-scroll::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
+
 .text-shadow-animation {
   text-shadow: 0 0 0 rgb(226, 153, 57);
-    animation: loading 2s ease-in-out infinite alternate;
+  animation: loading 2s ease-in-out infinite alternate;
 }
-.text-stroke {
-    -webkit-text-stroke-color: #333333;
-    -webkit-text-stroke-width: 1.5px;
 
-    font-weight: bolder;
+.text-stroke {
+  -webkit-text-stroke-color: #333333;
+  -webkit-text-stroke-width: 1.5px;
+
+  font-weight: bolder;
 }
 
 
@@ -46,12 +57,15 @@
   0% {
     transform: scale(1);
   }
+
   40% {
     transform: scale(1.7);
   }
+
   70% {
     transform: scale(1.7);
   }
+
   100% {
     transform: scale(1);
   }
@@ -60,14 +74,52 @@
 .animate-bounce-twice {
   animation: bounce-twice 2s ease-in-out 2;
 }
+
+.wallet-connect {
+  background-image: url("../../public/assets/images/wallet-bg.png");
+  background-size: 100% 100%;
+}
+
 .buy-button-bg {
   background-image: url("../../public/assets/images/buy-btn.png");
   background-size: 100% 100%;
 }
+
 .presale-bg {
   background-image: url("../../public/assets/images/bg.jpg") !important;
   background-size: 100% 100%;
 }
+
+.usdt-btn {
+  background-image: url("../../public/assets/images/usdt-btn.png") !important;
+  background-size: 100% 100%;
+}
+
+.network-btn {
+  background-image: url("../../public/assets/images/network-btn.png") !important;
+  background-size: 100% 100%;
+}
+
+.ref-btn {
+  background-image: url("../../public/assets/images/referral-btn.png") !important;
+  background-size: 100% 100%;
+}
+
+.green-btn {
+  background-image: url("../../public/assets/images/green-btn.png") !important;
+  background-size: 100% 100%;
+}
+
+.inactive-btn {
+  background-image: url("../../public/assets/images/presale-in-btn.png") !important;
+  background-size: 100% 100%;
+}
+
+.blue-btn {
+  background-image: url("../../public/assets/images/blue-btn.png") !important;
+  background-size: 100% 100%;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
