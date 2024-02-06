@@ -5,6 +5,8 @@ import LabelButton from "~/components/labelButton";
 import Header from "~/components/screens/header";
 import MainPresale from "~/components/presale/main";
 import Account from "~/components/presale/account";
+import { global } from "~/common/global";
+import { addRefer, getProfile } from "~/common/api";
 
 export default function Presale() {
   const { t, i18n } = useTranslation();
@@ -14,12 +16,13 @@ export default function Presale() {
   const [usdtamount, setusdtamount] = useState(null);
   const [page, setPage] = useState("main");
   const [receiveAmount, setReceiveAmount] = useState(0);
-  const [code, setCode] =useState("");
+  const [code, setCode] = useState("");
   const [tokenAmount, setTokenAmount] = useState({
     csc: 0,
     usdt: 0
   });
   const [buyStatus, setBuyStatus] = useState(false);
+  const [introducers, setIntroducers] = useState([]);
 
   const BEP20TokenABI = [{ "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "constant": true, "inputs": [], "name": "_decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getOwner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "mint", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "renounceOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
   let web3;
@@ -44,6 +47,15 @@ export default function Presale() {
           setAddress(userAddress.slice(0, 4) + " ... " + userAddress.slice(-4));
           // console.log(`Connected with address: ${userAddress}`);
           // Proceed to Buy functionality
+          global.walletAddress = userAddress;
+          getProfile(userAddress)
+            .then(res => {
+              if (res.refCode !== '') {
+                global.userRef = res.refCode;
+                global.introducers = res.introducers;
+                setIntroducers(res.introducers);
+              }
+            })
           setBtnType("Buy");
         } catch (error) {
           console.error(error);
@@ -56,17 +68,27 @@ export default function Presale() {
           alert("Please connect wallet");
           return;
         }
-        console.log("usdtAmount", usdtamount)
-        if(code != "9c47a8"){
+        if (!introducers.includes(code)) {
           alert("You can't buy CSC token without correct refreral code");
           return;
         }
-        if(usdtamount == "" || usdtamount == "0") {
+        if (usdtamount == "" || usdtamount == "0") {
           alert("Please input USDT amount you want to buy csc token");
           return;
         }
         try {
           setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
+          addRefer(global.walletAddress, { csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) }, code)
+            .then(res => {
+              if (res.data) {
+                setBuyStatus(true);
+                setusdtamount("");
+                setCode("");
+              }
+              else {
+                alert(res.message)
+              }
+            })
           //////// for test
           /* const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
@@ -89,9 +111,6 @@ export default function Presale() {
             await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
             setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
           } */
-          setBuyStatus(true);
-          setusdtamount("");
-          setCode("");
         } catch (error) {
           console.error(error);
           alert("Failed to transfer tokens. Please try again.");
@@ -129,7 +148,7 @@ export default function Presale() {
         </div>
         <div className="absolute top-0 translate-y-40 flex w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] ml-3 z-[1]">
           <div
-            className = {`text-white text-1xl font-animeace w-[9rem] h-[3.5rem] cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
+            className={`text-white text-1xl font-animeace w-[9rem] h-[3.5rem] cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
             onClick={() => setPage("main")}
           >
             <span
@@ -176,7 +195,7 @@ export default function Presale() {
               onBtnClick={onBtnClick}
               buyStatus={buyStatus}
               setBuyStatus={setBuyStatus}
-              code = {code}
+              code={code}
               setCode={setCode}
             />
             :

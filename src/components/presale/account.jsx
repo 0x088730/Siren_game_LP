@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { createRefCode } from "~/common/api";
+import { global } from "~/common/global";
 
 export default function Account({ tokenAmount, btnType }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
     const [bonusRate, setBonusRate] = useState(0);
-
     useEffect(() => {
         if (tokenAmount.usdt <= 5000) {
             setBonusRate(5);
@@ -22,13 +23,17 @@ export default function Account({ tokenAmount, btnType }) {
     }, [tokenAmount])
 
     const createRef = () => {
-        if( btnType === "Connect") {
+        if (btnType === "Connect") {
             alert("Please connect wallet!!!");
             return;
         }
         if (ref === "" || ref === undefined) {
-            const hexString = Math.floor(Math.random() * 16777215).toString(16);
-            setRef(hexString.padStart(6, "0"));
+            const hexString = (Math.floor(Math.random() * 16777215).toString(16)).padStart(6, "0");
+            setRef(hexString);
+            createRefCode(global.walletAddress, hexString)
+                .then(res => {
+                    global.userRef = res.user.userRef;
+                });
         }
     }
 
@@ -62,8 +67,17 @@ export default function Account({ tokenAmount, btnType }) {
                     <div className="w-[600px] font-animeace text-md mt-8">
                         <div className="text-[#FFFFFF] mx-4">YOUR REF CODE</div>
                         <div className="bg-[#ffffff] border-[3px] border-[#353535] rounded-full px-[35px] py-[3px] text-[#6db1f5] flex">
-                            <div className="cursor-pointer w-fit" onClick={() => createRef()}>CREATE</div>
-                            <div className="w-full text-center text-black">{ref}</div>
+                            {global.userRef === "" || global.userRef === undefined ?
+                                <>
+                                    <div className="cursor-pointer w-fit" onClick={() => createRef()}>CREATE</div>
+                                    <div className="w-full text-center text-black">{ref}</div>
+                                </>
+                                :
+                                <>
+                                    <div className="cursor-pointer w-fit">CREATED</div>
+                                    <div className="w-full text-center text-black">{global.userRef}</div>
+                                </>
+                            }
                         </div>
                     </div>
                     <div className="w-[600px] font-animeace text-md mt-8">
