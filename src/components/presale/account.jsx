@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { createRefCode } from "~/common/api";
 import { global } from "~/common/global";
 
-export default function Account({ tokenAmount, btnType }) {
+export default function Account({ tokenAmount, btnType, setIntroducers }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
     const [bonusRate, setBonusRate] = useState(0);
@@ -32,7 +32,9 @@ export default function Account({ tokenAmount, btnType }) {
             setRef(hexString);
             createRefCode(global.walletAddress, hexString)
                 .then(res => {
+                    console.log(res)
                     global.userRef = res.user.userRef;
+                    setIntroducers(res.user.introducers);
                 });
         }
     }

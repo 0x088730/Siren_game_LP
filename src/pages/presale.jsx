@@ -68,7 +68,7 @@ export default function Presale() {
           alert("Please connect wallet");
           return;
         }
-        if (!introducers.includes(code)) {
+        if (!(introducers && introducers.includes(code))) {
           alert("You can't buy CSC token without correct refreral code");
           return;
         }
@@ -199,7 +199,7 @@ export default function Presale() {
               setCode={setCode}
             />
             :
-            <Account tokenAmount={tokenAmount} btnType={btnType} />
+            <Account tokenAmount={tokenAmount} btnType={btnType} setIntroducers={setIntroducers} />
           }
         </div>
       </div>
