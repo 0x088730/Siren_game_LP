@@ -7,7 +7,11 @@ export default function MainPresale({
     setusdtamount,
     receiveAmount,
     setReceiveAmount,
-    onBtnClick
+    onBtnClick,
+    buyStatus,
+    setBuyStatus,
+    code,
+    setCode,
 }) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
@@ -19,15 +23,18 @@ export default function MainPresale({
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
-        setReceiveAmount(amount * 14.4)
-        console.log(amount)
-
+        setReceiveAmount(Number(amount * 14.4).toFixed(0))
     };
 
     const getEnterCode = (value) => {
-        console.log("getEnterCode", value)
+        setCode(value);
+        
     }
-
+    const buyOkay = () => {
+        setBuyStatus(false);
+        setReceiveAmount("");
+        
+    }
     return (
         <>
             <div className="absolute top-0 translate-y-52 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
@@ -47,7 +54,7 @@ export default function MainPresale({
                         <div className="flex justify-evenly flex-col">
                             <div className="flex">
                                 <div className="usdt-btn w-40 h-10 flex items-center">
-                                    {/* <img src="assets/images/usdt.png" alt="" className="w-6 ml-[1.6rem]" /> */}
+                                    <img src="assets/images/usdt.png" alt="" className="w-6 ml-[2.5rem]" />
                                 </div>
                                 <div className="network-btn w-40 h-10 flex items-center">
                                     {/* {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span> */}
@@ -62,11 +69,20 @@ export default function MainPresale({
                     </div>
                     <hr className="shadow-[0_5px_10px_#272525] border-2 border-[#DADADA] rounded-full"></hr>
                 </div>
-                <div className="flex flex-col justify-center items-center space-y-6">
-                    <LabelButton title={"YOU PAY"} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
-                    <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
-                    <LabelButton title={"YOU RECEIVE"} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
-                    <LabelButton title={"ENTER CODE"} onChange={(e) => getEnterCode(e)} />
+                <div className="flex flex-col justify-center items-center space-y-5">
+                    {!buyStatus ?
+                        <>
+                            <LabelButton title={"YOU PAY"} buyStatus = {buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+                            <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
+                        </>
+                        :
+                        <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1.5rem] font-animeace relative">
+                            BUY SUCCESSFUL: <span className="text-[#fdce35] font-[800] text-[1.8rem]" style={{ WebkitTextStroke: "0.1px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}><></><img src="assets/images/cryptoIcon.png" alt="" className="" style={{display:"flex", position:"relative", width:"100px"}}/><div style={{position:"absolute", top:"31%", left:"63%", WebkitTextStroke:"1px black"}}>{receiveAmount}</div></span> CSC
+                            <button className="absolute right-[1rem] bottom-[1rem] font-[600] text-[#111111] text-[15px] bg-[#a1a1a1] w-fit px-[10px] rounded-full border-[2px] border-[#111111] shadow-[3px_3px_5px_#111111]" onClick={()=>buyOkay()}>OKAY</button>
+                        </div>
+                    }
+                    <LabelButton title={"YOU RECEIVE"} buyStatus = {buyStatus} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
+                    <LabelButton title={"ENTER CODE"} buyStatus = {buyStatus} onChange={(e) => getEnterCode(e)} />
                     <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={() => onBtnClick("Buy")}>BUY</div>
                     <div className="font-bold text-white font-animeace">
                         <span className="text-[#ff0000] text-2xl">{t("! ")}</span>

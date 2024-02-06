@@ -16,13 +16,31 @@ export default function LabelButton(props) {
                         className={`block w-full rounded-full border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-lg sm:leading-6 font-bold ${props.color ? `${props.color}` : ''} font-animeac border-2 border-[#222222]`}
                         value={props.receiveAmount} />
                     :
-                    <input
-                        type="text"
-                        name={props.title}
-                        className={`block w-full rounded-full border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-lg sm:leading-6 font-bold ${props.color ? `${props.color}` : ''} font-animeac border-2 border-[#222222]`}
-                        onChange={(e) => props.onChange(e.target.value)} />
+                    props.buyStatus !== false ?
+                        <input
+                            type="text"
+                            name={props.title}
+                            className={`block w-full rounded-full border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-lg sm:leading-6 font-bold ${props.color ? `${props.color}` : ''} font-animeac border-2 border-[#222222]`}
+                            value={""} />
+                        :
+                        <input
+                            type="text"
+                            name={props.title}
+                            className={`block w-full rounded-full border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-lg sm:leading-6 font-bold ${props.color ? `${props.color}` : ''} font-animeac border-2 border-[#222222]`}
+                            onChange={(e) => props.onChange(e.target.value)} />
+
+
 
             }
+            {/* {
+                props.receiveAmount !== undefined &&
+                <input
+                    type="text"
+                    name={props.title}
+                    className={`block w-full rounded-full border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-lg sm:leading-6 font-bold ${props.color ? `${props.color}` : ''} font-animeac border-2 border-[#222222]`}
+                    value={props.receiveAmount} />
+                
+            } */}
         </div>
     </div>
 }

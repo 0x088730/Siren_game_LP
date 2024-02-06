@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function Account({ tokenAmount }) {
+export default function Account({ tokenAmount, btnType }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
     const [bonusRate, setBonusRate] = useState(0);
@@ -22,6 +22,10 @@ export default function Account({ tokenAmount }) {
     }, [tokenAmount])
 
     const createRef = () => {
+        if( btnType === "Connect") {
+            alert("Please connect wallet!!!");
+            return;
+        }
         if (ref === "" || ref === undefined) {
             const hexString = Math.floor(Math.random() * 16777215).toString(16);
             setRef(hexString.padStart(6, "0"));
