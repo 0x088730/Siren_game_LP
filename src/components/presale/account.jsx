@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { createRefCode } from "~/common/api";
 import { global } from "~/common/global";
 
-export default function Account({ tokenAmount, btnType }) {
+export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
-    const [bonusRate, setBonusRate] = useState(0);
+
     useEffect(() => {
         if (tokenAmount.usdt <= 5000) {
             setBonusRate(5);
@@ -56,7 +56,7 @@ export default function Account({ tokenAmount, btnType }) {
                         <div className="text-center">
                             <div className="text-[#FFFFFF] font-animeace text-lg">USDT TOKEN</div>
                             <div className="flex justify-center w-full">
-                                <div className="text-lg text-[#00ff00] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{tokenAmount.usdt * bonusRate / 100}</div>
+                                <div className="text-lg text-[#00ff00] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{tokenAmount.usdt}</div>
                             </div>
                             <div className="flex justify-center cursor-pointer">
                                 <div className="text-[#04D4A4] font-bold font-animeace text-[15px] bg-[#363636] w-fit px-[5px] rounded-full border-[3px] border-[#ACB0B8] shadow-[3px_3px_5px_#111111]" style={{ textShadow: "2px 2px 2px black" }}>CLAIM</div>

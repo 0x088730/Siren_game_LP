@@ -77,7 +77,16 @@ export default function MainPresale({
                         </>
                         :
                         <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1.5rem] font-animeace relative">
-                            BUY SUCCESSFUL: <span className="text-[#fdce35] font-[800] text-[1.8rem]" style={{ WebkitTextStroke: "0.1px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}><></><img src="assets/images/cryptoIcon.png" alt="" className="flex relative w-[100px]" /><div className="absolute top-[31%] left-[63%]" style={{ WebkitTextStroke: "1px black" }}>{receiveAmount}</div></span> CSC
+                            BUY SUCCESSFUL:
+                            <span
+                                className="cryptoIcon w-[100px] h-[100px] mx-[10px] text-[#fdce35] font-[800] text-[1.8rem] flex justify-center items-center"
+                                style={{ WebkitTextStroke: "0.1px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                            >
+                                <div style={{ WebkitTextStroke: "1px black" }}>
+                                    {receiveAmount}
+                                </div>
+                            </span>
+                            CSC
                             <button className="absolute right-[1rem] bottom-[1rem] font-[600] text-[#111111] text-[15px] bg-[#a1a1a1] w-fit px-[10px] rounded-full border-[2px] border-[#111111] shadow-[3px_3px_5px_#111111]" onClick={() => buyOkay()}>OKAY</button>
                         </div>
                     }
