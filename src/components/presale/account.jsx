@@ -32,7 +32,7 @@ export default function Account({ tokenAmount, btnType }) {
             setRef(hexString);
             createRefCode(global.walletAddress, hexString)
                 .then(res => {
-                    global.userRef = res.user.userRef;
+                    global.userRef = res.data;
                 });
         }
     }

@@ -9,6 +9,12 @@ export const getProfile = async (walletAddress) => {
     })).data;
 }
 
+export const createProfile = async (walletAddress) => {
+    return (await axios.post(`/user/userLP/createProfile`, {
+        walletAddress
+    })).data;
+}
+
 export const createRefCode = async (walletAddress, ref) => {
     return (await axios.post(`/user/userLP/createRefCode`, {
         walletAddress,
