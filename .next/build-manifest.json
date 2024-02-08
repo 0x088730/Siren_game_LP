@@ -32,10 +32,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/presale.js"
     ],
-    "/referralInfo": [
+    "/referral-info": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/referralInfo.js"
+      "static/chunks/pages/referral-info.js"
     ]
   },
   "ampFirstPages": []

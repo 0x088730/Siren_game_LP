@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/referral-info": "pages/referral-info.js",
   "/presale": "pages/presale.js",
-  "/": "pages/index.js",
-  "/referralInfo": "pages/referralInfo.js"
+  "/": "pages/index.js"
 }

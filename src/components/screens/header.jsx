@@ -47,11 +47,11 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     }
     i18n.changeLanguage(lang);
   }
-  useEffect(() => {
-    if (!menuList.includes(currentMenu)) {
-      setCurrentMenu("Home");
-    }
-  }, [currentMenu]);
+  // useEffect(() => {
+  //   if (!menuList.includes(currentMenu)) {
+  //     setCurrentMenu("Home");
+  //   }
+  // }, [currentMenu]);
 
 
   return (
