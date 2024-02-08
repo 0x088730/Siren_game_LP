@@ -10,7 +10,7 @@ export default function ReferralInfo() {
     <div className="relative overflow-auto md:w-full h-screen min-w-[1024px]">
       <Header currentMenu="Referral Info" />
       <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center">
-        <img src="assets/images/htp_bg.jpg" className="absolute w-full h-full brightness-[45%] min-w-[1200px] min-h-[900px]" />
+        <img src="assets/images/htp_bg.jpg" className="absolute w-full h-full brightness-[30%] min-w-[1200px] min-h-[900px]" />
         {!refLinkInfo ?
           <>
             <div className="translate-y-28 flex justify-center items-center w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-8/12 min-w-[1024px] gap-x-8">
@@ -50,7 +50,7 @@ export default function ReferralInfo() {
               <div className="pt-2 text-[30px] font-lighter text-left text-white font-animeace z-10" style={{ textShadow: "2px 2px 1px black" }}>
                 {t("YOU CAN SEE AND CLAIM YOUR REFERRALS INCOME IN THE ")}<span className="text-[#1cd3e3]">ACCOUNT</span>{t(" SECTION.")}
               </div>
-              <img src="assets/images/damagedImg.png" alt="" className="absolute right-0 top-[-130px] inline w-[300px] z-0" />
+              <img src="assets/images/damagedImg.png" alt="" className="absolute right-0 top-[-120px] inline w-[300px] z-0" />
             </div>
           </>
         }
