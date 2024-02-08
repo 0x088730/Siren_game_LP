@@ -120,7 +120,7 @@ export default function Presale() {
 
   return (
     <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
-      <Header currentMenu="Home" />
+      <Header currentMenu="Presale" />
       <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center justify-center">
         <div className="absolute top-0 translate-y-28 flex justify-between items-end w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
           <div className="pt-2 text-4xl text-left text-white xl:text-4xl 2xl:text-4xl font-animeace">
