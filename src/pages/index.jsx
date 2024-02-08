@@ -17,7 +17,7 @@ const IntroVideo = React.lazy(() => import('~/components/screens/intro-video'));
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState("Home");
   var counter = 50
-  const {t,i18n} = useTranslation()
+  const { t, i18n } = useTranslation()
   const menuList = [
     t('Home'),
     t("How To Play"),
@@ -72,9 +72,9 @@ export default function Home() {
   useEffect(() => {
     i18n.changeLanguage('en')
     const image = new Image();
-    
+
   }, [])
-  
+
   return (
     <div>
       <I18nextProvider i18n={i18next}>
@@ -82,60 +82,59 @@ export default function Home() {
         <div className="w-full overflow-y-scroll Home">
           <div className="relative w-full h-20">
             <Suspense fallback={<div></div>}>
-            <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu}/>
+              <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
             </Suspense>
           </div>
           <div id={t("Home")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <IntroVideo/>
+            <Suspense fallback={<div></div>}>
+              <IntroVideo />
             </Suspense>
           </div>
           <div id={t("How To Play")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <HowToPlay animation={htpAnimation}/>
+            <Suspense fallback={<div></div>}>
+              <HowToPlay animation={htpAnimation} />
             </Suspense>
           </div>
           <div id={t("WhitePaper")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <BattleView/>
+            <Suspense fallback={<div></div>}>
+              <BattleView />
             </Suspense>
           </div>
           <div id={t("Gems")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <GemDescription animation={gemAnimation} />
+            <Suspense fallback={<div></div>}>
+              <GemDescription animation={gemAnimation} />
             </Suspense>
           </div>
           <div id={t("Characters")} className="w-full">
             <div className="hidden w-full lg:block">
-            <Suspense fallback={<div></div>}>
-              <CharacterView/>
+              <Suspense fallback={<div></div>}>
+                <CharacterView />
               </Suspense>
             </div>
             <div className="block w-full lg:hidden">
-            <Suspense fallback={<div></div>}>
-              <CharacterViewMD/>
+              <Suspense fallback={<div></div>}>
+                <CharacterViewMD />
               </Suspense>
             </div>
           </div>
           <div id={t("How To Earn")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <HowToEarn animation={hteAnimation}/>
+            <Suspense fallback={<div></div>}>
+              <HowToEarn animation={hteAnimation} />
             </Suspense>
           </div>
           <div id={t("About Us")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <Aboutus/>
+            <Suspense fallback={<div></div>}>
+              <Aboutus />
             </Suspense>
           </div>
           <div id={t("Contact")} className="w-full">
-          <Suspense fallback={<div></div>}>
-            <Contact/>
+            <Suspense fallback={<div></div>}>
+              <Contact />
             </Suspense>
           </div>
 
         </div>
       </I18nextProvider>
     </div>
-
   );
 }

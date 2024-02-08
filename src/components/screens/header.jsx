@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
+import { global } from "~/common/global";
 export default function Header({ currentMenu, setCurrentMenu }) {
   const [showFlag, setShowFlag] = useState({ menu: false });
   // const [showpresale, setshowPresale] = useState(false);
@@ -23,6 +24,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
 
   const handleMenuClick = (menu) => {
     if (menu === currentMenu) return
+    global.pageStatus = "main"
     if (menu === t("Presale")) {
      router.push('/presale')
     //  setshowPresale(true)
