@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/presale": "pages/presale.js",
-  "/referral-info": "pages/referral-info.js",
-  "/": "pages/index.js"
+  "/": "pages/index.js",
+  "/referral-info": "pages/referral-info.js"
 }

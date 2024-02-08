@@ -13,9 +13,9 @@ export default function ReferralInfo() {
   }
 
   return (
-    <div className="overflow-y-scroll w-full h-screen min-w-[1024px]">
+    <div className="w-full h-screen min-w-[1024px]">
       <Header currentMenu="Referral Info" />
-      <img src="assets/images/htp_bg.jpg" className="absolute w-full h-full brightness-[30%] min-w-[1200px] min-h-[900px]" />
+      <img src="assets/images/htp_bg.jpg" className="fixed w-full h-full brightness-[30%] min-w-[1200px] min-h-[900px]" />
       <div className="w-full h-screen translate-y-28 flex-col flex items-center">
         <div className="flex justify-center items-center w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-8/12 min-w-[1024px] gap-x-8">
           <div className="pt-2 text-[44px] text-left text-white font-animeace w-[55%]">
