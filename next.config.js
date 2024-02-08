@@ -5,6 +5,7 @@ const nextConfig = {
     return {
       '/': { page: '/' },
       '/presale': { page: '/presale' },
+      '/referral-info': { page: '/referInfo' },
     };
   },
   images:{

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 export default function Header({ currentMenu, setCurrentMenu }) {
   const [showFlag, setShowFlag] = useState({ menu: false });
-  const [showpresale, setshowPresale] = useState(false);
+  // const [showpresale, setshowPresale] = useState(false);
 
   const router = useRouter()
   const { t, i18n } = useTranslation()
@@ -18,13 +18,18 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     // t("About Us"),
     // t("Contact"),
     t("Presale"),
+    t("Referral Info"),
   ];
 
   const handleMenuClick = (menu) => {
+    if (menu === currentMenu) return
     if (menu === t("Presale")) {
      router.push('/presale')
-     setshowPresale(true)
+    //  setshowPresale(true)
     }
+    else if (menu === t("Referral Info")) {
+      router.push('/referral-info')
+     }
     else {
       router.push('/')
     }
