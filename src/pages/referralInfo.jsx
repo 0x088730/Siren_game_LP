@@ -1,14 +1,8 @@
 import { useState } from "react";
-import Web3 from 'web3'
 import { useTranslation } from "react-i18next";
-import LabelButton from "~/components/labelButton";
 import Header from "~/components/screens/header";
-import MainPresale from "~/components/presale/main";
-import Account from "~/components/presale/account";
-import { global } from "~/common/global";
-import { addRefer, createProfile, getProfile } from "~/common/api";
 
-export default function ReferInfo() {
+export default function ReferralInfo() {
   const { t, i18n } = useTranslation();
   const [refLinkInfo, setRefLinkInfo] = useState(false);
 
