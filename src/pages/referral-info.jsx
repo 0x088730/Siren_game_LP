@@ -49,7 +49,7 @@ export default function ReferralInfo() {
         </div>
         <div className="translate-y-[350px] flex justify-center items-center w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] relative pb-[10%]">
           <div className="pt-2 text-[30px] font-lighter text-left text-white font-animeace z-10" style={{ textShadow: "2px 2px 1px black" }}>
-            {t("YOU CAN SEE AND CLAIM YOUR REFERRALS INCOME IN THE ")}<span className="text-[#1cd3e3]">ACCOUNT</span>{t(" SECTION.")}
+            {t("YOU CAN SEE AND CLAIM YOUR REFERRALS INCOME IN THE ")}<span className="text-[#1cd3e3] cursor-pointer" onClick={goAccount}>ACCOUNT</span>{t(" SECTION.")}
           </div>
           <img src="assets/images/damagedImg.png" alt="" className="absolute right-0 top-[-120px] inline w-[300px] z-0" />
         </div>

@@ -184,7 +184,7 @@ export default function Presale() {
         <div className="w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] z-0">
           <video
             src="assets/videos/intro.mp4"
-            className="absolute top-1 translate-y-52 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]"
+            className="absolute top-1 translate-y-52 object-cover object-center rounded-3xl shadow-1xl shadow-[3px_3px_20px_7px_#FC44E9] contrast-125 brightness-50 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] h-[60%] min-h-[576px]"
             autoPlay
             loop
             muted
