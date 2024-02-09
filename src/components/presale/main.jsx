@@ -38,6 +38,14 @@ export default function MainPresale({
     return (
         <>
             <div className="absolute top-0 translate-y-52 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
+                <div className="absolute w-full h-full m-[-1.25rem] z-50 rounded-3xl border-[#000000] border-[10px]">
+                    <div
+                        className="w-full h-full text-white font-animeace text-1xl bg-[#000000] opacity-70 flex justify-center items-center rounded-xl"
+                        style={{ textShadow: "2px 2px #f1617a" }}
+                    >
+                        START SOON
+                    </div>
+                </div>
                 <div className="w-full mb-10">
                     <div className="flex justify-between">
                         <div className="flex justify-evenly flex-col">
@@ -61,7 +69,7 @@ export default function MainPresale({
                                 </div>
                             </div>
                             <div>
-                                <div className="ref-btn w-40 h-10 flex items-center w-full">
+                                <div className="ref-btn h-10 flex items-center w-full">
                                     {/* {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span> */}
                                 </div>
                             </div>
