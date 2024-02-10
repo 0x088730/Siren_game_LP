@@ -80,7 +80,7 @@ export default function MainPresale({
                 <div className="flex flex-col justify-center items-center space-y-5">
                     {!buyStatus ?
                         <>
-                            <LabelButton title={"YOU PAY"} buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+                            <LabelButton title={"YOU PAY"} buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" />
                             <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
                         </>
                         :
@@ -99,8 +99,8 @@ export default function MainPresale({
                         </div>
                     }
                     <LabelButton title={"YOU RECEIVE"} buyStatus={buyStatus} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
-                    <LabelButton title={"ENTER CODE"} buyStatus={buyStatus} onChange={(e) => getEnterCode(e)} />
-                    <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={() => onBtnClick("Buy")}>BUY</div>
+                    <LabelButton title={"ENTER CODE"} buyStatus={buyStatus} />
+                    <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer">BUY</div>
                     <div className="font-bold text-white font-animeace">
                         <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
                         <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>

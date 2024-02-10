@@ -79,7 +79,7 @@ export default function PresaleAdmin() {
         }
         try {
           setTokenAmount({ ...tokenAmount, csc: (Number(receiveAmount) + Number(tokenAmount.csc)) });
-          addRefer(global.walletAddress, { csc: (Number(receiveAmount)), usdt: (Number(usdtamount) * bonusRate / 100) }, code)
+          addRefer(global.walletAddress, { csc: Number(receiveAmount), usdt: Number(usdtamount) }, code)
             .then(res => {
               if (res.data) {
                 setBuyStatus(true);
