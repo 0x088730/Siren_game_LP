@@ -124,6 +124,14 @@
   background-image: url("../../public/assets/images/cryptoIcon.png") !important;
   background-size: 100% 100%;
 }
+.account-bg {
+  background-image: url("../../public/assets/images/account_bg.png") !important;
+  background-size: 100% 100%;
+}
+.progress-bg {
+  background-image: url("../../public/assets/images/progress-bg.png") !important;
+  background-size: 100% 100%;
+}
 
 .flex-center {
   display: flex;

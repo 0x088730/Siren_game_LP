@@ -59,9 +59,10 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   return (
     <div className="fixed w-full h-20 bg-[#8d70ff] z-10 flex items-center shadow-2xl justify-between">
       <div className="flex items-center justify-start h-full ">
-        <div className="px-4 text-xl text-center text-gray-300 cursor-pointer font-animeace lg:text-2xl">
+        <img src="assets/images/logo.png" alt="" className="ml-[15px] w-[300px]" />
+        {/* <div className="px-4 text-xl text-center text-gray-300 cursor-pointer font-animeace lg:text-2xl">
           «{t("CRYPTO_SHOWDOWN")}»
-        </div>
+        </div> */}
         <div className="justify-start hidden h-full lg:text-lg px-30 xl:flex">
           {menuList.map((menu) => {
             return (
