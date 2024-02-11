@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { createRefCode } from "~/common/api";
 import { global } from "~/common/global";
+import { useRouter } from "next/router";
 
 export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
+    const router = useRouter()
 
     useEffect(() => {
         if (tokenAmount.usdt <= 5000) {
@@ -37,12 +39,16 @@ export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate 
         }
     }
 
+    const goRefInfo = () => {
+        router.push('/referral-info')
+    }
+
     return (
         <>
             <div className="absolute top-0 translate-y-60 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
                 <div className="w-full flex flex-col justify-center items-center">
                     <div className="w-[600px] h-[300px] account-bg opacity-90 relative flex justify-around items-center p-4">
-                        <div className="text-[#FFFFFF] font-animeace text-xl absolute top-[35px] left-[35px]">{t("TOTAL BALLNCE:")}</div>
+                        <div className="text-[#FFFFFF] font-animeace text-xl absolute top-[35px] left-[35px]">{t("TOTAL BALLANCE:")}</div>
                         <div className="text-center">
                             <div className="text-[#FFFFFF] font-animeace text-lg">CSC TOKEN</div>
                             <div className="flex justify-center w-full">
@@ -63,7 +69,7 @@ export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate 
                                 <img src="assets/images/claim-btn.png" alt="" className="w-[73px]" />
                                 {/* <div className="text-[#04D4A4] font-bold font-animeace text-[15px] bg-[#363636] w-fit px-[5px] rounded-full border-[3px] border-[#ACB0B8] shadow-[3px_3px_5px_#111111]" style={{ textShadow: "2px 2px 2px black" }}>CLAIM</div> */}
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] font-animeace tracking-tightest">MORE ABOUT REF SYSTEM: <span className="text-[#00FFC3]">HERE</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] font-animeace tracking-tightest">MORE ABOUT REF SYSTEM: <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>HERE</span></div>
                         </div>
                     </div>
                     <div className="w-[600px] font-animeace text-md mt-8">
