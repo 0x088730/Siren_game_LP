@@ -26,12 +26,12 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     if (menu === currentMenu) return
     global.pageStatus = "main"
     if (menu === t("Presale")) {
-     router.push('/presale')
-    //  setshowPresale(true)
+      router.push('/presale')
+      //  setshowPresale(true)
     }
     else if (menu === t("Referral Info")) {
       router.push('/referral-info')
-     }
+    }
     else {
       router.push('/')
     }
@@ -54,7 +54,14 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   //     setCurrentMenu("Home");
   //   }
   // }, [currentMenu]);
-
+  const goPlay = () => {
+    const newPageURL = 'https://play.cryptoshowdown.io/';
+    window.open(newPageURL, '_blank');
+  }
+  const goTelegram = () => {
+    const newPageURL = 'https://t.me/cryptoshowdown';
+    window.open(newPageURL, '_blank');
+  }  
 
   return (
     <div className="fixed w-full h-20 bg-[#8d70ff] z-10 flex items-center shadow-2xl justify-between">
@@ -82,7 +89,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
               </Link>
             );
           })}
-               {/* ${currentMenu === menu
+          {/* ${currentMenu === menu
                     ? "text-orange-300 " : "text-white"
                   } */}
         </div>
@@ -94,6 +101,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             src="assets/images/icons/tg.png"
             alt=""
             className="object-cover w-full cursor-pointer"
+            onClick={goTelegram}
           />
         </div>
         <div className="h-1/3">
@@ -132,7 +140,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           </svg>
 
         </div>
-        <div className="flex items-center justify-center w-32 h-full text-2xl text-white duration-500 cursor-pointer font-animeace bg-cyan-500 hover:bg-cyan-800">
+        <div className="flex items-center justify-center w-32 h-full text-2xl text-white duration-500 cursor-pointer font-animeace bg-cyan-500 hover:bg-cyan-800" onClick={goPlay}>
           {t('PLAY')}
         </div>
       </div>
@@ -166,7 +174,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
                 <div
                   key={menu}
                   className={`px-4 py-2 cursor-pointer hover:bg-[#3d208e] hover:text-white duration-700 ${currentMenu === menu
-                      ? "text-orange-500 " : "text-white"
+                    ? "text-orange-500 " : "text-white"
                     }`}
                 >
                   <Link

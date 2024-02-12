@@ -1,7 +1,11 @@
 import { useTranslation } from "react-i18next";
 
 export default function IntroVideo() {
-  const { t, i18n } = useTranslation();  
+  const { t, i18n } = useTranslation();
+  const goPlay = () => {
+    const newPageURL = 'https://play.cryptoshowdown.io/';
+    window.open(newPageURL, '_blank');
+  }  
   return (
     <div className="relative  overflow-hidden bg-[#8d70ff]  md:w-full xl:h-screen">
       <video
@@ -22,7 +26,7 @@ export default function IntroVideo() {
           <div className="w-2/3 text-sm h-10 font-bold text-white md:text-2xl lg:text-4xl xl:text-3xl text-shadow-sm-red font-animeace md:mt-10">
             {t("The first RPG gacha game on the blockchain")}
           </div>
-          <button className="px-20 py-5 md:mt-16 text-lg text-white duration-500 border md:text-2xl hover:bg-sky-300 border-sky-300 font-animeace ">
+          <button className="px-20 py-5 md:mt-16 text-lg text-white duration-500 border md:text-2xl hover:bg-sky-300 border-sky-300 font-animeace " onClick={goPlay}>
             {t("GET STARTED")}
           </button>
         </div>
