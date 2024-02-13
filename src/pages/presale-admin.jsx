@@ -69,7 +69,7 @@ export default function PresaleAdmin() {
           alert("Please connect wallet");
           return;
         }
-        if (code === global.userRef) {
+        if (code === global.userRef || code === "") {
           alert("You can't buy CSC token without correct refreral code");
           return;
         }
