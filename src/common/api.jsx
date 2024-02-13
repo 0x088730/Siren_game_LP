@@ -29,3 +29,9 @@ export const addRefer = async (walletAddress, amount, refLink) => {
         refLink
     })).data;
 }
+
+export const getRefCodeList = async (walletAddress) => {
+    return (await axios.post(`/user/userLP/getRefCodeList`, {
+        walletAddress,
+    })).data;
+}
