@@ -78,23 +78,10 @@ export default function PresaleAdmin() {
           return;
         }
         try {
-          setTokenAmount({ ...tokenAmount, csc: (Number(receiveAmount) + Number(tokenAmount.csc)) });
-          addRefer(global.walletAddress, { csc: Number(receiveAmount), usdt: Number(usdtamount) }, code)
-            .then(res => {
-              if (res.data) {
-                setBuyStatus(true);
-                setusdtamount("");
-                setCode("");
-              }
-              else {
-                alert(res.message)
-              }
-            })
-          //////// for test
-          /* const BigNumber = require('bignumber.js');
+          const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
-          const recipientAddress = '0x8e946b7453320383df75f080F7DA843c043DfB47';
+          const recipientAddress = '0x6058Bd96B7BaD4E35A16a443697284fcf0b473c4';
           // Convert 100 USDT to wei - assuming 6 decimal places
           if (usdtamount === null) {
             alert("Please select USDT")
@@ -107,11 +94,29 @@ export default function PresaleAdmin() {
             const gasLimit = 1000000;
             const accounts = await web3.eth.getAccounts();
             const userAddress = accounts[0];
+            console.log(decimals, amountToSend, gasPrice, gasLimit, accounts, userAddress, usdtamount)
 
 
-            await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
-            setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
-          } */
+            try {
+              await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
+              setTokenAmount({ ...tokenAmount, csc: (Number(receiveAmount) + Number(tokenAmount.csc)) });
+              addRefer(global.walletAddress, { csc: Number(receiveAmount), usdt: Number(usdtamount) }, code)
+                .then(res => {
+                  if (res.data) {
+                    setBuyStatus(true);
+                    setusdtamount("");
+                    setCode("");
+                  }
+                  else {
+                    alert(res.message)
+                  }
+                })
+            } catch (error) {
+              console.error(error);
+              alert("Failed to transfer tokens. Please try again.");
+            }
+
+          }
         } catch (error) {
           console.error(error);
           alert("Failed to transfer tokens. Please try again.");
