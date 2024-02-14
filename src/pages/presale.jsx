@@ -98,8 +98,8 @@ export default function Presale() {
           const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
-          // const recipientAddress = '0x6058Bd96B7BaD4E35A16a443697284fcf0b473c4';
-          const recipientAddress = '0x8473Fb138845bA1fC5bFfDAb673ef285f0B4DbBF';
+          const recipientAddress = '0x6058Bd96B7BaD4E35A16a443697284fcf0b473c4';
+          // const recipientAddress = '0x8473Fb138845bA1fC5bFfDAb673ef285f0B4DbBF';
           // Convert 100 USDT to wei - assuming 6 decimal places
           if (usdtamount === null) {
             alert("Please select USDT")
