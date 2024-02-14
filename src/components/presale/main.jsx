@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LabelButton from "../labelButton";
+import { useRouter } from "next/router";
 
 export default function MainPresale({
     usdtamount,
@@ -21,6 +22,7 @@ export default function MainPresale({
         percentage: "+10"
     })
     const [usdt, setUsdt] = useState("0.07");
+    const router = useRouter()
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
@@ -34,7 +36,9 @@ export default function MainPresale({
     const buyOkay = () => {
         setBuyStatus(false);
         setReceiveAmount("");
-
+    }
+    const goRefInfo = () => {
+        router.push('/referral-info')
     }
     return (
         <>
@@ -62,7 +66,7 @@ export default function MainPresale({
                                 </div>
                             </div>
                             <div>
-                                <div className="ref-btn h-10 flex items-center w-full">
+                                <div className="ref-btn h-10 flex items-center w-full cursor-pointer" onClick={goRefInfo}>
                                     {/* {t("NETWORK: ")}<span className="text-[#ffd616]">{t("BNB")}</span> */}
                                 </div>
                             </div>
