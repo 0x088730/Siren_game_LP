@@ -22,16 +22,23 @@ export const createRefCode = async (walletAddress, ref) => {
     })).data;
 }
 
-export const addRefer = async (walletAddress, amount, refLink) => {
+export const addRefer = async (walletAddress, amount, refLink, txID) => {
     return (await axios.post(`/user/userLP/addRefer`, {
         walletAddress,
         amount,
-        refLink
+        refLink,
+        txID
     })).data;
 }
 
 export const getRefCodeList = async (walletAddress) => {
     return (await axios.post(`/user/userLP/getRefCodeList`, {
+        walletAddress,
+    })).data;
+}
+
+export const getWalletStatus = async (walletAddress) => {
+    return (await axios.post(`/user/userLP/getWalletStatus`, {
         walletAddress,
     })).data;
 }

@@ -38,14 +38,6 @@ export default function MainPresale({
     return (
         <>
             <div className="absolute top-0 translate-y-52 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
-                <div className="absolute w-full h-full m-[-1.25rem] z-50 rounded-3xl border-[#000000] border-[10px]">
-                    <div
-                        className="w-full h-full text-white font-animeace text-1xl bg-[#000000] opacity-70 flex justify-center items-center rounded-xl"
-                        style={{ textShadow: "2px 2px #f1617a" }}
-                    >
-                        START SOON
-                    </div>
-                </div>
                 <div className="w-full mb-10">
                     <div className="flex justify-between">
                         <div className="flex justify-evenly flex-col">
@@ -80,7 +72,7 @@ export default function MainPresale({
                 <div className="flex flex-col justify-center items-center space-y-5">
                     {!buyStatus ?
                         <>
-                            <LabelButton title={"YOU PAY"} buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" />
+                            <LabelButton title={"YOU PAY"} buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
                             <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
                         </>
                         :
@@ -99,8 +91,8 @@ export default function MainPresale({
                         </div>
                     }
                     <LabelButton title={"YOU RECEIVE"} buyStatus={buyStatus} color="text-yellow-500" img="assets/images/yellow_gem.png" receiveAmount={receiveAmount} />
-                    <LabelButton title={"ENTER CODE"} buyStatus={buyStatus} />
-                    <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer">BUY</div>
+                    <LabelButton title={"ENTER CODE"} buyStatus={buyStatus} onChange={(e) => getEnterCode(e)} />
+                    <div className="text-2xl font-bold text-white font-animeace buy-button-bg w-60 h-12 flex-center cursor-pointer" onClick={() => onBtnClick("Buy")}>BUY</div>
                     <div className="font-bold text-white font-animeace">
                         <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
                         <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>

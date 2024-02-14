@@ -3,10 +3,11 @@ import Web3 from 'web3'
 import { useTranslation } from "react-i18next";
 import LabelButton from "~/components/labelButton";
 import Header from "~/components/screens/header";
-import MainPresale from "~/components/presale/main";
 import Account from "~/components/presale/account";
 import { global } from "~/common/global";
-import { addRefer, createProfile, getProfile } from "~/common/api";
+import { addRefer, createProfile, getProfile, getRefCodeList, getWalletStatus } from "~/common/api";
+import MainPresale from "~/components/presale/main";
+
 
 export default function Presale() {
   const { t, i18n } = useTranslation();
@@ -24,10 +25,21 @@ export default function Presale() {
   const [buyStatus, setBuyStatus] = useState(false);
   const [userData, setUserData] = useState({});
   const [bonusRate, setBonusRate] = useState(0);
+  const [refCodeList, setRefCodeList] = useState([]);
 
   useEffect(() => {
     setPage(global.pageStatus);
+    getRefCodeList(global.walletAddress)
+      .then(res =>
+        setRefCodeList(res.refCodeList)
+      )
   }, [])
+  useEffect(() => {
+    getRefCodeList(global.walletAddress)
+      .then(res =>
+        setRefCodeList(res.refCodeList)
+      )
+  }, [global.walletAddress])
   const BEP20TokenABI = [{ "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "constant": true, "inputs": [], "name": "_decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getOwner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "mint", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "renounceOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
   let web3;
   if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
@@ -68,7 +80,7 @@ export default function Presale() {
           alert("Please connect wallet");
           return;
         }
-        if (code === global.userRef) {
+        if (code === global.userRef || code === "") {
           alert("You can't buy CSC token without correct refreral code");
           return;
         }
@@ -76,24 +88,15 @@ export default function Presale() {
           alert("Please input USDT amount you want to buy csc token");
           return;
         }
+        if (!refCodeList.includes(code)) {
+          alert("The user don't exist!");
+          return;
+        }
         try {
-          setTokenAmount({ ...tokenAmount, csc: (Number(receiveAmount) + Number(tokenAmount.csc)) });
-          addRefer(global.walletAddress, { csc: (Number(receiveAmount)), usdt: (Number(usdtamount) * bonusRate / 100) }, code)
-            .then(res => {
-              if (res.data) {
-                setBuyStatus(true);
-                setusdtamount("");
-                setCode("");
-              }
-              else {
-                alert(res.message)
-              }
-            })
-          //////// for test
-          /* const BigNumber = require('bignumber.js');
+          const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
-          const recipientAddress = '0x8e946b7453320383df75f080F7DA843c043DfB47';
+          const recipientAddress = '0x6058Bd96B7BaD4E35A16a443697284fcf0b473c4';
           // Convert 100 USDT to wei - assuming 6 decimal places
           if (usdtamount === null) {
             alert("Please select USDT")
@@ -103,14 +106,31 @@ export default function Presale() {
             const amountToSend = new BigNumber(usdtamount).multipliedBy(new BigNumber(10).pow(decimals)).toString();
             //console.log(amountToSend);
             const gasPrice = await web3.eth.getGasPrice();
-            const gasLimit = 1000000;
+            const gasLimit = 100000;
             const accounts = await web3.eth.getAccounts();
             const userAddress = accounts[0];
 
+            try {
+              // getWalletStatus(global.walletAddress, true);
+              const transaction = await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
+              setTokenAmount({ ...tokenAmount, csc: (Number(receiveAmount) + Number(tokenAmount.csc)) });
+              addRefer(global.walletAddress, { csc: Number(receiveAmount), usdt: Number(usdtamount) }, code, transaction.transactionHash)
+                .then(res => {
+                  if (res.data) {
+                    setBuyStatus(true);
+                    setusdtamount("");
+                    setCode("");
+                  }
+                  else {
+                    alert(res.message)
+                  }
+                })
+            } catch (error) {
+              console.error(error);
+              alert("Failed to transfer tokens. Please try again.");
+            }
 
-            await tokenContract.methods.transfer(recipientAddress, amountToSend).send({ from: userAddress, gasPrice: gasPrice, gas: gasLimit });
-            setTokenAmount({ csc: (Number(receiveAmount) + Number(tokenAmount.csc)), usdt: (Number(usdtamount) + Number(tokenAmount.usdt)) });
-          } */
+          }
         } catch (error) {
           console.error(error);
           alert("Failed to transfer tokens. Please try again.");
@@ -123,7 +143,7 @@ export default function Presale() {
 
   return (
     <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
-      <Header currentMenu="Presale" />
+      <Header currentMenu="Presale Admin" />
       <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center justify-center">
         <div className="absolute top-0 translate-y-28 flex justify-between items-end w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
           <div className="pt-2 text-4xl text-left text-white xl:text-4xl 2xl:text-4xl font-animeace">
