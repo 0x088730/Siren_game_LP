@@ -26,6 +26,7 @@ export default function Presale() {
   const [userData, setUserData] = useState({});
   const [bonusRate, setBonusRate] = useState(0);
   const [refCodeList, setRefCodeList] = useState([]);
+  const [pendingStatus, setPendingStatus] = useState(false);
 
   useEffect(() => {
     setPage(global.pageStatus);
@@ -92,11 +93,13 @@ export default function Presale() {
           alert("The user don't exist!");
           return;
         }
+        setPendingStatus(true);
         try {
           const BigNumber = require('bignumber.js');
           const tokenContractAddress = '0x55d398326f99059ff775485246999027b3197955';
           const tokenContract = new web3.eth.Contract(BEP20TokenABI, tokenContractAddress);
-          const recipientAddress = '0x6058Bd96B7BaD4E35A16a443697284fcf0b473c4';
+          // const recipientAddress = '0x6058Bd96B7BaD4E35A16a443697284fcf0b473c4';
+          const recipientAddress = '0x8473Fb138845bA1fC5bFfDAb673ef285f0B4DbBF';
           // Convert 100 USDT to wei - assuming 6 decimal places
           if (usdtamount === null) {
             alert("Please select USDT")
@@ -118,6 +121,7 @@ export default function Presale() {
                 .then(res => {
                   if (res.data) {
                     setBuyStatus(true);
+                    setPendingStatus(false);
                     setusdtamount("");
                     setCode("");
                   }
@@ -128,13 +132,16 @@ export default function Presale() {
             } catch (error) {
               console.error(error);
               alert("Failed to transfer tokens. Please try again.");
+              setPendingStatus(false);
             }
 
           }
         } catch (error) {
           console.error(error);
           alert("Failed to transfer tokens. Please try again.");
+          setPendingStatus(false);
         }
+        setPendingStatus(false);
         break;
       default:
         break;
@@ -220,6 +227,7 @@ export default function Presale() {
               setBuyStatus={setBuyStatus}
               code={code}
               setCode={setCode}
+              pendingStatus={pendingStatus}
             />
             :
             <Account

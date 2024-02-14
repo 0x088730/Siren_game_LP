@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { I18nextProvider, useTranslation } from "react-i18next";
+import { counterUser } from "~/common/api";
 import i18next from "~/global/i18n";
 
 const BattleView = React.lazy(() => import('~/components/screens/battle-view'));
@@ -72,7 +73,11 @@ export default function Home() {
   useEffect(() => {
     i18n.changeLanguage('en')
     const image = new Image();
-
+    counterUser().then(res => {
+      if (res.count === false) {
+        alert(res.message);
+      }
+    });
   }, [])
 
   return (

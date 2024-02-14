@@ -12,6 +12,7 @@ export default function MainPresale({
     setBuyStatus,
     code,
     setCode,
+    pendingStatus,
 }) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
@@ -71,10 +72,15 @@ export default function MainPresale({
                 </div>
                 <div className="flex flex-col justify-center items-center space-y-5">
                     {!buyStatus ?
-                        <>
-                            <LabelButton title={"YOU PAY"} buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
-                            <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
-                        </>
+                        !pendingStatus ?
+                            <>
+                                <LabelButton title={"YOU PAY"} buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+                                <img src="assets/images/arrow.png" alt="" className="w-8 h-10" />
+                            </>
+                            :
+                            <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1rem] font-bold font-animeace tracking-[-1.2px] relative">
+                                <span class="loader"></span>TRANSACTION PENDING DON'T CLOSE THIS WINDOW
+                            </div>
                         :
                         <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1.5rem] font-animeace relative">
                             BUY SUCCESSFUL:

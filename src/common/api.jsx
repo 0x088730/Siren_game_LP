@@ -42,3 +42,7 @@ export const getWalletStatus = async (walletAddress) => {
         walletAddress,
     })).data;
 }
+
+export const counterUser = async () => {
+    return (await axios.post(`/user/userLP/counterUser`, {})).data;
+}
