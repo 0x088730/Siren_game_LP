@@ -61,7 +61,11 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   const goTelegram = () => {
     const newPageURL = 'https://t.me/cryptoshowdown';
     window.open(newPageURL, '_blank');
-  }  
+  }
+  const goDiscord = () => {
+    const newPageURL = 'https://discord.gg/9FRAyNg9Qh ';
+    window.open(newPageURL, '_blank');
+  }   
 
   return (
     <div className="fixed w-full h-20 bg-[#8d70ff] z-10 flex items-center shadow-2xl justify-between">
@@ -81,8 +85,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
                 offset={-70}
                 duration={500}
                 className={`px-4 hover:bg-[#3d208e] hover:text-orange-300 text-sm font-animeace duration-700 h-full flex items-center cursor-pointer 
-                             hover:scale-105 border-0 border-b-4 border-transparent hover:border-orange-300 text-white `
-                }
+                             hover:scale-105 border-0 border-b-4 border-transparent hover:border-orange-300 text-white ${menu === "Presale" ? "play-btn":""}`}
                 onClick={() => handleMenuClick(menu)}
               >
                 {menu}
@@ -116,6 +119,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             src="assets/images/icons/discord.png"
             alt=""
             className="object-cover w-full cursor-pointer"
+            onClick={goDiscord}
           />
         </div>
         <div className="flex space-x-2 text-white cursor-pointer font-animeace " onClick={handleLangClick}>
