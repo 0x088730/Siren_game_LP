@@ -46,3 +46,7 @@ export const getWalletStatus = async (walletAddress) => {
 export const counterUser = async () => {
     return (await axios.post(`/user/userLP/counterUser`, {})).data;
 }
+
+export const checkPresaleCoolDown = async () => {
+    return (await axios.post(`/user/userLP/checkPresaleCoolDown`, {})).data;
+}

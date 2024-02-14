@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LabelButton from "../labelButton";
 import { useRouter } from "next/router";
+import { checkPresaleCoolDown } from "~/common/api";
 
 export default function MainPresale({
     usdtamount,
@@ -17,12 +18,49 @@ export default function MainPresale({
 }) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
-        day: "00",
-        hour: "02",
+        day: "03",
+        hour: "23",
         percentage: "+10"
     })
     const [usdt, setUsdt] = useState("0.07");
+    const [cooldownStart, setCooldownStart] = useState(false);
     const router = useRouter()
+
+    useEffect(() => {
+        checkPresaleCoolDown().then(res => {
+            setDate({ ...date, day: parseInt(res.time / 24), hour: res.time % 24 })
+            if (res.time === 0 || res.time === 10) {
+                setCooldownStart(false);
+                return;
+            }
+            setCooldownStart(true);
+        })
+    }, [])
+    useEffect(() => {
+        if (cooldownStart) {
+            checkPresaleCoolDown().then(async (res) => {
+                let responseSent = false;
+                let time = res.time + 1;
+                async function fetchBalanceAndValue() {
+                    if (time === 0) {
+                        clearInterval(interval);
+                        setCooldownStart(false)
+                        return;
+                    }
+                    time = time - 1;
+                    setDate({ ...date, day: parseInt(time / 24), hour: time % 24 })
+                    console.log(time);
+
+                    if (!responseSent) {
+                        responseSent = true;
+                    }
+                }
+
+                await fetchBalanceAndValue();
+                const interval = setInterval(fetchBalanceAndValue, 3600000);
+            })
+        }
+    }, [cooldownStart])
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
