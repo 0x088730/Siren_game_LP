@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import LabelButton from "../labelButton";
 import { useRouter } from "next/router";
 import { checkPresaleCoolDown } from "~/common/api";
+import { FormatNumber } from "~/global/common";
 
 export default function MainPresale({
     usdtamount,
@@ -148,8 +149,8 @@ export default function MainPresale({
                     </div>
                     <div className="absolute top-2 left-2 space-y-3">
                         <div className="font-bold text-white font-animeace">TOTAL SOLD:</div>
-                        <div className="font-bold text-[#51ff3a] font-animeace flex">
-                            <img src="assets/images/usdt.png" alt="" className="w-6 h-6 me-4" />{totalAmount}
+                        <div className="font-bold text-[#51ff3a] font-animeace flex tracking-[2px]">
+                            <img src="assets/images/usdt.png" alt="" className="w-6 h-6 me-4" />{FormatNumber(totalAmount)}
                         </div>
                     </div>
                 </div>
