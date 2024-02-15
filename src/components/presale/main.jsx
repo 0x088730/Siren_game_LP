@@ -57,7 +57,7 @@ export default function MainPresale({
                 }
 
                 await fetchBalanceAndValue();
-                const interval = setInterval(fetchBalanceAndValue, 3600000);
+                const interval = setInterval(fetchBalanceAndValue, 600000);
             })
         }
     }, [cooldownStart])
