@@ -32,9 +32,10 @@ export default function Presale() {
   useEffect(() => {
     setPage(global.pageStatus);
     getRefCodeList(global.walletAddress)
-      .then(res =>
+      .then(res => {
+        setTotalAmount(res.totalAmount);
         setRefCodeList(res.refCodeList)
-      )
+      })
   }, [])
   useEffect(() => {
     getRefCodeList(global.walletAddress)
