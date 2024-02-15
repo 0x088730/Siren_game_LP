@@ -15,6 +15,7 @@ export default function MainPresale({
     code,
     setCode,
     pendingStatus,
+    totalAmount,
 }) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
@@ -112,7 +113,7 @@ export default function MainPresale({
                     </div>
                     <hr className="shadow-[0_5px_10px_#272525] border-2 border-[#DADADA] rounded-full"></hr>
                 </div>
-                <div className="flex flex-col justify-center items-center space-y-5">
+                <div className="flex flex-col justify-center items-center space-y-5 relative">
                     {!buyStatus ?
                         !pendingStatus ?
                             <>
@@ -144,6 +145,12 @@ export default function MainPresale({
                     <div className="font-bold text-white font-animeace">
                         <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
                         <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
+                    </div>
+                    <div className="absolute top-2 left-2 space-y-3">
+                        <div className="font-bold text-white font-animeace">TOTAL SOLD:</div>
+                        <div className="font-bold text-[#51ff3a] font-animeace flex">
+                            <img src="assets/images/usdt.png" alt="" className="w-6 h-6 me-4" />{totalAmount}
+                        </div>
                     </div>
                 </div>
             </div>

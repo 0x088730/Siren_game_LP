@@ -24,9 +24,10 @@ export default function Presale() {
   });
   const [buyStatus, setBuyStatus] = useState(false);
   const [userData, setUserData] = useState({});
-  const [bonusRate, setBonusRate] = useState(0);
+  const [bonusRate, setBonusRate] = useState(5);
   const [refCodeList, setRefCodeList] = useState([]);
   const [pendingStatus, setPendingStatus] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(1183);
 
   useEffect(() => {
     setPage(global.pageStatus);
@@ -120,6 +121,7 @@ export default function Presale() {
               addRefer(global.walletAddress, { csc: Number(receiveAmount), usdt: Number(usdtamount) }, code, transaction.transactionHash)
                 .then(res => {
                   if (res.data) {
+                    setTotalAmount(res.totalAmount);
                     setBuyStatus(true);
                     setPendingStatus(false);
                     setusdtamount("");
@@ -149,9 +151,9 @@ export default function Presale() {
   }
 
   return (
-    <div className="relative overflow-auto md:w-full h-screen min-w-[1024px] presale-bg">
+    <div className="relative md:w-full h-screen min-w-[1024px] presale-bg">
       <Header currentMenu="Presale Admin" />
-      <div className="flex-col h-full overflow-y-scroll space-y-2 flex lg:items-center justify-center">
+      <div className="relative flex-col h-full space-y-2 flex lg:items-center justify-center">
         <div className="absolute top-0 translate-y-28 flex justify-between items-end w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
           <div className="pt-2 text-4xl text-left text-white xl:text-4xl 2xl:text-4xl font-animeace">
             {t("CSC TOKEN PRESALE")}
@@ -228,6 +230,7 @@ export default function Presale() {
               code={code}
               setCode={setCode}
               pendingStatus={pendingStatus}
+              totalAmount={totalAmount}
             />
             :
             <Account
