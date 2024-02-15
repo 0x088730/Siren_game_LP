@@ -28,7 +28,7 @@ export default function MainPresale({
 
     useEffect(() => {
         checkPresaleCoolDown().then(res => {
-            setDate({ ...date, day: parseInt(res.time / 24), hour: res.time % 24 })
+            setDate({ ...date, day: parseInt(parseInt(res.time / 6) / 24), hour: parseInt(res.time / 6) % 24 })
             if (res.time === 0 || res.time === 96) {
                 setCooldownStart(false);
                 return;
@@ -48,7 +48,7 @@ export default function MainPresale({
                         return;
                     }
                     time = time - 1;
-                    setDate({ ...date, day: parseInt(time / 24), hour: time % 24 })
+                    setDate({ ...date, day: parseInt(parseInt(time / 6) / 24), hour: parseInt(time / 6) % 24 })
                     console.log(time);
 
                     if (!responseSent) {
