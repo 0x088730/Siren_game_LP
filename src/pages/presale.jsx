@@ -33,7 +33,7 @@ export default function Presale() {
     setPage(global.pageStatus);
     getRefCodeList(global.walletAddress)
       .then(res => {
-        setTotalAmount(res.totalAmount);
+        setTotalAmount(Number(res.totalAmount).toFixed(2));
         setRefCodeList(res.refCodeList)
       })
   }, [])
@@ -122,7 +122,7 @@ export default function Presale() {
               addRefer(global.walletAddress, { csc: Number(receiveAmount), usdt: Number(usdtamount) }, code, transaction.transactionHash)
                 .then(res => {
                   if (res.data) {
-                    setTotalAmount(res.totalAmount);
+                    setTotalAmount(Number(res.totalAmount).toFixed(2));
                     setBuyStatus(true);
                     setPendingStatus(false);
                     setusdtamount("");
