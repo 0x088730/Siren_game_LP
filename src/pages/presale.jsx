@@ -27,13 +27,16 @@ export default function Presale() {
   const [bonusRate, setBonusRate] = useState(5);
   const [refCodeList, setRefCodeList] = useState([]);
   const [pendingStatus, setPendingStatus] = useState(false);
-  const [totalAmount, setTotalAmount] = useState(1183);
+  const [globalValue, setGlobalValue] = useState({
+    totalAmount: 1183,
+    transaction: 0.07
+  });
 
   useEffect(() => {
     setPage(global.pageStatus);
     getRefCodeList(global.walletAddress)
       .then(res => {
-        setTotalAmount(Number(res.totalAmount).toFixed(2));
+        setGlobalValue({ totalAmount: Number(res.globalValue.totalAmount).toFixed(2), transaction: res.globalValue.transaction });
         setRefCodeList(res.refCodeList)
       })
   }, [])
@@ -231,11 +234,12 @@ export default function Presale() {
               code={code}
               setCode={setCode}
               pendingStatus={pendingStatus}
-              totalAmount={totalAmount}
+              globalValue={globalValue}
             />
             :
             <Account
               tokenAmount={tokenAmount}
+              setTokenAmount={setTokenAmount}
               btnType={btnType}
               bonusRate={bonusRate}
               setBonusRate={setBonusRate}

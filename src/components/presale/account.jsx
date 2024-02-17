@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { createRefCode } from "~/common/api";
+import { addWithdraw, checkWithdrawDaily, createRefCode } from "~/common/api";
 import { global } from "~/common/global";
 import { useRouter } from "next/router";
+import Web3 from 'web3'
 
-export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate }) {
+export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
+    const [withdrawDaily, setWithdrawDaily] = useState(true);
     const router = useRouter()
 
     useEffect(() => {
@@ -43,6 +45,31 @@ export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate 
         router.push('/referral-info')
     }
 
+    const claimUSDT = async () => {
+        if (tokenAmount.usdt < 5) {
+            alert("USDT token not enough! At least $5!");
+            return;
+        }
+        await checkWithdrawDaily(global.walletAddress).then(res => {
+            if (!res.data) {
+                setWithdrawDaily(res.data);
+                alert("Can withdraw once 1 day!");
+                return;
+            }
+            try {
+                addWithdraw(global.walletAddress).then(res => {
+                    if (res.data) {
+                        setTokenAmount({ ...tokenAmount, usdt: 0 })
+                        alert("You will get usdt on your wallet in 24 hours!");
+                    }
+                })
+            } catch (error) {
+                console.error(error);
+                alert("Failed to transfer tokens. Please try again.");
+            }
+        })
+    }
+
     return (
         <>
             <div className="absolute top-0 translate-y-60 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
@@ -65,8 +92,8 @@ export default function Account({ tokenAmount, btnType, bonusRate, setBonusRate 
                             <div className="flex justify-center w-full">
                                 <div className="text-lg text-[#00ff00] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{tokenAmount.usdt}</div>
                             </div>
-                            <div className="flex justify-center cursor-pointer">
-                                <img src="assets/images/claim-btn.png" alt="" className="w-[73px]" />
+                            <div className="flex justify-center">
+                                <img src="assets/images/claim-btn.png" alt="" className="w-[73px] cursor-pointer" onClick={claimUSDT} />
                                 {/* <div className="text-[#04D4A4] font-bold font-animeace text-[15px] bg-[#363636] w-fit px-[5px] rounded-full border-[3px] border-[#ACB0B8] shadow-[3px_3px_5px_#111111]" style={{ textShadow: "2px 2px 2px black" }}>CLAIM</div> */}
                             </div>
                             <div className="mt-3 text-[#FFFFFF] text-[13px] font-animeace tracking-tightest">MORE ABOUT REF SYSTEM: <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>HERE</span></div>

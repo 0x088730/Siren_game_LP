@@ -16,7 +16,7 @@ export default function MainPresale({
     code,
     setCode,
     pendingStatus,
-    totalAmount,
+    globalValue,
 }) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
@@ -24,10 +24,8 @@ export default function MainPresale({
         hour: "23",
         percentage: "+10"
     })
-    const [usdt, setUsdt] = useState("0.07");
     const [cooldownStart, setCooldownStart] = useState(false);
     const router = useRouter()
-
     useEffect(() => {
         checkPresaleCoolDown().then(res => {
             setDate({ ...date, day: parseInt(parseInt(res.time / 6) / 24), hour: parseInt(res.time / 6) % 24 })
@@ -51,7 +49,6 @@ export default function MainPresale({
                     }
                     time = time - 1;
                     setDate({ ...date, day: parseInt(parseInt(time / 6) / 24), hour: parseInt(time / 6) % 24 })
-                    console.log(time);
 
                     if (!responseSent) {
                         responseSent = true;
@@ -66,7 +63,7 @@ export default function MainPresale({
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
-        setReceiveAmount(Number(amount * 14.4).toFixed(0))
+        setReceiveAmount(Number(amount / globalValue.transaction).toFixed(0))
     };
 
     const getEnterCode = (value) => {
@@ -93,7 +90,7 @@ export default function MainPresale({
                             </div>
                             <div className="text-2xl font-bold text-white font-animeace">
                                 {t("CSC ACTUAL PRICE: ")}
-                                <span className="text-[#dcc90a]">{usdt + " USDT"}</span>
+                                <span className="text-[#dcc90a]">{globalValue.transaction + " USDT"}</span>
                             </div>
                         </div>
                         <div className="flex justify-evenly flex-col">
@@ -150,7 +147,7 @@ export default function MainPresale({
                     <div className="absolute top-2 left-2 space-y-3">
                         <div className="font-bold text-white font-animeace">TOTAL SOLD:</div>
                         <div className="font-bold text-[#51ff3a] font-animeace flex tracking-[2px]">
-                            <img src="assets/images/usdt.png" alt="" className="w-6 h-6 me-4" />{FormatNumber(totalAmount)}
+                            <img src="assets/images/usdt.png" alt="" className="w-6 h-6 me-4" />{FormatNumber(globalValue.totalAmount)}
                         </div>
                     </div>
                 </div>
