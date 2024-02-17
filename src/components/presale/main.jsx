@@ -63,7 +63,7 @@ export default function MainPresale({
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
-        setReceiveAmount(Number(amount / globalValue.transaction).toFixed(0))
+        setReceiveAmount(Number(amount * 12).toFixed(0))
     };
 
     const getEnterCode = (value) => {

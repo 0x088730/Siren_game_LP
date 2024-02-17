@@ -79,7 +79,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                         <div className="text-center">
                             <div className="text-[#FFFFFF] font-animeace text-lg">CSC TOKEN</div>
                             <div className="flex justify-center w-full">
-                                <div className="text-lg text-[#dcc90a] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{tokenAmount.csc}</div>
+                                <div className="text-lg text-[#dcc90a] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.csc) ? tokenAmount.csc : Number(tokenAmount.csc).toFixed(2)}</div>
                             </div>
                             <div className="flex justify-center cursor-pointer">
                                 <img src="assets/images/claim-btn.png" alt="" className="w-[73px]" />
@@ -90,7 +90,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                         <div className="text-center">
                             <div className="text-[#FFFFFF] font-animeace text-lg">USDT TOKEN</div>
                             <div className="flex justify-center w-full">
-                                <div className="text-lg text-[#00ff00] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{tokenAmount.usdt}</div>
+                                <div className="text-lg text-[#00ff00] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div>
                             </div>
                             <div className="flex justify-center">
                                 <img src="assets/images/claim-btn.png" alt="" className="w-[73px] cursor-pointer" onClick={claimUSDT} />
