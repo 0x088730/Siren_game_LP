@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next";
 
 export default function HowToEarn() {
-  const { t, i18n } = useTranslation();  
+  const { t, i18n } = useTranslation();
   return (
     <div className="relative items-center w-full h-screen">
-      <img
-        src="assets/images/hte_bg.jpg"
-        alt=""
-        className="absolute object-cover w-full h-full -z-10"
+      <video
+        src="assets/videos/hte_bg.mp4"
+        className="absolute object-cover w-full h-full z-[-10]"
+        autoPlay
+        loop
+        muted
       />
       <div className="flex-col h-full overflow-y-scroll space-y-14">
         <div className="pt-16 text-3xl text-center text-white md:text-4xl lg:text-5xl font-animeace md:pt-32">
@@ -23,7 +25,7 @@ export default function HowToEarn() {
                 className="h-48 duration-500 md:h-64 "
               />
               <div className="mt-2 text-lg text-center md:text-2xl font-animeace">
-                  {t("FIGHT IN BATTLES FOR INCREASE YOUR CHARACTERS LEVEL. THE HIGHER LEVEL YOUR CHARACTERS HAVE, THE BETTER YOU CAN IMPROVE YOUR LAND.")}
+                {t("FIGHT IN BATTLES FOR INCREASE YOUR CHARACTERS LEVEL. THE HIGHER LEVEL YOUR CHARACTERS HAVE, THE BETTER YOU CAN IMPROVE YOUR LAND.")}
               </div>
             </div>
           </div>
@@ -36,7 +38,7 @@ export default function HowToEarn() {
                 className="h-48 duration-500 md:h-64 "
               />
               <div className="mt-2 text-lg text-center md:text-2xl font-animeace">
-                  {t("IMPROVE YOUR LAND THIS OPENS UP ALL THE WAYS FOR YOU TO PROGRESS IN THE GAME, THE BETTER YOUR LAND IS IMPROVED, THE MORE YOU EARN.")}
+                {t("IMPROVE YOUR LAND THIS OPENS UP ALL THE WAYS FOR YOU TO PROGRESS IN THE GAME, THE BETTER YOUR LAND IS IMPROVED, THE MORE YOU EARN.")}
               </div>
             </div>
           </div>
