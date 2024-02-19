@@ -11,13 +11,17 @@ export default function Contact({handleImageLoad}) {
     const newPageURL = 'https://discord.gg/9FRAyNg9Qh ';
     window.open(newPageURL, '_blank');
   } 
+  const goTwitter = () => {
+    const newPageURL = 'https://twitter.com/Crypto_Showdown';
+    window.open(newPageURL, '_blank');
+  } 
   return (
     <div className="w-full pt-32 bg-[url('../../public/assets/images/footer/back.jpg')] bg-cover">
       <div className="relative w-[350px] h-[300px] lg:w-[772px] lg:h-[700px] bottom-0 mx-auto">
         <img src="assets/images/footer/window1.png" alt="" className="absolute w-full h-full"/>
         <div className="flex justify-center px-10">
             <img src="assets/images/footer/discordBtn1.png" alt="" className="w-1/4 duration-500 -translate-y-8 cursor-pointer z-8 lg:-translate-y-14 hover:brightness-125" onClick={goDiscord} />
-            <img src="assets/images/footer/twBtn1.png" alt="" className="w-1/4 duration-500 -translate-y-8 cursor-pointer z-8 lg:-translate-y-14 hover:brightness-125"/>
+            <img src="assets/images/footer/twBtn1.png" alt="" className="w-1/4 duration-500 -translate-y-8 cursor-pointer z-8 lg:-translate-y-14 hover:brightness-125" onClick={goTwitter}/>
             <img src="assets/images/footer/tgBtn1.png" alt="" className="w-1/4 duration-500 -translate-y-8 cursor-pointer z-8 lg:-translate-y-14 hover:brightness-125" onClick={goTelegram} />
         </div>
         <div className="">

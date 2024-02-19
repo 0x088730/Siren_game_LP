@@ -65,6 +65,10 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   const goDiscord = () => {
     const newPageURL = 'https://discord.gg/9FRAyNg9Qh ';
     window.open(newPageURL, '_blank');
+  }  
+  const goTwitter = () => {
+    const newPageURL = 'https://twitter.com/Crypto_Showdown';
+    window.open(newPageURL, '_blank');
   }   
 
   return (
@@ -112,6 +116,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             src="assets/images/icons/tw.png"
             alt=""
             className="object-cover w-full cursor-pointer"
+            onClick={goTwitter}
           />
         </div>
         <div className="h-1/3">
