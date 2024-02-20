@@ -17,6 +17,7 @@ export default function MainPresale({
     setCode,
     pendingStatus,
     globalValue,
+    setGlobalValue,
 }) {
     const { t, i18n } = useTranslation();
     const [date, setDate] = useState({
@@ -29,6 +30,7 @@ export default function MainPresale({
     useEffect(() => {
         checkPresaleCoolDown().then(res => {
             setDate({ ...date, day: parseInt(parseInt(res.time / 6) / 24), hour: parseInt(res.time / 6) % 24 })
+            setGlobalValue({ ...globalValue, totalAmount: res.totalAmount })
             if (res.time === 0 || res.time === 500) {
                 setCooldownStart(false);
                 return;
@@ -49,7 +51,7 @@ export default function MainPresale({
                     }
                     time = time - 1;
                     setDate({ ...date, day: parseInt(parseInt(time / 6) / 24), hour: parseInt(time / 6) % 24 })
-
+                    setGlobalValue({ ...globalValue, totalAmount: res.totalAmount })
                     if (!responseSent) {
                         responseSent = true;
                     }

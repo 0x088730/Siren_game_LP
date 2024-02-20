@@ -235,6 +235,7 @@ export default function Presale() {
               setCode={setCode}
               pendingStatus={pendingStatus}
               globalValue={globalValue}
+              setGlobalValue={setGlobalValue}
             />
             :
             <Account
