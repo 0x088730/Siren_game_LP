@@ -29,7 +29,7 @@ export default function Presale() {
   const [pendingStatus, setPendingStatus] = useState(false);
   const [globalValue, setGlobalValue] = useState({
     totalAmount: 1183,
-    transaction: 0.07
+    transaction: 0.08
   });
 
   useEffect(() => {
