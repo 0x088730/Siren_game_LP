@@ -3,7 +3,7 @@ import { global } from "~/common/global";
 export default function Chart() {
     return (
         <>
-            <div className="chart-bg absolute top-0 translate-y-52 rounded-3xl p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] h-[60%] min-h-[580px]">
+            <div className="chart-bg absolute top-1 translate-y-52 rounded-3xl p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px] h-[60%] min-h-[580px]">
                 <div className="flex text-3xl font-bold text-[#dcc90a] font-animeace mt-[2.5rem]">
                     <div className="w-[88%] text-center">
                         <div>LISTING PRICE <span className="text-[#00ce2d]">0.11$</span> | 25/MARCH/2024</div>
