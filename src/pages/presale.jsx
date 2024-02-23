@@ -7,6 +7,7 @@ import Account from "~/components/presale/account";
 import { global } from "~/common/global";
 import { addRefer, createProfile, getProfile, getRefCodeList, getWalletStatus } from "~/common/api";
 import MainPresale from "~/components/presale/main";
+import Chart from "~/components/presale/chart";
 
 
 export default function Presale() {
@@ -198,6 +199,7 @@ export default function Presale() {
             <span
               className="absolute right-[1.9rem] top-[8px] text-[18px] text-[#FFBF80] font-lightest"
               style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+              onClick={() => setPage("chart")}
             >
               {t("CHART")}
             </span>
@@ -238,13 +240,16 @@ export default function Presale() {
               setGlobalValue={setGlobalValue}
             />
             :
-            <Account
-              tokenAmount={tokenAmount}
-              setTokenAmount={setTokenAmount}
-              btnType={btnType}
-              bonusRate={bonusRate}
-              setBonusRate={setBonusRate}
-            />
+            page === "chart" ?
+              <Chart />
+              :
+              <Account
+                tokenAmount={tokenAmount}
+                setTokenAmount={setTokenAmount}
+                btnType={btnType}
+                bonusRate={bonusRate}
+                setBonusRate={setBonusRate}
+              />
           }
         </div>
       </div>
