@@ -14,7 +14,7 @@ export default function Chart() {
                     <div className="w-[88%]">
                         <div className="h-[18%] flex items-center justify-center">
                             <div className="w-[62%]"></div>
-                            <div className="w-[38%] h-full flex items-center justify-center text-center relative">PUBLICK SALE <br/> 0.1$<span className="absolute top-1 right-12 text-[#00ce2d] text-[16px]">+10%</span></div>
+                            <div className="w-[38%] h-full flex items-center justify-center text-center relative">PUBLIC SALE <br/> 0.1$<span className="absolute top-1 right-12 text-[#00ce2d] text-[16px]">+10%</span></div>
                         </div>
                         <div className="h-[18%] flex items-center justify-center mt-[3px]">
                             <div className="w-[40%]"></div>
@@ -32,7 +32,7 @@ export default function Chart() {
                         </div>
                     </div>
                     <div className="w-[12%] text-[#dcc90a] text-[15px]">
-                        <div className="h-[20%] flex items-center justify-center">STRAT SOON</div>
+                        <div className="h-[20%] flex items-center justify-center">START SOON</div>
                         <div className="h-[20%] flex items-center justify-center">LIVE</div>
                         <div className="h-[20%] flex items-center justify-center">SOLD OUT</div>
                         <div className="h-[20%] flex items-center justify-center">SOLD OUT</div>
