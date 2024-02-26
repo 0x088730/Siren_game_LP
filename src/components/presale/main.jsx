@@ -87,7 +87,7 @@ export default function MainPresale({
                         className="w-full h-full text-white font-animeace text-1xl bg-[#000000] opacity-70 flex justify-center items-center rounded-xl"
                         style={{ textShadow: "2px 2px #f1617a" }}
                     >
-                        START SOON
+                        PUBLIC SALE START SOON
                     </div>
                 </div>
                 <div className="w-full mb-10">
