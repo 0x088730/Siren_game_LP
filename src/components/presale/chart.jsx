@@ -33,7 +33,7 @@ export default function Chart() {
                     </div>
                     <div className="w-[12%] text-[#dcc90a] text-[15px]">
                         <div className="h-[20%] flex items-center justify-center">START SOON</div>
-                        <div className="h-[20%] flex items-center justify-center">LIVE</div>
+                        <div className="h-[20%] flex items-center justify-center">SOLD OUT</div>
                         <div className="h-[20%] flex items-center justify-center">SOLD OUT</div>
                         <div className="h-[20%] flex items-center justify-center">SOLD OUT</div>
                     </div>
