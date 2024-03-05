@@ -105,7 +105,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md">
                         <div className="text-[#FFFFFF] mx-4">Your Ref Code</div>
                         <div className="text-[#6db1f5] text-[20px] flex h-[43px] border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                            <div className="w-full h-full rounded-lg py-[3px] px-[30px]" style={{ backgroundImage: "linear-gradient(175deg, transparent, #00A3FF)" }}>
+                            <div className="w-full h-full flex rounded-lg py-[3px] px-[30px]" style={{ backgroundImage: "linear-gradient(175deg, transparent, #00A3FF)" }}>
                                 {global.userRef === "" || global.userRef === undefined ?
                                     <>
                                         <div className="cursor-pointer w-fit flex items-center" onClick={() => createRef()}>CREATE</div>

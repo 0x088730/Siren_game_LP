@@ -138,7 +138,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           </svg>
         </button>
         <div
-          className={`absolute right-0 w-64 text-center xl:hidden bg-[#8d70ff] text-3xl transition-transform duration-500 transform ${showFlag.menu ? "translate-x-0" : "translate-x-full"}`}
+          className={`fixed right-0 w-64 text-center xl:hidden bg-[#8d70ff] text-3xl transition-transform duration-500 transform ${showFlag.menu ? "translate-x-0" : "translate-x-full"}`}
         >
           {showFlag.menu === true &&
             menuList.map((menu) => {

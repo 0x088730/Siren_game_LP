@@ -160,7 +160,7 @@ export default function Presale() {
       <Header currentMenu="Presale Admin" />
       <div className="fixed overflow-y-auto overflow-x-hidden flex-col h-full w-full space-y-2 flex items-center justify-center">
         <img src="assets/images/backgrounds/presale-bg.jpg" className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full" />
-        <div className="absolute top-0 w-[300px] sm:w-[500px] lg:w-[1000px] xl:w-[1200px] translate-y-28 flex flex-col lg:flex-row justify-center md:justify-between items-center">
+        <div className="absolute top-0 w-[300px] sm:w-[500px] lg:w-[1000px] xl:w-[1200px] translate-y-28 flex flex-col lg:flex-row justify-center md:justify-between items-center z-10">
           <div className="font-oi text-[#FF9B00] text-[2rem] text-center text-gradient-shadow-stroke">csc <span style={{ WebkitTextFillColor: "white" }}>token presale</span></div>
           <div
             className="wallet-connect text-md text-left text-white cursor-pointer w-[450px] h-16 flex items-end justify-end"
@@ -181,7 +181,7 @@ export default function Presale() {
           </div>
         </div>
         <div className="main-bg w-[1200px] h-[750px] absolute top-0 translate-y-72 sm:translate-y-52 lg:translate-y-40 flex flex-col items-center z-[1]">
-          <div className="w-full flex justify-center items-end h-[150px] p-5 -mt-24 sm:mt-0">
+          <div className="w-full flex justify-center items-end h-[150px] p-5 -mt-24 sm:mt-0 z-0">
             <div
               className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
               onClick={() => {
