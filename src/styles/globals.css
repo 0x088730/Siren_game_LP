@@ -23,8 +23,40 @@
   src: url('../../public/assets/fonts/anime-ace/animeace.ttf');
 }
 
+@font-face {
+  font-family: Skranji;
+  src: url('../../public/assets/fonts/skranji/skranji-regular.ttf');
+}
+
+@font-face {
+  font-family: Oi;
+  src: url('../../public/assets/fonts/oi/Oi-Regular.ttf');
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e6e6e6;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #696969;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c0c0c0;
+}
+
 body {
-  overflow-x: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .animate-whitepaper-bounce {
@@ -79,20 +111,61 @@ body {
   animation: bounce-twice 2s ease-in-out 2;
 }
 
+.home {
+  background-image: url("../../public/assets/images/backgrounds/home.jpg") !important;
+  background-size: 100% 100%;
+}
+
+.howPlay {
+  background-image: url("../../public/assets/images/backgrounds/howPlay.png") !important;
+  background-size: cover;
+}
+
+.waterpaper {
+  background-image: url("../../public/assets/images/backgrounds/whitepaper.jpg") !important;
+  background-size: 100% 100%;
+}
+
+.gemdescription {
+  background-image: url("../../public/assets/images/backgrounds/gemdescription.png") !important;
+  background-size: 100% 100%;
+}
+
+.howEarn {
+  background-image: url("../../public/assets/images/backgrounds/howEarn.jpg") !important;
+  background-size: 100% 100%;
+}
+
+.contact {
+  background-image: url("../../public/assets/images/backgrounds/contact.png") !important;
+  background-size: 100% 100%;
+}
+
 .wallet-connect {
   background-image: url("../../public/assets/images/wallet-bg.png");
   background-size: 100% 100%;
 }
 
-.buy-button-bg {
-  background-image: url("../../public/assets/images/buy-btn.png");
+
+.presale-bg {
+  background-image: url("../../public/assets/images/backgrounds/presale-bg.jpg") !important;
+  background-size: 100% 100%;
+  min-height: 800px;
+}
+
+.main-bg {
+  background-image: url("../../public/assets/images/main-bg.png") !important;
   background-size: 100% 100%;
 }
 
-.presale-bg {
-  background-image: url("../../public/assets/images/bg.jpg") !important;
+.center-bg {
+  background-image: url("../../public/assets/images/main-center.png") !important;
   background-size: 100% 100%;
-  min-height: 800px;
+}
+
+.center-bg-blur {
+  background-image: url("../../public/assets/images/center-bg-blur.png") !important;
+  background-size: 100% 100%;
 }
 
 .usdt-btn {
@@ -141,7 +214,17 @@ body {
 }
 
 .chart-bg {
-  background-image: url("../../public/assets/images/chart_bg.png") !important;
+  background-image: url("../../public/assets/images/chart-bg.png") !important;
+  background-size: 100% 100%;
+}
+
+.text-bg {
+  background-image: url("../../public/assets/images/text-bg.png") !important;
+  background-size: 100% 100%;
+}
+
+.btn-bg {
+  background-image: url("../../public/assets/images/button.png") !important;
   background-size: 100% 100%;
 }
 
@@ -263,4 +346,48 @@ body {
     box-shadow: none;
 
   }
+}
+
+.text-gradient-shadow-stroke {
+  background: -webkit-linear-gradient(left, rgb(243, 196, 50), rgb(255, 155, 0));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 10px black);
+  -webkit-text-stroke: 3px black;
+}
+
+.percent-text {
+  background: -webkit-linear-gradient(left, rgb(243, 196, 50), rgb(255, 155, 0));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.info-bg {
+  background-image: url("../../public/assets/images/backgrounds/htp_bg.jpg") !important;
+  background-size: cover;
+  background-position: center;
+}
+
+.numPresent {
+  background: linear-gradient(94.42deg, rgba(255, 255, 255, 0.1035) 1.32%, rgba(255, 255, 255, 0.09) 100.74%);
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0px 10px 50px rgba(53, 8, 8, 0.2), inset 0px -10px 30px rgba(39, 6, 6, 0.1), inset 0px 10px 30px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+}
+
+.background-position-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  max-width: none;
+}
+
+.background-position-center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  max-width: none;
 }

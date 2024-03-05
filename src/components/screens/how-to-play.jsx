@@ -36,8 +36,8 @@ export default function HowToPlay({animation}) {
     }
   },[animation])
   return (
-    <div className="relative flex items-center w-full h-screen">
-      <img src="assets/images/htp_bg.jpg" alt="" className="absolute object-cover w-full h-full -z-10"/>
+    <div className="relative howPlay flex items-center w-full h-screen">
+      {/* <img src="assets/images/htp_bg.jpg" alt="" className="absolute object-cover w-full h-full -z-10"/> */}
       <div className="flex-col space-y-14 h-full overflow-y-scroll">
         <div className="w-3/5 pt-20 mx-auto text-2xl md:text-4xl text-center text-white duration-1000 lg:text-5xl font-animeace md:pt-40" ref={blockRef0}>
           {t("HOW TO")} <span className="text-yellow-500">{t("PLAY")}</span>

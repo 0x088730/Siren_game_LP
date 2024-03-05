@@ -4,6 +4,7 @@ import { addWithdraw, checkWithdrawDaily, createRefCode } from "~/common/api";
 import { global } from "~/common/global";
 import { useRouter } from "next/router";
 import Web3 from 'web3'
+import { ClaimButton } from "../clickButton";
 
 export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate }) {
     const { t, i18n } = useTranslation();
@@ -72,63 +73,56 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
 
     return (
         <>
-            <div className="absolute top-0 translate-y-60 p-5 w-10/12 lg:w-10/12 xl:w-9/12 2xl:w-7/12 min-w-[1024px]">
-                <div className="w-full flex flex-col justify-center items-center">
-                    <div className="w-[600px] h-[300px] account-bg opacity-90 relative flex justify-around items-center p-4">
-                        <div className="text-[#FFFFFF] font-animeace text-xl absolute top-[35px] left-[35px]">{t("TOTAL BALLANCE:")}</div>
+            <div className="w-[1020px] h-[540px] me-[13px] flex flex-col items-center font-skranji text-white mt-8 sm:mt-0">
+                <div className="w-full flex flex-col justify-center items-center gap-y-4">
+                    <img src="assets/images/balanceTitle.png" alt="" className="mt-6 w-80" />
+                    <div className="w-[400px] sm:w-[500px] md:w-[600px] h-[200px] opacity-90 relative flex justify-between items-center p-4">
                         <div className="text-center">
-                            <div className="text-[#FFFFFF] font-animeace text-lg">CSC TOKEN</div>
-                            <div className="flex justify-center w-full">
-                                <div className="text-lg text-[#dcc90a] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.csc) ? tokenAmount.csc : Number(tokenAmount.csc).toFixed(2)}</div>
+                            <div className="text-[#FFFFFF] text-lg">CSC Token</div>
+                            <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                                <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #C04F0F)" }}>
+                                    <div className="text-lg text-[#dcc90a] w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.csc) ? tokenAmount.csc : Number(tokenAmount.csc).toFixed(2)}</div>
+                                </div>
                             </div>
-                            <div className="flex justify-center cursor-pointer">
-                                <img src="assets/images/claim-btn.png" alt="" className="w-[73px]" />
-                                {/* <div className="text-[#04D4A4] font-bold font-animeace text-[15px] bg-[#363636] w-fit px-[5px] rounded-full border-[3px] border-[#ACB0B8] shadow-[3px_3px_5px_#111111]" style={{ textShadow: "2px 2px 2px black" }}>CLAIM</div> */}
+                            <div className="flex justify-center cursor-pointer mt-2">
+                                <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] font-animeace tracking-tightest">NEXT TOKEN UNLOCK IN: <span className=" text-[#f6b135]">NONE</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">Next token unlock in: <span className=" text-[#f6b135]">none</span></div>
                         </div>
                         <div className="text-center">
-                            <div className="text-[#FFFFFF] font-animeace text-lg">USDT TOKEN</div>
-                            <div className="flex justify-center w-full">
-                                <div className="text-lg text-[#00ff00] font-animeace buy-button-bg w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div>
+                            <div className="text-[#FFFFFF] text-lg">USDT Token</div>
+                            <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                                <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #5DC00F)" }}>
+                                    <div className="text-lg text-[#00ff00] w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div>
+                                </div>
                             </div>
-                            <div className="flex justify-center">
-                                <img src="assets/images/claim-btn.png" alt="" className="w-[73px] cursor-pointer" onClick={claimUSDT} />
-                                {/* <div className="text-[#04D4A4] font-bold font-animeace text-[15px] bg-[#363636] w-fit px-[5px] rounded-full border-[3px] border-[#ACB0B8] shadow-[3px_3px_5px_#111111]" style={{ textShadow: "2px 2px 2px black" }}>CLAIM</div> */}
+                            <div className="flex justify-center mt-2">
+                                <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" onClick={claimUSDT} />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] font-animeace tracking-tightest">MORE ABOUT REF SYSTEM: <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>HERE</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">More about ref system: <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
                         </div>
                     </div>
-                    <div className="w-[600px] font-animeace text-md mt-8">
-                        <div className="text-[#FFFFFF] mx-4">YOUR REF CODE</div>
-                        <div className="progress-bg px-[35px] py-[3px] text-[#6db1f5] flex h-[43px]">
-                            {global.userRef === "" || global.userRef === undefined ?
-                                <>
-                                    <div className="cursor-pointer w-fit flex items-center" onClick={() => createRef()}>CREATE</div>
-                                    <div className="w-full text-center text-[#00ff00] flex items-center justify-center">{ref}</div>
-                                </>
-                                :
-                                <>
-                                    <div className="cursor-pointer w-fit flex items-center">CREATED</div>
-                                    <div className="w-full text-center text-[#00ff00] flex items-center justify-center">{global.userRef}</div>
-                                </>
-                            }
+                    <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md">
+                        <div className="text-[#FFFFFF] mx-4">Your Ref Code</div>
+                        <div className="text-[#6db1f5] text-[20px] flex h-[43px] border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                            <div className="w-full h-full rounded-lg py-[3px] px-[30px]" style={{ backgroundImage: "linear-gradient(175deg, transparent, #00A3FF)" }}>
+                                {global.userRef === "" || global.userRef === undefined ?
+                                    <>
+                                        <div className="cursor-pointer w-fit flex items-center" onClick={() => createRef()}>CREATE</div>
+                                        <div className="w-full text-center text-[#00ff00] flex items-center justify-center">{ref}</div>
+                                    </>
+                                    :
+                                    <>
+                                        <div className="cursor-pointer w-fit flex items-center">CREATED</div>
+                                        <div className="w-full text-center text-[#00ff00] flex items-center justify-center">{global.userRef}</div>
+                                    </>
+                                }
+                            </div>
                         </div>
                     </div>
-                    <div className="w-[600px] font-animeace text-md mt-8">
-                        <div className="text-[#FFFFFF] mx-4">YOUR CURRENT REFERRAL BONUS - {bonusRate}%</div>
+                    <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md mt-8">
+                        <div className="text-[#FFFFFF] mx-4">Your Current Referral Bonus - {bonusRate}%</div>
                         <img src={`assets/images/bonusRate_${bonusRate}.png`} alt="" />
-                        {/* <div className="bg-[#ffffff] border-[3px] border-[#353535] rounded-full py-[3px] text-[14px] text-[#FFFFFF] relative">
-                            <div
-                                className="bg-[#00ff00] h-[20px] rounded-[inherit]"
-                                style={{ width: `${bonusRate ? bonusRate * 30 : 0}px` }}
-                            />
-                            <div className="absolute flex justify-evenly w-full top-0">
-                                <div className="bg-[#00ff00] rounded-full w-[25px] h-[25px] flex justify-center items-center border-[2px] border-[#949494]">5</div>
-                                <div className="bg-[#00ff00] rounded-full w-[25px] h-[25px] flex justify-center items-center border-[2px] border-[#949494]">10</div>
-                                <div className="bg-[#00ff00] rounded-full w-[25px] h-[25px] flex justify-center items-center border-[2px] border-[#949494]">15</div>
-                            </div>
-                        </div> */}
                         <div className="flex justify-evenly w-full text-[#FFFFFF]">
                             <div>0~5000$</div>
                             <div className="mx-[-2rem]">5001~10000$</div>
@@ -137,6 +131,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                 </div>
             </div>
+            <img src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-16rem] sm:-bottom-12 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
         </>
     )
 }

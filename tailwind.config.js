@@ -14,6 +14,8 @@ module.exports = {
       },
       fontFamily: {
         animeace: ['Anime Ace'],
+        skranji: ['Skranji'],
+        oi: ['Oi'],
       },
     },
   },

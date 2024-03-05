@@ -3,21 +3,14 @@ import { Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 import { global } from "~/common/global";
+import { goUrl } from "../utils";
 export default function Header({ currentMenu, setCurrentMenu }) {
   const [showFlag, setShowFlag] = useState({ menu: false });
-  // const [showpresale, setshowPresale] = useState(false);
 
   const router = useRouter()
   const { t, i18n } = useTranslation()
   const menuList = [
-    t('Home'),
-    // t("How To Play"),
     t("WhitePaper"),
-    // t("Gems"),
-    // t("Characters"),
-    // t("How To Earn"),
-    // t("About Us"),
-    // t("Contact"),
     t("Presale"),
     t("Referral Info"),
   ];
@@ -27,7 +20,6 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     global.pageStatus = "main"
     if (menu === t("Presale")) {
       router.push('/presale')
-      //  setshowPresale(true)
     }
     else if (menu === t("Referral Info")) {
       router.push('/referral-info')
@@ -35,11 +27,6 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     else {
       router.push('/')
     }
-    // else {
-    //   setCurrentMenu(menu);
-    //   setShowFlag({ menu: false });
-    // }
-
   };
   const handleLangClick = () => {
     const lang = i18n.language === 'ru' ? 'en' : 'ru';
@@ -49,36 +36,11 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     }
     i18n.changeLanguage(lang);
   }
-  // useEffect(() => {
-  //   if (!menuList.includes(currentMenu)) {
-  //     setCurrentMenu("Home");
-  //   }
-  // }, [currentMenu]);
-  const goPlay = () => {
-    const newPageURL = 'https://play.cryptoshowdown.io/';
-    window.open(newPageURL, '_blank');
-  }
-  const goTelegram = () => {
-    const newPageURL = 'https://t.me/cryptoshowdown';
-    window.open(newPageURL, '_blank');
-  }
-  const goDiscord = () => {
-    const newPageURL = 'https://discord.gg/9FRAyNg9Qh ';
-    window.open(newPageURL, '_blank');
-  }  
-  const goTwitter = () => {
-    const newPageURL = 'https://twitter.com/Crypto_Showdown';
-    window.open(newPageURL, '_blank');
-  }   
 
   return (
-    <div className="fixed w-full h-20 bg-[#8d70ff] z-10 flex items-center shadow-2xl justify-between">
-      <div className="flex items-center justify-start h-full ">
-        <img src="assets/images/logo.png" alt="" className="ml-[15px] w-[300px]" />
-        {/* <div className="px-4 text-xl text-center text-gray-300 cursor-pointer font-animeace lg:text-2xl">
-          «{t("CRYPTO_SHOWDOWN")}»
-        </div> */}
-        <div className="justify-start hidden h-full lg:text-lg px-30 xl:flex">
+    <div className="w-[80%] absolute h-24 z-10 flex items-center justify-center font-skranji text-white">
+      <div className="hidden xl:flex items-center justify-between h-full w-[30%]">
+        <div className="justify-between hidden h-full w-full lg:text-lg px-30 xl:flex">
           {menuList.map((menu) => {
             return (
               <Link
@@ -88,50 +50,50 @@ export default function Header({ currentMenu, setCurrentMenu }) {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={`px-4 hover:bg-[#3d208e] hover:text-orange-300 text-sm font-animeace duration-700 h-full flex items-center cursor-pointer 
-                             hover:scale-105 border-0 border-b-4 border-transparent hover:border-orange-300 text-white ${menu === "Presale" ? "play-btn":""}`}
+                className={`px-4 hover:text-orange-300 text-lg duration-700 h-full flex items-center cursor-pointer 
+                             hover:scale-125 border-0 border-b-4 border-transparent text-white`}
                 onClick={() => handleMenuClick(menu)}
               >
                 {menu}
               </Link>
             );
           })}
-          {/* ${currentMenu === menu
-                    ? "text-orange-300 " : "text-white"
-                  } */}
         </div>
       </div>
+      <img src="assets/images/logo.png" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:mx-32" onClick={() => handleMenuClick("Home")} />
 
-      <div className="items-center hidden h-full space-x-5 xl:flex">
-        <div className="h-1/3">
-          <img
-            src="assets/images/icons/tg.png"
-            alt=""
-            className="object-cover w-full cursor-pointer"
-            onClick={goTelegram}
-          />
+      <div className="items-center hidden h-full space-x-5 xl:flex xl:justify-between w-[30%]">
+        <div className="flex gap-x-4">
+          <div className="h-1/3">
+            <img
+              src="assets/images/tg.png"
+              alt=""
+              className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
+              onClick={() => goUrl('https://t.me/cryptoshowdown')}
+            />
+          </div>
+          <div className="h-1/3">
+            <img
+              src="assets/images/tw.png"
+              alt=""
+              className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
+              onClick={() => goUrl('https://twitter.com/Crypto_Showdown')}
+            />
+          </div>
+          <div className="h-1/3">
+            <img
+              src="assets/images/discord.png"
+              alt=""
+              className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
+              onClick={() => goUrl('https://discord.gg/9FRAyNg9Qh ')}
+            />
+          </div>
         </div>
-        <div className="h-1/3">
-          <img
-            src="assets/images/icons/tw.png"
-            alt=""
-            className="object-cover w-full cursor-pointer"
-            onClick={goTwitter}
-          />
-        </div>
-        <div className="h-1/3">
-          <img
-            src="assets/images/icons/discord.png"
-            alt=""
-            className="object-cover w-full cursor-pointer"
-            onClick={goDiscord}
-          />
-        </div>
-        <div className="flex space-x-2 text-white cursor-pointer font-animeace " onClick={handleLangClick}>
+        <div className="flex space-x-2 text-white cursor-pointer " onClick={handleLangClick}>
 
           <img alt='' className="lang-image" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
           <div>
-            {t('EN')}
+            {t('En')}
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -147,10 +109,12 @@ export default function Header({ currentMenu, setCurrentMenu }) {
               d="M19.5 8.25l-7.5 7.5-7.5-7.5"
             />
           </svg>
-
         </div>
-        <div className="flex items-center justify-center w-32 h-full text-2xl text-white duration-500 cursor-pointer font-animeace bg-cyan-500 hover:bg-cyan-800" onClick={goPlay}>
-          {t('PLAY')}
+        <div
+          className="flex items-center justify-center w-32 h-12 rounded-full text-2xl text-white duration-500 cursor-pointer"
+          style={{ backgroundImage: "linear-gradient(180deg, #F3DF7D, #FF9B00)" }}
+          onClick={() => goUrl('https://play.cryptoshowdown.io/')}>
+          Play
         </div>
       </div>
       <div className="w-1/2 h-full text-right xl:hidden">
@@ -174,8 +138,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           </svg>
         </button>
         <div
-          className={`absolute right-0 w-64 text-center xl:hidden bg-[#8d70ff] text-3xl transition-transform duration-500 transform ${showFlag.menu ? "translate-x-0" : "translate-x-full"
-            }`}
+          className={`absolute right-0 w-64 text-center xl:hidden bg-[#8d70ff] text-3xl transition-transform duration-500 transform ${showFlag.menu ? "translate-x-0" : "translate-x-full"}`}
         >
           {showFlag.menu === true &&
             menuList.map((menu) => {
