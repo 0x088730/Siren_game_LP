@@ -23,7 +23,7 @@ const GemDescription = () => {
                     <div className="flex flex-col xl:flex-row mt-20 gap-y-20 md:gap-x-6">
                         <div className="flex flex-col md:flex-row gap-x-6 gap-y-20">
                             <div className="relative w-[350px] md:w-[310px] h-[270px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                                <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/item/item-infernal-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
+                                <img effect="black-and-white" draggable="false" src="assets/images/item/item-infernal-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
                                 <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #727C007a, transparent)" }}>
                                     <div className="text-[18px] md:text-[22px]">{t("CRITICAL")}</div>
                                     <div className="text-center text-[13px] md:text-[15px]">{t("This gem increases chance of critical attack if equipped on a character.")}</div>
@@ -40,7 +40,7 @@ const GemDescription = () => {
                                 </div>
                             </div>
                             <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                                <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/item/item-chimera-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
+                                <img effect="black-and-white" draggable="false" src="assets/images/item/item-chimera-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
                                 <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #727C007a, transparent)" }}>
                                     <div className="text-[18px] md:text-[22px]">{t("HP")}</div>
                                     <div className="text-center text-[13px] md:text-[15px]">{t("This gem increases hp if equipped on a character.")}</div>
@@ -55,7 +55,7 @@ const GemDescription = () => {
                         </div>
                         <div className="flex flex-col md:flex-row gap-x-6 gap-y-20">
                             <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                                <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/item/item-gem-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
+                                <img effect="black-and-white" draggable="false" src="assets/images/item/item-gem-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
                                 <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #727C007a, transparent)" }}>
                                     <div className="text-[18px] md:text-[22px]">{t("ATTACK")}</div>
                                     <div className="text-center text-[13px] md:text-[15px]">{t("This gem increases attack damage if equipped on a character.")}</div>
@@ -68,11 +68,11 @@ const GemDescription = () => {
                                 </div>
                             </div>
                             <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                                <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/item/box-closed.png" alt="" className="absolute -top-16 md:-top-12 w-[25%] md:w-[30%]" />
+                                <img effect="black-and-white" draggable="false" src="assets/images/item/box-closed.png" alt="" className="absolute -top-16 md:-top-12 w-[25%] md:w-[30%]" />
                                 <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #8900637a, transparent)" }}>
                                     <div className="text-[18px] md:text-[22px]">{t("CHEST")}</div>
                                     <div className="text-center text-[13px] md:text-[15px]">{t("Crystals can only be obtained from chests. Crystals drop from chests randomly and have 3 types of rarity")}</div>
-                                    <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/test-btn.png" alt="" className="cursor-pointer mt-6 md:mt-[3.5rem] w-[55%] md:w-[65%]" onClick={() => setShowClaimWindowFlag(true)} />
+                                    <img effect="black-and-white" draggable="false" src="assets/images/test-btn.png" alt="" className="cursor-pointer mt-6 md:mt-[3.5rem] w-[55%] md:w-[65%]" onClick={() => setShowClaimWindowFlag(true)} />
                                 </div>
                             </div>
                         </div>

@@ -20,7 +20,7 @@ const HowEarn = () => {
             <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/rock4.png" alt="" className="absolute left-0 top-[-25rem] w-[30%] hidden sm:block" />
             <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/rock5.png" alt="" className="absolute right-0 top-[-22rem] w-[30%] hidden sm:block" />
             <div className="main-bg absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-81rem] sm:top-[-57rem] md:top-[-52rem] lg:top-[-26rem] xl:top-[-33rem] flex flex-col-reverse sm:flex-row justify-center items-center">
-                <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/earn-center.png" alt="" className="absolute w-[75%] h-[70%] sm:h-[65%] me-6" />
+                <img effect="black-and-white" draggable="false" src="assets/images/earn-center.png" alt="" className="absolute w-[75%] h-[70%] sm:h-[65%] me-6" />
                 <LazyLoadImage effect="black-and-white" draggable="false" src={`assets/images/characters/idle/${currentCharacter}.gif`} alt="GIF Image" className={`object-cover ${currentCharacter === 2 ? "w-44 sm:w-56" : "w-56 sm:w-64"} me-0 sm:me-16 z-10`} />
                 <div className={`relative text-bg ${currentCharacter === 3 || currentCharacter === 4 ? "w-[365px] sm:w-[380px] h-[370px] sm:h-[370px]" : ""} w-[280px] sm:w-[300px] h-[320px] sm:h-[350px] ml-0 sm:ml-16 z-10 p-4 sm:p-6 flex justify-center items-center`}>
                     <div className="absolute top-6 text-[25px]">{characterData[currentCharacter - 1].header}</div>
@@ -42,14 +42,14 @@ const HowEarn = () => {
                 <div className="font-oi text-[#FF9B00] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[55px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>{t("How to")}</span>{t(" earn")}</div>
                 <div className="flex flex-col md:flex-row my-16 gap-y-16 sm:gap-y-12 md:gap-x-4 xl:gap-x-12">
                     <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                        <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/helmit.png" alt="" className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]" />
+                        <img effect="black-and-white" draggable="false" src="assets/images/helmit.png" alt="" className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]" />
                         <div className="w-full h-full p-4 flex flex-col justify-end items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #005DB27a, transparent)" }}>
                             <div className="text-[22px]">{t("CHARACTERS")}</div>
                             <div className="text-center text-[15px]">{t("Fight in battles for increase your characters level. The higher level your characters have, the better you can improve your land.")}</div>
                         </div>
                     </div>
                     <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
-                        <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/playImg2.png" alt="" className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]" />
+                        <img effect="black-and-white" draggable="false" src="assets/images/playImg2.png" alt="" className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]" />
                         <div className="w-full h-full p-4 flex flex-col justify-end items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #005DB27a, transparent)" }}>
                             <div className="text-[22px]">{t("LAND")}</div>
                             <div className="text-center text-[15px]">{t("Improve your land this opens up all the ways for you to progress in the game, the better your land is inproved, the more you earn.")}</div>

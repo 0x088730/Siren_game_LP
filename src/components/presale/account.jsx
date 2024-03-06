@@ -132,7 +132,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                 </div>
             </div>
-            <LazyLoadImage effect="black-and-white" draggable="false" src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-18rem] sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
+            <img effect="black-and-white" draggable="false" src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-18rem] sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
         </>
     )
 }
