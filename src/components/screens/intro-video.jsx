@@ -30,21 +30,21 @@ export default function IntroVideo() {
       <div className="relative flex flex-col items-center justify-start w-full h-[1519px] mt-[-18rem] sm:mt-[-15rem]">
         <img src="assets/images/backgrounds/howPlay.png" className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-full 2xl:h-full" />
         <div className="font-oi translate-y-[25rem] text-[#FF9B00] text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>How to</span> play</div>
-        <div className="translate-y-[28rem] md:translate-y-[30rem] flex flex-col lg:flex-row gap-y-[3.5rem] md:gap-x-6">
-          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 p-2 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
-            <img src="assets/images/playImg1.png" alt="" className="absolute -top-16 sm:-top-20 w-[55%] sm:w-[66%]" />
+        <div className="translate-y-[28rem] md:translate-y-[30rem] flex flex-col lg:flex-row gap-y-[3.5rem] md:gap-x-4">
+          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
+            <img src="assets/images/playImg1.png" alt="" className="absolute top-[-3.5rem] sm:top-[-3.5rem] w-[55%] sm:w-[66%]" />
             <div className="text-[22px]">FIGHT</div>
-            <div className="text-center text-[14px] sm:text-[15px]">When fighting, your characters become stronger, the higher your characters level , the more building improvements are available to you.</div>
+            <div className="text-center text-[14px]">When fighting, your characters become stronger, the higher your characters level , the more building improvements are available to you.</div>
           </div>
-          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 p-2 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
-            <img src="assets/images/playImg2.png" alt="" className="absolute -top-16 sm:-top-20 w-[55%] sm:w-[66%]" />
+          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
+            <img src="assets/images/playImg2.png" alt="" className="absolute top-[-3.5rem] sm:top-[-3.5rem] w-[55%] sm:w-[66%]" />
             <div className="text-[22px]">BUILD</div>
-            <div className="text-center text-[14px] sm:text-[15px]">Upgrade buildings on your land to get resources and income. Wells give water to restore energy to the characters, buildings give resources and income, the wall protects your land.</div>
+            <div className="text-center text-[14px]">Upgrade buildings on your land to get resources and income. Wells give water to restore energy to the characters, buildings give resources and income, the wall protects your land.</div>
           </div>
-          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 p-2 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
-            <img src="assets/images/playImg3.png" alt="" className="absolute -top-16 sm:-top-20 w-[55%] sm:w-[66%]" />
+          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
+            <img src="assets/images/playImg3.png" alt="" className="absolute top-[-3.5rem] sm:top-[-3.5rem] w-[55%] sm:w-[66%]" />
             <div className="text-[22px]">EARN</div>
-            <div className="text-center text-[14px] sm:text-[15px]">The higher your characters level, the better buildings are developed, the more you earn. Your income depends only on your achievements in the game.</div>
+            <div className="text-center text-[14px]">The higher your characters level, the better buildings are developed, the more you earn. Your income depends only on your achievements in the game.</div>
           </div>
         </div>
         <img src="assets/images/characters/character-5.png" alt="" className="absolute left-16 sm:-left-16 md:left-[-9rem] xl:-left-64 -bottom-8 sm:bottom-0 xl:-bottom-24 w-full sm:w-[60%]" />
@@ -55,8 +55,8 @@ export default function IntroVideo() {
         <img src="assets/images/tree1.png" alt="" className="absolute left-0 top-[-22.5rem] sm:top-[-20.5rem] md:top-[-20rem] xl:-top-8 w-1/2" />
         <img src="assets/images/tree2.png" alt="" className="absolute right-0 top-[-23rem] sm:top-[-21.5rem] xl:-top-20 w-[50.4%]" />
         <div className="relative w-[70rem] flex flex-col justify-start items-center translate-y-[-15rem] sm:translate-y-[-17rem] xl:translate-y-0">
-          <img src="assets/images/cloud.png" alt="" className="absolute" />
-          <img src="assets/images/white-book.png" alt="" className="my-32 z-10" />
+          <img src="assets/images/cloud.png" alt="" className="absolute translate-y-[3rem] md:translate-y-0 lg:translate-y-[-4rem] xl:translate-y-[-2rem]" />
+          <img src="assets/images/white-book.png" alt="" className="my-32 z-10 translate-y-4 lg:translate-y-0 xl:translate-y-8" />
           <ClickButton title="WHITEPAPER" className="w-[18rem] h-20" onClick={() => goUrl('https://cryptoshowdawn.gitbook.io/untitled/')} />
         </div>
       </div>
