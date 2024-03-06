@@ -23,7 +23,7 @@ const ContactUs = () => {
                         <div className="absolute w-full h-full -z-10">
                             <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/member/member2.png" alt="" className="w-full h-full -z-10" />
                         </div>
-                        <div className="text-[22px] mt-20 xl:mt-24">NIKOKAY POPOV</div>
+                        <div className="text-[22px] mt-20 xl:mt-24">NIKOLAY POPOV</div>
                         <div className="text-[18px]">{t("CO-FOUNDER")}</div>
                     </div>
                     <div className="relative w-[300px] xl:w-[420px] h-[170px] xl:h-[225px] flex flex-col justify-center items-center">

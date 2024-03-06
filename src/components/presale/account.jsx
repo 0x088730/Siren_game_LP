@@ -76,7 +76,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
         <>
             <div className="w-[1020px] h-[540px] me-[13px] flex flex-col items-center font-skranji text-white mt-8 sm:mt-0">
                 <div className="w-full flex flex-col justify-center items-center gap-y-4">
-                    <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/balanceTitle.png" alt="" className="mt-6 w-80" />
+                    <div className="font-oi text-[#FF9B00] text-[30px] text-gradient-shadow-stroke-middle text-center" style={{ WebkitTextFillColor: "white" }}>{t("Total balance:")}</div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] h-[200px] opacity-90 relative flex justify-between items-center p-4">
                         <div className="text-center">
                             <div className="text-[#FFFFFF] text-lg">CSC {t("Token")}</div>

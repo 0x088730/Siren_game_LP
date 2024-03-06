@@ -39,7 +39,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   }
 
   return (
-    <div className="w-[80%] fixed h-24 z-10 flex items-center justify-center font-skranji text-white">
+    <div className="w-[80%] absolute h-24 z-10 flex items-center justify-center font-skranji text-white">
       <div className="hidden xl:flex items-center justify-between h-full w-[30%]">
         <div className="justify-between hidden h-full w-full lg:text-lg px-30 xl:flex">
           {menuList.map((menu) => {
@@ -66,7 +66,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
       <div className="items-center hidden h-full space-x-5 xl:flex xl:justify-between w-[30%]">
         <div className="flex gap-x-4">
           <div className="h-1/3">
-            <LazyLoadImage  effect="black-and-white" draggable="false"
+            <LazyLoadImage effect="black-and-white" draggable="false"
               src="assets/images/tg.png"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
@@ -74,7 +74,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             />
           </div>
           <div className="h-1/3">
-            <LazyLoadImage  effect="black-and-white" draggable="false"
+            <LazyLoadImage effect="black-and-white" draggable="false"
               src="assets/images/tw.png"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
@@ -82,7 +82,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             />
           </div>
           <div className="h-1/3">
-            <LazyLoadImage  effect="black-and-white" draggable="false"
+            <LazyLoadImage effect="black-and-white" draggable="false"
               src="assets/images/discord.png"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
@@ -92,10 +92,8 @@ export default function Header({ currentMenu, setCurrentMenu }) {
         </div>
         <div className="flex space-x-2 text-white cursor-pointer " onClick={handleLangClick}>
 
-          <LazyLoadImage  effect="black-and-white" draggable="false" alt='' className="lang-image" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
-          <div>
-            {t('En')}
-          </div>
+          <LazyLoadImage effect="black-and-white" draggable="false" alt='' className="lang-image mx-2" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
+          {i18n.language === 'en' ? t('En') : t('Ru')}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -115,7 +113,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           className="flex items-center justify-center w-32 h-12 rounded-full text-2xl text-white duration-500 cursor-pointer"
           style={{ backgroundImage: "linear-gradient(180deg, #F3DF7D, #FF9B00)" }}
           onClick={() => goUrl('https://play.cryptoshowdown.io/')}>
-          Play
+          {t("Play")}
         </div>
       </div>
       <div className="w-1/2 h-full text-right xl:hidden">

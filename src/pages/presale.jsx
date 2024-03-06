@@ -164,7 +164,7 @@ export default function Presale() {
         <div className="fixed overflow-y-auto overflow-x-hidden flex-col h-full w-full space-y-2 flex items-center justify-center">
           <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/backgrounds/presale-bg.jpg" className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full" />
           <div className="absolute top-0 w-[300px] sm:w-[500px] lg:w-[1000px] xl:w-[1200px] translate-y-28 flex flex-col lg:flex-row justify-center md:justify-between items-center z-10">
-            <div className="font-oi text-[#FF9B00] text-[2rem] text-center text-gradient-shadow-stroke">csc <span style={{ WebkitTextFillColor: "white" }}>{t("token presale")}</span></div>
+            <div className="font-oi text-[#FF9B00] text-[2rem] text-center text-gradient-shadow-stroke-middle">csc <span style={{ WebkitTextFillColor: "white" }}>{t("token presale")}</span></div>
             <div
               className="wallet-connect text-md text-left text-white cursor-pointer w-[450px] h-16 flex items-end justify-end"
               onClick={() => onBtnClick("Connect")}
