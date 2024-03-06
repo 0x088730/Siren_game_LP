@@ -19,32 +19,38 @@ export default function IntroVideo() {
     <div className="relative font-skranji text-white">
       <div className="relative overflow-hidden h-[750px] md:w-full xl:h-screen flex justify-center">
         <img src="assets/images/backgrounds/home.jpg" className="background-position-center-absolute w-[1300px] h-[935px] sm:w-[1920px] sm:h-[1270px] 2xl:w-full 2xl:h-full" />
-        <div className="flex flex-col items-center w-80 translate-y-40">
-          <div className="font-oi text-[#FF9B00] text-[40px] sm:text-[60px] md:text-[70px] lg:text-[80px] xl:text-[90px] 2xl:text-[100px] text-gradient-shadow-stroke text-center">Play Soon</div>
-          <div className="text-center px-16 my-8">The first RPG gacha game on the blockchain</div>
-          <ClickButton title={"GET START"} className="w-60 sm:w-52 lg:w-60 h-20" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
+        <div className="flex flex-col items-center w-[22rem] sm:w-[24rem] md:w-[26rem] lg:w-[26rem] xl:w-[30rem] translate-y-40">
+          <div className="font-oi text-[#FF9B00] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] 2xl:text-[90px] text-gradient-shadow-stroke text-center">Play Soon</div>
+          <div className="text-center px-16 mt-4 lg:mt-0 mb-12 lg:mb-16 text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[28px]">The first RPG gacha game on the blockchain</div>
+          <ClickButton title={"GET START"} className="w-60 sm:w-52 lg:w-[60%] h-20" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
         </div>
         <img src="assets/images/characters/character-1.png" alt="" className="absolute left-0 bottom-[50px] w-1/2 sm:w-[40%]" />
-        <img src="assets/images/characters/character-2.png" alt="" className="absolute right-0 bottom-[50px] w-1/2 sm:w-[40%]" />
+        <img src="assets/images/characters/character-2.png" alt="" className="absolute -right-4 bottom-[50px] w-1/2 sm:w-[40%]" />
       </div>
       <div className="relative flex flex-col items-center justify-start w-full h-[1519px] mt-[-18rem] sm:mt-[-15rem]">
         <img src="assets/images/backgrounds/howPlay.png" className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-full 2xl:h-full" />
         <div className="font-oi translate-y-[25rem] text-[#FF9B00] text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>How to</span> play</div>
         <div className="translate-y-[28rem] md:translate-y-[30rem] flex flex-col lg:flex-row gap-y-[3.5rem] md:gap-x-4">
-          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
+          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
             <img src="assets/images/playImg1.png" alt="" className="absolute top-[-3.5rem] sm:top-[-3.5rem] w-[55%] sm:w-[66%]" />
-            <div className="text-[22px]">FIGHT</div>
-            <div className="text-center text-[14px]">When fighting, your characters become stronger, the higher your characters level , the more building improvements are available to you.</div>
+            <div className="w-full h-full pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #ff4d007a, transparent)" }}>
+              <div className="text-[22px]">FIGHT</div>
+              <div className="text-center text-[14px]">When fighting, your characters become stronger, the higher your characters level , the more building improvements are available to you.</div>
+            </div>
           </div>
-          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
+          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
             <img src="assets/images/playImg2.png" alt="" className="absolute top-[-3.5rem] sm:top-[-3.5rem] w-[55%] sm:w-[66%]" />
-            <div className="text-[22px]">BUILD</div>
-            <div className="text-center text-[14px]">Upgrade buildings on your land to get resources and income. Wells give water to restore energy to the characters, buildings give resources and income, the wall protects your land.</div>
+            <div className="w-full h-full pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #ff4d007a, transparent)" }}>
+              <div className="text-[22px]">BUILD</div>
+              <div className="text-center text-[14px]">Upgrade buildings on your land to get resources and income. Wells give water to restore energy to the characters, buildings give resources and income, the wall protects your land.</div>
+            </div>
           </div>
-          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md" style={{ backgroundImage: "linear-gradient(345deg, #FF4D009c, transparent)" }}>
+          <div className="relative w-[350px] sm:w-[330px] h-[200px] sm:h-[230px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
             <img src="assets/images/playImg3.png" alt="" className="absolute top-[-3.5rem] sm:top-[-3.5rem] w-[55%] sm:w-[66%]" />
-            <div className="text-[22px]">EARN</div>
-            <div className="text-center text-[14px]">The higher your characters level, the better buildings are developed, the more you earn. Your income depends only on your achievements in the game.</div>
+            <div className="w-full h-full pt-16 sm:pt-20 p-4 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #ff4d007a, transparent)" }}>
+              <div className="text-[22px]">EARN</div>
+              <div className="text-center text-[14px]">The higher your characters level, the better buildings are developed, the more you earn. Your income depends only on your achievements in the game.</div>
+            </div>
           </div>
         </div>
         <img src="assets/images/characters/character-5.png" alt="" className="absolute left-16 sm:-left-16 md:left-[-9rem] xl:-left-64 -bottom-8 sm:bottom-0 xl:-bottom-24 w-full sm:w-[60%]" />
@@ -56,8 +62,8 @@ export default function IntroVideo() {
         <img src="assets/images/tree2.png" alt="" className="absolute right-0 top-[-23rem] sm:top-[-21.5rem] xl:-top-20 w-[50.4%]" />
         <div className="relative w-[70rem] flex flex-col justify-start items-center translate-y-[-15rem] sm:translate-y-[-17rem] xl:translate-y-0">
           <img src="assets/images/cloud.png" alt="" className="absolute translate-y-[3rem] md:translate-y-0 lg:translate-y-[-4rem] xl:translate-y-[-2rem]" />
-          <img src="assets/images/white-book.png" alt="" className="my-32 z-10 translate-y-4 lg:translate-y-0 xl:translate-y-8" />
-          <ClickButton title="WHITEPAPER" className="w-[18rem] h-20" onClick={() => goUrl('https://cryptoshowdawn.gitbook.io/untitled/')} />
+          <img src="assets/images/white-book.png" alt="" className="my-32 z-10 translate-y-8 xl:translate-y-12" />
+          <ClickButton title="WHITEPAPER" className="w-1/2 md:w-[24rem] h-20 sm:h-24 md:h-24" onClick={() => goUrl('https://cryptoshowdawn.gitbook.io/untitled/')} />
         </div>
       </div>
       <div className="relative md:hidden md:w-full xl:h-[1428px] flex flex-col justify-center items-center mt-[47rem] sm:mt-[43rem] md:mt-[-22rem]">
@@ -72,50 +78,58 @@ export default function IntroVideo() {
           <div className="font-oi text-[#FF9B00] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[55px] xl:text-[60px] text-center xl:text-left text-gradient-shadow-stroke w-full">Gem<br /><span style={{ WebkitTextFillColor: "white" }}>description</span></div>
           <div className="flex flex-col xl:flex-row mt-20 gap-y-20 md:gap-x-6">
             <div className="flex flex-col md:flex-row gap-x-6 gap-y-20">
-              <div className="relative w-[350px] md:w-[310px] h-[270px] md:h-[340px] p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
-                <img src="assets/images/item/item-infernal-3.png" alt="" className="absolute -top-16 md:-top-20 w-[25%] md:w-[30%]" />
-                <div className="text-[18px] md:text-[22px]">CRITICAL</div>
-                <div className="text-center text-[13px] md:text-[15px]">This gem increases chance of critical attack if equipped on a character.</div>
-                {count.map((number) => (
-                  <div key={number} className="text-[15px] md:text-[18px] flex justify-between border-b-2 border-white my-2 w-full">
-                    <div>{number} LVL GEM GIVE</div>
-                    <div className="percent-text">+{5 * number}%</div>
+              <div className="relative w-[350px] md:w-[310px] h-[270px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                <img src="assets/images/item/item-infernal-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
+                <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #727C007a, transparent)" }}>
+                  <div className="text-[18px] md:text-[22px]">CRITICAL</div>
+                  <div className="text-center text-[13px] md:text-[15px]">This gem increases chance of critical attack if equipped on a character.</div>
+                  {count.map((number) => (
+                    <div key={number} className="text-[15px] md:text-[18px] flex justify-between border-b-2 border-white my-2 w-full">
+                      <div>{number} LVL GEM GIVE</div>
+                      <div className="percent-text">+{5 * number}%</div>
+                    </div>
+                  ))}
+                  <div className="text-[15px] md:text-[18px] flex justify-between my-2 w-full">
+                    <div>INITIAL CRIT CHANCE</div>
+                    <div className="percent-text">+10%</div>
                   </div>
-                ))}
-                <div className="text-[15px] md:text-[18px] flex justify-between my-2 w-full">
-                  <div>INITIAL CRIT CHANCE</div>
-                  <div className="percent-text">+10%</div>
                 </div>
               </div>
-              <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
-                <img src="assets/images/item/item-chimera-3.png" alt="" className="absolute -top-16 md:-top-20 w-[25%] md:w-[30%]" />
-                <div className="text-[18px] md:text-[22px]">HP</div>
-                <div className="text-center text-[13px] md:text-[15px]">This gem increases hp if equipped on a character.</div>
-                {count.map((number) => (
-                  <div key={number} className={`text-[15px] md:text-[18px] flex justify-between ${number === 3 ? "" : "border-b-2"} border-white my-2 w-full`}>
-                    <div>{number} LVL GEM GIVE</div>
-                    <div className="percent-text">+{50 * number} HP</div>
-                  </div>
-                ))}
+              <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                <img src="assets/images/item/item-chimera-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
+                <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #727C007a, transparent)" }}>
+                  <div className="text-[18px] md:text-[22px]">HP</div>
+                  <div className="text-center text-[13px] md:text-[15px]">This gem increases hp if equipped on a character.</div>
+                  {count.map((number) => (
+                    <div key={number} className={`text-[15px] md:text-[18px] flex justify-between ${number === 3 ? "" : "border-b-2"} border-white my-2 w-full`}>
+                      <div>{number} LVL GEM GIVE</div>
+                      <div className="percent-text">+{50 * number} HP</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="flex flex-col md:flex-row gap-x-6 gap-y-20">
-              <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
-                <img src="assets/images/item/item-gem-3.png" alt="" className="absolute -top-16 md:-top-20 w-[25%] md:w-[30%]" />
-                <div className="text-[18px] md:text-[22px]">ATTACK</div>
-                <div className="text-center text-[13px] md:text-[15px]">This gem increases attack damage if equipped on a character.</div>
-                {count.map((number) => (
-                  <div key={number} className={`text-[15px] md:text-[18px] flex justify-between ${number === 3 ? "" : "border-b-2"} border-white my-2 w-full`}>
-                    <div>{number} LVL GEM GIVE</div>
-                    <div className="percent-text">+{10 * number} DMAGE</div>
-                  </div>
-                ))}
+              <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                <img src="assets/images/item/item-gem-3.png" alt="" className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]" />
+                <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #727C007a, transparent)" }}>
+                  <div className="text-[18px] md:text-[22px]">ATTACK</div>
+                  <div className="text-center text-[13px] md:text-[15px]">This gem increases attack damage if equipped on a character.</div>
+                  {count.map((number) => (
+                    <div key={number} className={`text-[15px] md:text-[18px] flex justify-between ${number === 3 ? "" : "border-b-2"} border-white my-2 w-full`}>
+                      <div>{number} LVL GEM GIVE</div>
+                      <div className="percent-text">+{10 * number} DMAGE</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
-                <img src="assets/images/item/box-closed.png" alt="" className="absolute -top-16 md:-top-20 w-[25%] md:w-[30%]" />
-                <div className="text-[18px] md:text-[22px]">CHEST</div>
-                <div className="text-center text-[13px] md:text-[15px]">Crystals can only be obtained from chests. Crystals drop from chests randomly and have 3 types of rarity</div>
-                <img src="assets/images/test-btn.png" alt="" className="cursor-pointer mt-6 w-[55%] md:w-[65%]" onClick={() => setShowClaimWindowFlag(true)} />
+              <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                <img src="assets/images/item/box-closed.png" alt="" className="absolute -top-16 md:-top-12 w-[25%] md:w-[30%]" />
+                <div className="w-full h-full p-5 pt-10 md:p-4 md:pt-16 flex flex-col justify-start items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #8900637a, transparent)" }}>
+                  <div className="text-[18px] md:text-[22px]">CHEST</div>
+                  <div className="text-center text-[13px] md:text-[15px]">Crystals can only be obtained from chests. Crystals drop from chests randomly and have 3 types of rarity</div>
+                  <img src="assets/images/test-btn.png" alt="" className="cursor-pointer mt-6 md:mt-[3.5rem] w-[55%] md:w-[65%]" onClick={() => setShowClaimWindowFlag(true)} />
+                </div>
               </div>
             </div>
           </div>
@@ -183,7 +197,7 @@ export default function IntroVideo() {
               <div className="text-[18px]">ADMINISTRATOR</div>
             </div>
           </div>
-          <ClickButton title="PLAY" className="w-52 h-16 z-10 translate-y-0 sm:translate-y-12 lg:translate-y-0 xl:translate-y-24" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
+          <ClickButton title="PLAY" className="w-[16rem] md:w-[20rem] h-20 sm:h-24 md:h-24 md:text-[30px] lg:text-[35px] xl:text-[40px] z-10 translate-y-0 sm:translate-y-12 lg:translate-y-0 xl:translate-y-24" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
         </div>
         <img src="assets/images/rock8.png" alt="" className="absolute left-0 -bottom-4 w-[40%]" />
         <img src="assets/images/rock9.png" alt="" className="absolute right-0 -bottom-4 w-1/2" />

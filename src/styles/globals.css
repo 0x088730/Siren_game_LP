@@ -349,7 +349,7 @@ body {
 }
 
 .text-gradient-shadow-stroke {
-  background: -webkit-linear-gradient(left, rgb(243, 196, 50), rgb(255, 155, 0));
+  background: -webkit-linear-gradient(left, rgb(255 218 102), rgb(255, 155, 0));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 10px black);
@@ -357,7 +357,7 @@ body {
 }
 
 .percent-text {
-  background: -webkit-linear-gradient(left, rgb(243, 196, 50), rgb(255, 155, 0));
+  background: -webkit-linear-gradient(left, rgb(255 218 102), rgb(255, 155, 0));
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
