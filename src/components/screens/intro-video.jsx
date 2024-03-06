@@ -163,15 +163,19 @@ export default function IntroVideo() {
         <div className="flex flex-col justify-start items-center translate-y-[-43%] sm:translate-y-[-70%] md:translate-y-[-22rem] lg:translate-y-8 xl:translate-y-0 -mt-20 sm:mt-[20rem] md:mt-[22rem]">
           <div className="font-oi text-[#FF9B00] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[55px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>How to</span> earn</div>
           <div className="flex flex-col md:flex-row my-16 gap-y-16 sm:gap-y-12 md:gap-x-4 xl:gap-x-12">
-            <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] p-4 flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
+            <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
               <img src="assets/images/helmit.png" alt="" className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]" />
-              <div className="text-[22px]">CHARACTERS</div>
-              <div className="text-center text-[15px]">Fight in battles for increase your characters level. The higher level your characters have, the better you can improve your land.</div>
+              <div className="w-full h-full p-4 flex flex-col justify-end items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #005DB27a, transparent)" }}>
+                <div className="text-[22px]">CHARACTERS</div>
+                <div className="text-center text-[15px]">Fight in battles for increase your characters level. The higher level your characters have, the better you can improve your land.</div>
+              </div>
             </div>
-            <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] p-4 flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
+            <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
               <img src="assets/images/playImg2.png" alt="" className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]" />
-              <div className="text-[22px]">LAND</div>
-              <div className="text-center text-[15px]">Improve your land this opens up all the ways for you to progress in the game, the better your land is inproved, the more you earn.</div>
+              <div className="w-full h-full p-4 flex flex-col justify-end items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #005DB27a, transparent)" }}>
+                <div className="text-[22px]">LAND</div>
+                <div className="text-center text-[15px]">Improve your land this opens up all the ways for you to progress in the game, the better your land is inproved, the more you earn.</div>
+              </div>
             </div>
           </div>
         </div>
