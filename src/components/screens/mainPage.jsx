@@ -14,8 +14,8 @@ const MainPage = () => {
                 <div className="text-center px-16 mt-4 lg:mt-0 mb-12 lg:mb-16 text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[28px]">{t("The first RPG gacha game on the blockchain")}</div>
                 <ClickButton title={t("GET START")} className="w-60 sm:w-52 lg:w-[60%] h-20" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
             </div>
-            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/characters/character-1.png" alt="" className="absolute left-0 bottom-[50px] w-1/2 sm:w-[40%]" />
-            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/characters/character-2.png" alt="" className="absolute -right-4 bottom-[50px] w-1/2 sm:w-[40%]" />
+            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/characters/character-1.gif" alt="" className="absolute left-0 bottom-[50px] w-[55%] sm:w-[42%]" />
+            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/characters/character-2.gif" alt="" className="absolute -right-4 bottom-[50px] w-[45%] sm:w-[36%]" />
         </div>
     );
 }
