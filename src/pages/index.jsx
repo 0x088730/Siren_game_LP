@@ -4,7 +4,6 @@ import { counterUser } from "~/common/api";
 import i18next from "~/global/i18n";
 
 const Header = React.lazy(() => import('~/components/screens/header'));
-const IntroVideo = React.lazy(() => import('~/components/screens/intro-video'));
 const MainPage = React.lazy(() => import('~/components/screens/mainPage'));
 const HowPlay = React.lazy(() => import('~/components/screens/howPlay'));
 const WhitePaper = React.lazy(() => import('~/components/screens/whitePaper'));
@@ -55,9 +54,6 @@ export default function Home() {
                 <ContactUs />
               </Suspense>
             </div>
-            {/* <Suspense fallback={<div></div>}>
-              <IntroVideo />
-            </Suspense> */}
           </div>
         </div>
       </I18nextProvider>
