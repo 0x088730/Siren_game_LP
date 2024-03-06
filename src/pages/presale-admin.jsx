@@ -11,6 +11,7 @@ import Chart from "~/components/presale/chart";
 import MainPresaleAdmin from "~/components/presale/main-admin";
 import { goUrl } from "~/components/utils";
 import i18next from "~/global/i18n";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function PresaleAdmin() {
   const { t, i18n } = useTranslation();
@@ -162,7 +163,7 @@ export default function PresaleAdmin() {
       <div className="relative flex justify-center font-skranji">
         <Header currentMenu="Presale Admin" />
         <div className="fixed overflow-y-auto overflow-x-hidden flex-col h-full w-full space-y-2 flex items-center justify-center">
-          <img src="assets/images/backgrounds/presale-bg.jpg" className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full" />
+          <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/backgrounds/presale-bg.jpg" className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full" />
           <div className="absolute top-0 w-[300px] sm:w-[500px] lg:w-[1000px] xl:w-[1200px] translate-y-28 flex flex-col lg:flex-row justify-center md:justify-between items-center z-10">
             <div className="font-oi text-[#FF9B00] text-[2rem] text-center text-gradient-shadow-stroke">csc <span style={{ WebkitTextFillColor: "white" }}>{t("token presale")}</span></div>
             <div
@@ -173,11 +174,11 @@ export default function PresaleAdmin() {
               <span className="ref-btn w-[280px] h-[2.7rem] mb-[4px] font-[900] flex justify-center items-center" style={{ textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}>
                 {btnType === "Connect" ?
                   <>
-                    <img src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{t("CONNECT METAMASK")}
+                    <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{t("CONNECT METAMASK")}
                   </>
                   :
                   <>
-                    <img src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{address}
+                    <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/metamask.png" alt="" className="w-6 inline me-1" />{address}
                   </>
                 }
               </span>
@@ -252,11 +253,11 @@ export default function PresaleAdmin() {
           </div>
           <div className="absolute left-12 pb-12 translate-y-[45rem] sm:hidden flex flex-col sm:flex-row justify-around w-full mb-12 z-30 text-white">
             <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>
-            <div className="flex items-center my-8 sm:my-0"><img src="assets/images/sms.png" alt="" className="me-2" />ADM@SOURCE-CODE.WORK</div>
+            <div className="flex items-center my-8 sm:my-0"><LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/sms.png" alt="" className="me-2" />ADM@SOURCE-CODE.WORK</div>
             <div className="flex gap-x-4 items-center">
-              <img src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://twitter.com/Crypto_Showdown")} />
-              <img src="assets/images/tg.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://t.me/cryptoshowdown")} />
-              <img src="assets/images/discord.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")} />
+              <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://twitter.com/Crypto_Showdown")} />
+              <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/tg.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://t.me/cryptoshowdown")} />
+              <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/discord.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")} />
             </div>
           </div>
         </div>

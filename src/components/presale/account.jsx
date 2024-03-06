@@ -5,6 +5,7 @@ import { global } from "~/common/global";
 import { useRouter } from "next/router";
 import Web3 from 'web3'
 import { ClaimButton } from "../clickButton";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate }) {
     const { t, i18n } = useTranslation();
@@ -75,7 +76,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
         <>
             <div className="w-[1020px] h-[540px] me-[13px] flex flex-col items-center font-skranji text-white mt-8 sm:mt-0">
                 <div className="w-full flex flex-col justify-center items-center gap-y-4">
-                    <img src="assets/images/balanceTitle.png" alt="" className="mt-6 w-80" />
+                    <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/balanceTitle.png" alt="" className="mt-6 w-80" />
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] h-[200px] opacity-90 relative flex justify-between items-center p-4">
                         <div className="text-center">
                             <div className="text-[#FFFFFF] text-lg">CSC {t("Token")}</div>
@@ -122,7 +123,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md mt-8">
                         <div className="text-[#FFFFFF] mx-4">{t("Your Current Referral Bonus")} - {bonusRate}%</div>
-                        <img src={`assets/images/bonusRate_${bonusRate}.png`} alt="" />
+                        <LazyLoadImage effect="black-and-white" draggable="false" src={`assets/images/bonusRate_${bonusRate}.png`} alt="" />
                         <div className="flex justify-evenly w-full text-[#FFFFFF]">
                             <div>0~5000$</div>
                             <div className="mx-[-2rem]">5001~10000$</div>
@@ -131,7 +132,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                 </div>
             </div>
-            <img src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-18rem] sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
+            <LazyLoadImage effect="black-and-white" draggable="false" src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-18rem] sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
         </>
     )
 }

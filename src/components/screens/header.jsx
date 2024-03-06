@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 import { global } from "~/common/global";
 import { goUrl } from "../utils";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Header({ currentMenu, setCurrentMenu }) {
   const [showFlag, setShowFlag] = useState({ menu: false });
 
@@ -60,12 +61,12 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           })}
         </div>
       </div>
-      <img src="assets/images/logo.png" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:mx-32" onClick={() => handleMenuClick("Home")} />
+      <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/logo.png" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:mx-32" onClick={() => handleMenuClick("Home")} />
 
       <div className="items-center hidden h-full space-x-5 xl:flex xl:justify-between w-[30%]">
         <div className="flex gap-x-4">
           <div className="h-1/3">
-            <img
+            <LazyLoadImage  effect="black-and-white" draggable="false"
               src="assets/images/tg.png"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
@@ -73,7 +74,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             />
           </div>
           <div className="h-1/3">
-            <img
+            <LazyLoadImage  effect="black-and-white" draggable="false"
               src="assets/images/tw.png"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
@@ -81,7 +82,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
             />
           </div>
           <div className="h-1/3">
-            <img
+            <LazyLoadImage  effect="black-and-white" draggable="false"
               src="assets/images/discord.png"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
@@ -91,7 +92,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
         </div>
         <div className="flex space-x-2 text-white cursor-pointer " onClick={handleLangClick}>
 
-          <img alt='' className="lang-image" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
+          <LazyLoadImage  effect="black-and-white" draggable="false" alt='' className="lang-image" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
           <div>
             {t('En')}
           </div>
