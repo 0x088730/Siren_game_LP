@@ -38,7 +38,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   }
 
   return (
-    <div className="w-[80%] absolute h-24 z-10 flex items-center justify-center font-skranji text-white">
+    <div className="w-[80%] fixed h-24 z-10 flex items-center justify-center font-skranji text-white">
       <div className="hidden xl:flex items-center justify-between h-full w-[30%]">
         <div className="justify-between hidden h-full w-full lg:text-lg px-30 xl:flex">
           {menuList.map((menu) => {

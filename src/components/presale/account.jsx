@@ -78,7 +78,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     <img src="assets/images/balanceTitle.png" alt="" className="mt-6 w-80" />
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] h-[200px] opacity-90 relative flex justify-between items-center p-4">
                         <div className="text-center">
-                            <div className="text-[#FFFFFF] text-lg">CSC Token</div>
+                            <div className="text-[#FFFFFF] text-lg">CSC {t("Token")}</div>
                             <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #C04F0F)" }}>
                                     <div className="text-lg text-[#dcc90a] w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.csc) ? tokenAmount.csc : Number(tokenAmount.csc).toFixed(2)}</div>
@@ -87,10 +87,10 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                             <div className="flex justify-center cursor-pointer mt-2">
                                 <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">Next token unlock in: <span className=" text-[#f6b135]">none</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("Next token unlock in:")}<br className="block sm:hidden" /> <span className="text-[#f6b135]">none</span></div>
                         </div>
                         <div className="text-center">
-                            <div className="text-[#FFFFFF] text-lg">USDT Token</div>
+                            <div className="text-[#FFFFFF] text-lg">USDT {t("Token")}</div>
                             <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #5DC00F)" }}>
                                     <div className="text-lg text-[#00ff00] w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div>
@@ -99,21 +99,21 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                             <div className="flex justify-center mt-2">
                                 <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" onClick={claimUSDT} />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">More about ref system: <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("More about ref system:")}<br className="block sm:hidden" /> <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
                         </div>
                     </div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md">
-                        <div className="text-[#FFFFFF] mx-4">Your Ref Code</div>
+                        <div className="text-[#FFFFFF] mx-4">{t("Your Ref Code")}</div>
                         <div className="text-[#6db1f5] text-[20px] flex h-[43px] border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                             <div className="w-full h-full flex rounded-lg py-[3px] px-[30px]" style={{ backgroundImage: "linear-gradient(175deg, transparent, #00A3FF)" }}>
                                 {global.userRef === "" || global.userRef === undefined ?
                                     <>
-                                        <div className="cursor-pointer w-fit flex items-center" onClick={() => createRef()}>CREATE</div>
+                                        <div className="cursor-pointer w-fit flex items-center" onClick={() => createRef()}>{t("CREATE")}</div>
                                         <div className="w-full text-center text-[#00ff00] flex items-center justify-center">{ref}</div>
                                     </>
                                     :
                                     <>
-                                        <div className="cursor-pointer w-fit flex items-center">CREATED</div>
+                                        <div className="cursor-pointer w-fit flex items-center">{t("CREATED")}</div>
                                         <div className="w-full text-center text-[#00ff00] flex items-center justify-center">{global.userRef}</div>
                                     </>
                                 }
@@ -121,7 +121,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                         </div>
                     </div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md mt-8">
-                        <div className="text-[#FFFFFF] mx-4">Your Current Referral Bonus - {bonusRate}%</div>
+                        <div className="text-[#FFFFFF] mx-4">{t("Your Current Referral Bonus")} - {bonusRate}%</div>
                         <img src={`assets/images/bonusRate_${bonusRate}.png`} alt="" />
                         <div className="flex justify-evenly w-full text-[#FFFFFF]">
                             <div>0~5000$</div>
@@ -131,7 +131,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                 </div>
             </div>
-            <img src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-16rem] sm:-bottom-12 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
+            <img src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-[-18rem] sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
         </>
     )
 }

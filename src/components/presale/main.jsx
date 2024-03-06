@@ -83,7 +83,7 @@ export default function MainPresale({
     return (
         <>
             <div className="center-bg-blur w-[1010px] h-[540px] me-[13px] flex flex-col justify-center items-center mt-8 sm:mt-0">
-                <div className="font-oi text-[2rem] text-center text-gradient-shadow-stroke" style={{ WebkitTextFillColor: "white" }}>Public Sale<br/> Start Soon</div>
+                <div className="font-oi text-[2rem] text-center text-gradient-shadow-stroke" style={{ WebkitTextFillColor: "white" }}>{t("Public Sale")}<br/>{t(" Start Soon")}</div>
                 {/* <div className="w-[750px] lg:w-[900px] mt-4 text-white font-skranji">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="flex justify-evenly flex-col w-[350px] lg:w-[420px]">

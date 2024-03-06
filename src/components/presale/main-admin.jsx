@@ -88,8 +88,8 @@ export default function MainPresaleAdmin({
                         <div className="flex justify-evenly flex-col w-[350px] lg:w-[420px]">
                             <div className="text-1xl font-bold flex justify-between">
                                 {t("NEXT PRICE UPDATE: ")}
-                                <span>
-                                    <span className="text-[#dcc90a]">{date.day + " DAYS: " + date.hour + " HOURS"}</span>
+                                <span className="text-end">
+                                    <span className="text-[#dcc90a]">{date.day + t(" DAYS: ") + date.hour + t(" HOURS")}</span>
                                     <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
                                 </span>
                             </div>
@@ -98,7 +98,7 @@ export default function MainPresaleAdmin({
                                 <span className="text-[#dcc90a]">{globalValue.transaction + " USDT"}</span>
                             </div>
                             <div className="text-1xl flex justify-between">
-                                <div className="font-bold">TOTAL SOLD:</div>
+                                <div className="font-bold">{t("TOTAL SOLD:")}</div>
                                 <div className="font-bold text-[#51ff3a] flex tracking-[2px]">
                                     <img src="assets/images/usdt.png" alt="" className="w-6 h-6 me-4" />{FormatNumber(globalValue.totalAmount)}
                                 </div>
@@ -113,22 +113,22 @@ export default function MainPresaleAdmin({
                                     {t("NETWORK: ")}<span className="text-[#ffd616] ml-2">{t("BNB")}</span>
                                 </div>
                             </div>
-                            <ClaimButton title="Referral system" className="w-full h-10 text-xl" onClick={goRefInfo} />
+                            <ClaimButton title={t("Referral system")} className="w-full h-10 text-xl" onClick={goRefInfo} />
                         </div>
                     </div>
                 </div>
                 {!buyStatus ?
                     !pendingStatus ?
                         <>
-                            <LabelButton title={"YOU PAY"} class="mt-8" buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+                            <LabelButton title={t("YOU PAY")} class="mt-8" buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
                         </>
                         :
                         <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1rem] font-bold tracking-[-1.2px] relative">
-                            <span class="loader"></span>TRANSACTION PENDING DON'T CLOSE THIS WINDOW
+                            <span class="loader"></span>{t("TRANSACTION PENDING DON'T CLOSE THIS WINDOW")}
                         </div>
                     :
                     <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1.5rem] relative">
-                        BUY SUCCESSFUL:
+                        {t("BUY SUCCESSFUL:")}
                         <span
                             className="cryptoIcon w-[100px] h-[100px] mx-[10px] text-[#fdce35] font-[800] text-[1.8rem] flex justify-center items-center"
                             style={{ WebkitTextStroke: "0.1px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
@@ -141,9 +141,9 @@ export default function MainPresaleAdmin({
                         <button className="absolute right-[1rem] bottom-[1rem] font-[600] text-[#111111] text-[15px] bg-[#a1a1a1] w-fit px-[10px] rounded-full border-[2px] border-[#111111] shadow-[3px_3px_5px_#111111]" onClick={() => buyOkay()}>OKAY</button>
                     </div>
                 }
-                <LabelButton title={"YOU RECEIVE"} buyStatus={buyStatus} color="text-yellow-500" img="assets/images/cryptoIcon.png" receiveAmount={receiveAmount} />
-                <LabelButton title={"ENTER CODE"} buyStatus={buyStatus} onChange={(e) => getEnterCode(e)} />
-                <ClickButton title="BUY" className="w-60 h-12 text-white" onClick={() => onBtnClick("Buy")} />
+                <LabelButton title={t("YOU RECEIVE")} buyStatus={buyStatus} color="text-yellow-500" img="assets/images/cryptoIcon.png" receiveAmount={receiveAmount} />
+                <LabelButton title={t("ENTER CODE")} buyStatus={buyStatus} onChange={(e) => getEnterCode(e)} />
+                <ClickButton title={t("BUY")} className="w-60 h-12 text-white" onClick={() => onBtnClick("Buy")} />
                 <div className="font-bold text-white">
                     <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
                     <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
