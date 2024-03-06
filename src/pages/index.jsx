@@ -5,6 +5,12 @@ import i18next from "~/global/i18n";
 
 const Header = React.lazy(() => import('~/components/screens/header'));
 const IntroVideo = React.lazy(() => import('~/components/screens/intro-video'));
+const MainPage = React.lazy(() => import('~/components/screens/mainPage'));
+const HowPlay = React.lazy(() => import('~/components/screens/howPlay'));
+const WhitePaper = React.lazy(() => import('~/components/screens/whitePaper'));
+const GemDescription = React.lazy(() => import('~/components/screens/gemDescription'));
+const HowEarn = React.lazy(() => import('~/components/screens/howEarn'));
+const ContactUs = React.lazy(() => import('~/components/screens/contactUs'));
 
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState("Home");
@@ -29,9 +35,29 @@ export default function Home() {
             </Suspense>
           </div>
           <div id="Home" className="w-full">
-            <Suspense fallback={<div></div>}>
+            <div className="relative font-skranji text-white">
+              <Suspense fallback={<div></div>}>
+                <MainPage />
+              </Suspense>
+              <Suspense fallback={<div></div>}>
+                <HowPlay />
+              </Suspense>
+              <Suspense fallback={<div></div>}>
+                <WhitePaper />
+              </Suspense>
+              <Suspense fallback={<div></div>}>
+                <GemDescription />
+              </Suspense>
+              <Suspense fallback={<div></div>}>
+                <HowEarn />
+              </Suspense>
+              <Suspense fallback={<div></div>}>
+                <ContactUs />
+              </Suspense>
+            </div>
+            {/* <Suspense fallback={<div></div>}>
               <IntroVideo />
-            </Suspense>
+            </Suspense> */}
           </div>
         </div>
       </I18nextProvider>
