@@ -4,6 +4,7 @@ import Header from "~/components/screens/header";
 import { useRouter } from "next/router";
 import { global } from "~/common/global";
 import { ClickButton } from "~/components/clickButton";
+import { goUrl } from "~/components/utils";
 
 export default function ReferralInfo() {
   const router = useRouter()
@@ -64,9 +65,9 @@ export default function ReferralInfo() {
             <div>©SOURCECODE<br />ALL RIGHTS RESERVERD</div>
             <div className="flex items-center my-8 sm:my-0"><img src="assets/images/sms.png" alt="" className="me-2" />ADM@SOURCE-CODE.WORK</div>
             <div className="flex gap-x-4 items-center">
-              <img src="assets/images/tw.png" alt="" className="" />
-              <img src="assets/images/tg.png" alt="" className="" />
-              <img src="assets/images/discord.png" alt="" className="" />
+              <img src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://twitter.com/Crypto_Showdown")} />
+              <img src="assets/images/tg.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://t.me/cryptoshowdown")} />
+              <img src="assets/images/discord.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")} />
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
                              hover:scale-125 border-0 border-b-4 border-transparent text-white`}
                 onClick={() => handleMenuClick(menu)}
               >
-                {menu}
+                {t(menu)}
               </Link>
             );
           })}

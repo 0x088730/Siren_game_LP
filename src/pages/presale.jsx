@@ -8,6 +8,7 @@ import { global } from "~/common/global";
 import { addRefer, createProfile, getProfile, getRefCodeList, getWalletStatus } from "~/common/api";
 import MainPresale from "~/components/presale/main";
 import Chart from "~/components/presale/chart";
+import { goUrl } from "~/components/utils";
 
 
 export default function Presale() {
@@ -251,9 +252,9 @@ export default function Presale() {
           <div>©SOURCECODE<br />ALL RIGHTS RESERVERD</div>
           <div className="flex items-center my-8 sm:my-0"><img src="assets/images/sms.png" alt="" className="me-2" />ADM@SOURCE-CODE.WORK</div>
           <div className="flex gap-x-4 items-center">
-            <img src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goPlay("https://twitter.com/Crypto_Showdown")} />
-            <img src="assets/images/tg.png" alt="" className="cursor-pointer" onClick={() => goPlay("https://t.me/cryptoshowdown")} />
-            <img src="assets/images/discord.png" alt="" className="cursor-pointer" onClick={() => goPlay("https://discord.gg/9FRAyNg9Qh")} />
+            <img src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://twitter.com/Crypto_Showdown")} />
+            <img src="assets/images/tg.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://t.me/cryptoshowdown")} />
+            <img src="assets/images/discord.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")} />
           </div>
         </div>
       </div>

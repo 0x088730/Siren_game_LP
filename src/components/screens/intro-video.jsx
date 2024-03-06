@@ -3,6 +3,7 @@ import { useState } from "react";
 import Claim from "./claim";
 import { goUrl } from "../utils";
 import Home from "~/pages";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function IntroVideo() {
   const count = [1, 2, 3];
@@ -19,7 +20,8 @@ export default function IntroVideo() {
   return (
     <div className="relative font-skranji text-white">
       <div className="relative overflow-hidden h-[750px] md:w-full xl:h-screen flex justify-center">
-        <img src="assets/images/backgrounds/home.jpg" className="background-position-center-absolute w-[1300px] h-[935px] sm:w-[1920px] sm:h-[1270px] 2xl:w-full 2xl:h-full" />
+        <LazyLoadImage src="assets/images/backgrounds/home.jpg" effect="opacity" className="background-position-center-absolute w-[1300px] h-[935px] sm:w-[1920px] sm:h-[1270px] 2xl:w-full 2xl:h-full" />
+        {/* <img src="assets/images/backgrounds/home.jpg" className="background-position-center-absolute w-[1300px] h-[935px] sm:w-[1920px] sm:h-[1270px] 2xl:w-full 2xl:h-full" /> */}
         <div className="flex flex-col items-center w-80 translate-y-40">
           <div className="font-oi text-[#FF9B00] text-[40px] sm:text-[60px] md:text-[70px] lg:text-[80px] xl:text-[90px] 2xl:text-[100px] text-gradient-shadow-stroke text-center">Play Soon</div>
           <div className="text-center px-16 my-8">The first RPG gacha game on the blockchain</div>
@@ -32,20 +34,20 @@ export default function IntroVideo() {
         <img src="assets/images/backgrounds/howPlay.png" className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-full 2xl:h-full" />
         <div className="font-oi translate-y-[25rem] text-[#FF9B00] text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>How to</span> play</div>
         <div className="translate-y-[30rem] flex flex-col lg:flex-row gap-y-12 md:gap-x-12">
-          <div className="relative w-[350px] sm:w-[300px] h-[200px] sm:h-[250px] p-8 flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
+          <div className="relative w-[350px] sm:w-[300px] h-[200px] sm:h-[250px] pt-16 p-2 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
             <img src="assets/images/playImg1.png" alt="" className="absolute -top-16 sm:-top-20 w-[55%] sm:w-[75%]" />
             <div className="text-[22px]">FIGHT</div>
-            <div className="text-center text-[15px]">When fighting, your characters become stronger, the higher your characters level , the more building improvements are available to you.</div>
+            <div className="text-center text-[14px] sm:text-[15px]">When fighting, your characters become stronger, the higher your characters level , the more building improvements are available to you.</div>
           </div>
-          <div className="relative w-[350px] sm:w-[300px] h-[200px] sm:h-[250px] p-8 flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
+          <div className="relative w-[350px] sm:w-[300px] h-[200px] sm:h-[250px] pt-16 p-2 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
             <img src="assets/images/playImg2.png" alt="" className="absolute -top-16 sm:-top-20 w-[55%] sm:w-[75%]" />
             <div className="text-[22px]">BUILD</div>
-            <div className="text-center text-[15px]">Upgrade buildings on your land to get resources and income. Wells give water to restore energy to the characters, buildings give resources and income, the wall protects your land.</div>
+            <div className="text-center text-[14px] sm:text-[15px]">Upgrade buildings on your land to get resources and income. Wells give water to restore energy to the characters, buildings give resources and income, the wall protects your land.</div>
           </div>
-          <div className="relative w-[350px] sm:w-[300px] h-[200px] sm:h-[250px] p-8 flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
+          <div className="relative w-[350px] sm:w-[300px] h-[200px] sm:h-[250px] pt-16 p-2 flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
             <img src="assets/images/playImg3.png" alt="" className="absolute -top-16 sm:-top-20 w-[55%] sm:w-[75%]" />
             <div className="text-[22px]">EARN</div>
-            <div className="text-center text-[15px]">The higher your characters level, the better buildings are developed, the more you earn. Your income depends only on your achievements in the game.</div>
+            <div className="text-center text-[14px] sm:text-[15px]">The higher your characters level, the better buildings are developed, the more you earn. Your income depends only on your achievements in the game.</div>
           </div>
         </div>
         <img src="assets/images/characters/character-5.png" alt="" className="absolute left-16 sm:-left-16 md:left-[-9rem] xl:-left-64 bottom-0 sm:bottom-0 xl:-bottom-24 w-full sm:w-[60%]" />
@@ -55,7 +57,8 @@ export default function IntroVideo() {
         <img src="assets/images/backgrounds/whitepaper.jpg" className="background-position-center-absolute w-[1920px] h-[1200px] 2xl:w-full 2xl:h-full" />
         <img src="assets/images/tree1.png" alt="" className="absolute left-0 top-[-22.5rem] sm:top-[-20.5rem] md:top-[-20rem] xl:-top-8 w-1/2" />
         <img src="assets/images/tree2.png" alt="" className="absolute right-0 top-[-23rem] sm:top-[-21.5rem] xl:-top-20 w-[50.4%]" />
-        <div className="flex flex-col justify-start items-center translate-y-[-15rem] sm:translate-y-[-17rem] xl:translate-y-0">
+        <div className="relative w-[70rem] flex flex-col justify-start items-center translate-y-[-15rem] sm:translate-y-[-17rem] xl:translate-y-0">
+          <img src="assets/images/cloud.png" alt="" className="absolute" />
           <img src="assets/images/white-book.png" alt="" className="my-32 z-10" />
           <ClickButton title="WHITEPAPER" className="w-[18rem] h-20" onClick={() => goUrl('https://cryptoshowdawn.gitbook.io/untitled/')} />
         </div>
@@ -183,7 +186,7 @@ export default function IntroVideo() {
               <div className="text-[18px]">ADMINISTRATOR</div>
             </div>
           </div>
-          <ClickButton title="PLAY" className="w-52 h-16 z-10" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
+          <ClickButton title="PLAY" className="w-52 h-16 z-10 translate-y-0 sm:translate-y-12 lg:translate-y-0 xl:translate-y-24" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
         </div>
         <img src="assets/images/rock8.png" alt="" className="absolute left-0 -bottom-4 w-[40%]" />
         <img src="assets/images/rock9.png" alt="" className="absolute right-0 -bottom-4 w-1/2" />
