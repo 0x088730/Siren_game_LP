@@ -21,7 +21,7 @@ const HowEarn = () => {
             <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/rock5.png" alt="" className="absolute right-0 top-[-22rem] w-[30%] hidden sm:block" />
             <div className="main-bg absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-81rem] sm:top-[-57rem] md:top-[-52rem] lg:top-[-26rem] xl:top-[-33rem] flex flex-col-reverse sm:flex-row justify-center items-center">
                 <img effect="black-and-white" draggable="false" src="assets/images/earn-center.png" alt="" className="absolute w-[75%] h-[70%] sm:h-[65%] me-6" />
-                <LazyLoadImage effect="black-and-white" draggable="false" src={`assets/images/characters/idle/${currentCharacter}.gif`} alt="GIF Image" className={`object-cover ${currentCharacter === 2 ? "w-44 sm:w-56" : "w-56 sm:w-64"} me-0 sm:me-16 z-10`} />
+                <img effect="black-and-white" draggable="false" src={`assets/images/characters/idle/${currentCharacter}.gif`} alt="GIF Image" className={`object-cover ${currentCharacter === 2 ? "w-44 sm:w-56" : "w-56 sm:w-64"} me-0 sm:me-16 z-10`} />
                 <div className={`relative text-bg ${currentCharacter === 3 || currentCharacter === 4 ? "w-[365px] sm:w-[380px] h-[370px] sm:h-[370px]" : ""} w-[280px] sm:w-[300px] h-[320px] sm:h-[350px] ml-0 sm:ml-16 z-10 p-4 sm:p-6 flex justify-center items-center`}>
                     <div className="absolute top-6 text-[25px]">{characterData[currentCharacter - 1].header}</div>
                     <div className="text-center text-[14px] leading-6 mt-6">{characterData[currentCharacter - 1].detail}</div>
