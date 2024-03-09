@@ -6,13 +6,14 @@ import Header from "~/components/screens/header";
 import Account from "~/components/presale/account";
 import { global } from "~/common/global";
 import { addRefer, createProfile, getProfile, getRefCodeList, getWalletStatus } from "~/common/api";
-import MainPresale from "~/components/presale/main";
+import MainPresale from "~/components/presale/main1";
 import Chart from "~/components/presale/chart";
+import MainPresaleAdmin from "~/components/presale/main";
 import { goUrl } from "~/components/utils";
 import i18next from "~/global/i18n";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-export default function Presale() {
+export default function PresaleAdmin() {
   const { t, i18n } = useTranslation();
   const [address, setAddress] = useState("");
   const [btnType, setBtnType] = useState("Connect");
@@ -27,12 +28,12 @@ export default function Presale() {
   });
   const [buyStatus, setBuyStatus] = useState(false);
   const [userData, setUserData] = useState({});
-  const [bonusRate, setBonusRate] = useState(5);
+  const [bonusRate, setBonusRate] = useState(0);
   const [refCodeList, setRefCodeList] = useState([]);
   const [pendingStatus, setPendingStatus] = useState(false);
   const [globalValue, setGlobalValue] = useState({
     totalAmount: 1183,
-    transaction: 0.09
+    transaction: 0.1
   });
 
   useEffect(() => {
@@ -223,7 +224,7 @@ export default function Presale() {
               </div>
             </div>
             {page === "main" ?
-              <MainPresale
+              <MainPresaleAdmin
                 usdtamount={usdtamount}
                 setusdtamount={setusdtamount}
                 receiveAmount={receiveAmount}
@@ -251,7 +252,7 @@ export default function Presale() {
             }
           </div>
           <div className="absolute left-12 pb-12 translate-y-[45rem] sm:hidden flex flex-col sm:flex-row justify-around w-full mb-12 z-30 text-white">
-            <div>{t("©SOURCECODE")}<br />{("ALL RIGHTS RESERVERD")}</div>
+            <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>
             <div className="flex items-center my-8 sm:my-0"><LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/sms.png" alt="" className="me-2" />ADM@SOURCE-CODE.WORK</div>
             <div className="flex gap-x-4 items-center">
               <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://twitter.com/Crypto_Showdown")} />
