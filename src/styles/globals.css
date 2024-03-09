@@ -168,16 +168,6 @@ body {
   background-size: 100% 100%;
 }
 
-.usdt-btn {
-  background-image: url("../../public/assets/images/usdt-btn.png") !important;
-  background-size: 100% 100%;
-}
-
-.network-btn {
-  background-image: url("../../public/assets/images/network-btn.png") !important;
-  background-size: 100% 100%;
-}
-
 .ref-btn {
   background-image: url("../../public/assets/images/referral-btn.png") !important;
   background-size: 100% 100%;
@@ -193,18 +183,8 @@ body {
   background-size: 100% 100%;
 }
 
-.blue-btn {
-  background-image: url("../../public/assets/images/blue-btn.png") !important;
-  background-size: 100% 100%;
-}
-
 .cryptoIcon {
   background-image: url("../../public/assets/images/cryptoIcon.png") !important;
-  background-size: 100% 100%;
-}
-
-.account-bg {
-  background-image: url("../../public/assets/images/account_bg.png") !important;
   background-size: 100% 100%;
 }
 

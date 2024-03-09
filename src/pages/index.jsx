@@ -19,7 +19,7 @@ export default function Home() {
     i18n.changeLanguage('en');
     counterUser().then(res => {
       if (res.count === false) {
-        alert(res.message);
+        // alert(res.message);
       }
     });
   }, []);

@@ -93,7 +93,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
         <div className="flex space-x-2 text-white cursor-pointer " onClick={handleLangClick}>
 
           <LazyLoadImage effect="black-and-white" draggable="false" alt='' className="lang-image mx-2" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
-          {i18n.language === 'en' ? t('En') : t('Ru')}
+          {i18n.language === 'en' ? t('En') : t('En')}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
