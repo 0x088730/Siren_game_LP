@@ -67,7 +67,7 @@ export default function MainPresaleAdmin({
 
     const onAmountClick = (amount) => {
         setusdtamount(amount);
-        setReceiveAmount(Number.parseInt(amount * 11.1).toFixed(0))
+        setReceiveAmount(Number.parseInt(amount * 10).toFixed(0))
     };
 
     const getEnterCode = (value) => {
