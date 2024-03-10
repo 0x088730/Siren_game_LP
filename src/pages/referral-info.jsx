@@ -27,11 +27,15 @@ export default function ReferralInfo() {
             <div className="w-full flex flex-col gap-4 mt-12">
               <div className="flex flex-col md:flex-row w-full gap-4">
                 <div className="w-full md:w-[420px] h-[200px] md:h-[330px] lg:h-[300px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md relative flex justify-center items-center">
-                  <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/infoImg1.png" alt="" className="absolute -top-[5.5rem] md:-top-[7.5rem] w-[300px] md:w-[383px]" />
+                  <div className="absolute -top-[5.5rem] md:-top-[7.5rem] w-[300px] md:w-[383px]">
+                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/infoImg1.png" alt="" className="w-full h-full" />
+                  </div>
                   <div className="text-center text-[18px] md:text-[24px] px-8 mt-24">{t("Get USDT for invited people who bought a CSC")}</div>
                 </div>
                 <div className="mt-32 md:mt-0 px-8 w-full md:w-[860px] h-[490px] md:h-[330px] lg:h-[300px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md relative flex justify-center items-center">
-                  <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/infoImg2.png" alt="" className="absolute -top-[7.5rem] md:right-12 w-[250px]" />
+                  <div className="absolute -top-[7.5rem] md:right-12 w-[220px] sm:w-[250px]">
+                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/infoImg2.png" alt="" className="w-full h-full" />
+                  </div>
                   <div className="w-full flex flex-col md:flex-row justify-between mt-24 md:mt-0">
                     <div className="flex flex-col justify-between gap-y-1">
                       <div className="text-[#FF9B00] text-[30px]">{t("OUR OFFER:")}</div>
@@ -48,14 +52,15 @@ export default function ReferralInfo() {
                 </div>
               </div>
               <div className="flex flex-col md:flex-row w-full gap-4">
-                <div className="relative mt-12 md:mt-0 w-full md:w-[640px] h-[80px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
-                  <div className="w-full h-full rounded-lg flex justify-center items-center" style={{ backgroundImage: "linear-gradient(45deg, #e49115 1%, transparent)" }}>
-                    <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/skewIcon.png" alt="" className="absolute left-6 -top-5 w-[91px] h-[87px]" />
-                    <div className="w-fit">
+                <div className="relative mt-12 md:mt-0 w-full md:w-[640px] h-[160px] sm:h-[80px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
+                  <div className="w-full h-full rounded-lg flex justify-center items-end sm:items-center p-3 sm:p-0" style={{ backgroundImage: "linear-gradient(45deg, #e49115 1%, transparent)" }}>
+                    <div className="absolute sm:left-6 md:-left-6 lg:left-6 -top-16 sm:-top-5 w-[180px] sm:w-[91px] h-[150px] sm:h-[87px]">
+                      <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/skewIcon.png" alt="" className="w-full h-full" />
+                    </div>
+                    <div className="w-fit sm:pl-0 md:pl-12 lg:pl-28 xl:pl-0">
                       {t("You will get USDT for each referral")}<br /> {t("who uses your link to purchase csc")}
                     </div>
                   </div>
-
                 </div>
                 <div className="mt-12 md:mt-0 w-full md:w-[640px] h-[80px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md">
                   <div className="w-full h-full rounded-lg flex justify-start items-center px-8" style={{ backgroundImage: "linear-gradient(45deg, transparent, #e49115)" }}>
