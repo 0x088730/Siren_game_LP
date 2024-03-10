@@ -88,7 +88,7 @@ export default function MainPresaleAdmin({
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="flex justify-evenly flex-col w-[350px] lg:w-[420px]">
                             <div className="text-1xl font-bold flex justify-between">
-                                {t("NEXT PRICE UPDATE: ")}
+                                {t("ENDS IN: ")}
                                 <span className="text-end">
                                     <span className="text-[#dcc90a]">{date.day + t(" DAYS: ") + date.hour + t(" HOURS")}</span>
                                     <span className="text-[#00ce2d]">{" (" + date.percentage + "%)"}</span>
