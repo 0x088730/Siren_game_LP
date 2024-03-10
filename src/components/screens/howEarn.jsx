@@ -23,14 +23,17 @@ const HowEarn = () => {
                 <div className="absolute w-[75%] h-[70%] sm:h-[65%] me-6">
                     <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/earn-center.png" alt="" className="w-full h-full" />
                 </div>
-                <div className={`object-cover ${currentCharacter === 2 ? "w-44 sm:w-56" : "w-56 sm:w-64"} me-0 sm:me-16 z-10`}>
-                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/${currentCharacter}.gif`} alt="GIF Image" className="w-full h-full" />
+                <div className={`relative object-cover ${currentCharacter === 2 ? "w-44 sm:w-48" : "w-56 sm:w-56"} ${currentCharacter === 3 ? "h-72" : "h-80"}  me-0 sm:me-16 z-10`}>
+                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/1.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 1 ? "block": "hidden"} top-0 w-full h-full`} />
+                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/2.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 2 ? "block": "hidden"} top-0 w-full h-full`} />
+                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/3.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 3 ? "block": "hidden"} top-0 w-full h-full`} />
+                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/4.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 4 ? "block": "hidden"} top-0 w-full h-full`} />
                 </div>
                 <div className={`relative text-bg ${currentCharacter === 3 || currentCharacter === 4 ? "w-[365px] sm:w-[380px] h-[370px] sm:h-[370px]" : ""} w-[280px] sm:w-[300px] h-[320px] sm:h-[350px] ml-0 sm:ml-16 z-10 p-4 sm:p-6 flex justify-center items-center`}>
                     <div className="absolute top-6 text-[25px]">{characterData[currentCharacter - 1].header}</div>
                     <div className="text-center text-[14px] leading-6 mt-6">{characterData[currentCharacter - 1].detail}</div>
                 </div>
-                <div className="absolute bottom-16 flex justify-between">
+                <div className="absolute bottom-16 flex justify-between z-10">
                     {characterList.map((item, index) => (
                         <LazyLoadImage effect="black-and-white" draggable="false"
                             key={index}
