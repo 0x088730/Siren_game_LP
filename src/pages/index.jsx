@@ -107,13 +107,13 @@ export default function Home() {
           <div className={`${loading === false ? "h-0 hidden z-0" : "h-full flex z-30"} w-full justify-center`}>
             <LazyImage
               src="assets/images/backgrounds/loading.jpg"
-              className={`background-position-center w-full h-full ${loading === true ? "z-10" : ""}`}
+              className={`background-position-center w-full min-w-[1600px] h-full ${loading === true ? "z-10" : ""}`}
             />
             <LazyImage
               src="assets/images/spinner.svg"
-              className={`absolute bottom-16 w-40 ${loading === true ? "z-10" : ""}`}
+              className={`fixed bottom-16 w-40 ${loading === true ? "z-10" : ""}`}
             />
-            <div className={`absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold ${loading === true ? "z-10" : ""}`}>{percent}%</div>
+            <div className={`fixed bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold ${loading === true ? "z-10" : ""}`}>{percent}%</div>
           </div>
           <div className={`absolute w-full h-24 ${loading === false ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
             <Suspense fallback={<div>...</div>}>
