@@ -24,7 +24,7 @@ const HowEarn = (props) => {
             <LazyImage
                 src="assets/images/characters/character-3.png"
                 onLoad={() => props.handleImageLoad("earn")}
-                className="absolute left-0 top-[-99rem] sm:top-[-74rem] md:top-[-67rem] lg:top-[-42rem] xl:top-[-42rem] w-[73%] sm:w-[45%] md:w-[35%] lg:w-[27%]"
+                className="absolute left-0 mt-12 sm:mt-0 top-[-99rem] sm:top-[-74rem] md:top-[-67rem] lg:top-[-42rem] xl:top-[-42rem] w-[73%] sm:w-[45%] md:w-[35%] lg:w-[27%]"
             />
             <LazyImage
                 src="assets/images/rock4.png"

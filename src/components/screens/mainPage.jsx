@@ -2,6 +2,7 @@ import { ClickButton } from "../clickButton";
 import { goUrl } from "../utils";
 import { useTranslation } from "react-i18next";
 import LazyImage from "../lazyImage";
+import Character1 from "../character/character1";
 
 const MainPage = (props) => {
     const { t, i18n } = useTranslation();
@@ -28,6 +29,7 @@ const MainPage = (props) => {
                 onLoad={() => props.handleImageLoad("main")}
                 className="absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%]"
             />
+            {/* <Character1 /> */}
         </div>
     );
 }

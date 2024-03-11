@@ -24,21 +24,21 @@ const GemDescription = (props) => {
                     onLoad={() => props.handleImageLoad("gem")}
                     className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
                 />
-                <LazyImage
+                {/* <LazyImage
                     src="assets/images/characters/character-4.png"
                     onLoad={() => props.handleImageLoad("gem")}
-                    className="absolute -right-8 top-[-55rem] md:top-[-32rem] lg:top-[-35rem] xl:top-[-19rem] w-[85%] sm:w-[65%] md:w-[55%] lg:w-[500px] xl:w-[600px]"
-                />
+                    className="absolute -right-8 mt-28 sm:mt-0 top-[-55rem] md:top-[-32rem] lg:top-[-35rem] xl:top-[-19rem] w-[70%] sm:w-[65%] md:w-[55%] lg:w-[500px] xl:w-[600px]"
+                /> */}
                 <LazyImage
                     src="assets/images/rock6.png"
                     onLoad={() => props.handleImageLoad("gem")}
-                    className="absolute right-0 sm:-right-40 top-[-31rem] md:top-[-9rem] lg:top-[-9rem] xl:top-60 w-[90%] md:w-[73%] lg:w-[60%]"
+                    className="absolute right-0 top-[-50rem] sm:top-[-60rem] md:top-[-30rem] lg:top-[-35rem] xl:top-[-22rem] 2xl:top-[-30rem] w-[90%] md:w-[55%] lg:w-[55%] 2xl:w-[60%]"
                 />
-                <LazyImage
+                {/* <LazyImage
                     src="assets/images/rock7.png"
                     onLoad={() => props.handleImageLoad("gem")}
                     className="absolute -right-40 top-[-6rem] w-[33%] -z-10"
-                />
+                /> */}
                 <div className="w-[1300px] flex flex-col justify-start items-center translate-y-[-27rem] md:translate-y-[-5rem] xl:translate-y-[-20rem]">
                     <div className="font-oi text-[#FF9B00] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[55px] xl:text-[60px] text-center xl:text-left text-gradient-shadow-stroke w-full">{t("Gem")}<br /><span style={{ WebkitTextFillColor: "white" }}>{t("description")}</span></div>
                     <div className="flex flex-col xl:flex-row mt-20 gap-y-20 md:gap-x-6">

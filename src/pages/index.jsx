@@ -43,7 +43,7 @@ export default function Home() {
   }, [loadedImages3.count, loadedImages3.loaded, loadedImages2.loaded]);
 
   useEffect(() => {
-    if (loadedImages4.count >= 10 && loadedImages3.loaded && !loadedImages4.loaded) {
+    if (loadedImages4.count >= 8 && loadedImages3.loaded && !loadedImages4.loaded) {
       setLoadedImages4(prevState => ({ ...prevState, loaded: true }));
     }
   }, [loadedImages4.count, loadedImages4.loaded, loadedImages3.loaded]);
@@ -61,7 +61,7 @@ export default function Home() {
   }, [loadedImages6.count, loadedImages6.loaded, loadedImages5.loaded]);
 
   useEffect(() => {
-    setPercent(Math.floor((loadedImages1.count + loadedImages2.count + loadedImages3.count + loadedImages4.count + loadedImages5.count + loadedImages6.count) * 100 / 47))
+    setPercent(Math.floor((loadedImages1.count + loadedImages2.count + loadedImages3.count + loadedImages4.count + loadedImages5.count + loadedImages6.count) * 100 / 45))
   }, [loadedImages1.count, loadedImages2.count, loadedImages3.count, loadedImages4.count, loadedImages5.count, loadedImages6.count])
 
   const handleImageLoad1 = () => {
