@@ -228,102 +228,104 @@ export default function PresaleAdmin() {
               </span>
             </div>
           </div>
-          <div className="main-bg w-[1200px] h-[750px] absolute top-0 translate-y-72 sm:translate-y-52 lg:translate-y-40 flex flex-col items-center z-[1]">
-            <div className="w-full flex justify-center items-end h-[150px] p-5 -mt-24 sm:mt-0 z-0">
-              <div
-                className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
-                onClick={() => {
-                  global.pageStatus = "main";
-                  setPage("main")
-                }}
-              >
-                <span
-                  className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
-                  style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+          <div className="absolute top-0 translate-y-72 sm:translate-y-52 lg:translate-y-40">
+            <div className="main-bg w-[1200px] h-[750px]  flex flex-col items-center z-[1]">
+              <div className="w-full flex justify-center items-end h-[150px] p-5 -mt-24 sm:mt-0 z-0">
+                <div
+                  className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
+                  onClick={() => {
+                    global.pageStatus = "main";
+                    setPage("main")
+                  }}
                 >
-                  {t("PRESALE")}
-                </span>
-              </div>
-              <div
-                className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 mx-6 sm:mx-12 cursor-pointer relative ${page === "chart" ? "green-btn" : "inactive-btn"}`}
-                onClick={() => setPage("chart")}
-              >
-                <span
-                  className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
-                  style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                  <span
+                    className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
+                    style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                  >
+                    {t("PRESALE")}
+                  </span>
+                </div>
+                <div
+                  className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 mx-6 sm:mx-12 cursor-pointer relative ${page === "chart" ? "green-btn" : "inactive-btn"}`}
+                  onClick={() => setPage("chart")}
                 >
-                  {t("CHART")}
-                </span>
-              </div>
-              <div
-                className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "account" ? "green-btn" : "inactive-btn"}`}
-                onClick={() => setPage("account")}
-              >
-                <span
-                  className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
-                  style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                  <span
+                    className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
+                    style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                  >
+                    {t("CHART")}
+                  </span>
+                </div>
+                <div
+                  className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "account" ? "green-btn" : "inactive-btn"}`}
+                  onClick={() => setPage("account")}
                 >
-                  {t("ACCOUNT")}
-                </span>
+                  <span
+                    className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
+                    style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                  >
+                    {t("ACCOUNT")}
+                  </span>
+                </div>
               </div>
-            </div>
-            {page === "main" ?
-              <MainPresaleAdmin
-                usdtamount={usdtamount}
-                setusdtamount={setusdtamount}
-                receiveAmount={receiveAmount}
-                setReceiveAmount={setReceiveAmount}
-                onBtnClick={onBtnClick}
-                buyStatus={buyStatus}
-                setBuyStatus={setBuyStatus}
-                code={code}
-                setCode={setCode}
-                pendingStatus={pendingStatus}
-                globalValue={globalValue}
-                setGlobalValue={setGlobalValue}
-                handleImageLoad={handleImageLoad}
-              />
-              :
-              page === "chart" ?
-                <Chart handleImageLoad={handleImageLoad} />
-                :
-                <Account
-                  tokenAmount={tokenAmount}
-                  setTokenAmount={setTokenAmount}
-                  btnType={btnType}
-                  bonusRate={bonusRate}
-                  setBonusRate={setBonusRate}
+              {page === "main" ?
+                <MainPresaleAdmin
+                  usdtamount={usdtamount}
+                  setusdtamount={setusdtamount}
+                  receiveAmount={receiveAmount}
+                  setReceiveAmount={setReceiveAmount}
+                  onBtnClick={onBtnClick}
+                  buyStatus={buyStatus}
+                  setBuyStatus={setBuyStatus}
+                  code={code}
+                  setCode={setCode}
+                  pendingStatus={pendingStatus}
+                  globalValue={globalValue}
+                  setGlobalValue={setGlobalValue}
                   handleImageLoad={handleImageLoad}
                 />
-            }
-          </div>
-          <div className="absolute left-12 pb-12 translate-y-[45rem] sm:hidden flex flex-col sm:flex-row justify-around w-full mb-12 z-30 text-white">
-            <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>
-            <div className="flex items-center my-8 sm:my-0">
-              <LazyImage
-                src="assets/images/sms.png"
-                onLoad={handleImageLoad}
-                className="me-2 w-6" />ADM@SOURCE-CODE.WORK
+                :
+                page === "chart" ?
+                  <Chart handleImageLoad={handleImageLoad} />
+                  :
+                  <Account
+                    tokenAmount={tokenAmount}
+                    setTokenAmount={setTokenAmount}
+                    btnType={btnType}
+                    bonusRate={bonusRate}
+                    setBonusRate={setBonusRate}
+                    handleImageLoad={handleImageLoad}
+                  />
+              }
             </div>
-            <div className="flex gap-x-4 items-center">
-              <LazyImage
-                src="assets/images/tw.png"
-                onLoad={handleImageLoad}
-                className="cursor-pointer w-10"
-                onClick={() => goUrl("https://twitter.com/Crypto_Showdown")}
-              />
-              <LazyImage
-                src="assets/images/tg.png"
-                onLoad={handleImageLoad}
-                className="cursor-pointer w-10"
-                onClick={() => goUrl("https://t.me/cryptoshowdown")}
-              />
-              <LazyImage
-                src="assets/images/discord.png"
-                onLoad={handleImageLoad}
-                className="cursor-pointer w-10"
-                onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")}
-              />
+            <div className="sm:hidden grid flex-col sm:flex-row justify-around w-full ml-[-4%] mb-12 z-30 text-white">
+              <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>
+              <div className="flex items-center my-8 sm:my-0">
+                <LazyImage
+                  src="assets/images/sms.png"
+                  onLoad={handleImageLoad}
+                  className="me-2 w-6" />ADM@SOURCE-CODE.WORK
+              </div>
+              <div className="flex gap-x-4 items-center">
+                <LazyImage
+                  src="assets/images/tw.png"
+                  onLoad={handleImageLoad}
+                  className="cursor-pointer w-10"
+                  onClick={() => goUrl("https://twitter.com/Crypto_Showdown")}
+                />
+                <LazyImage
+                  src="assets/images/tg.png"
+                  onLoad={handleImageLoad}
+                  className="cursor-pointer w-10"
+                  onClick={() => goUrl("https://t.me/cryptoshowdown")}
+                />
+                <LazyImage
+                  src="assets/images/discord.png"
+                  onLoad={handleImageLoad}
+                  className="cursor-pointer w-10"
+                  onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")}
+                />
+              </div>
             </div>
           </div>
         </div>
