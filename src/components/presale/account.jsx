@@ -6,8 +6,9 @@ import { useRouter } from "next/router";
 import Web3 from 'web3'
 import { ClaimButton } from "../clickButton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import LazyImage from "../lazyImage";
 
-export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate }) {
+export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate, handleImageLoad }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
     const [withdrawDaily, setWithdrawDaily] = useState(true);
@@ -123,7 +124,11 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md mt-8">
                         <div className="text-[#FFFFFF] mx-4">{t("Your Current Referral Bonus")} - {bonusRate}%</div>
-                        <LazyLoadImage effect="black-and-white" draggable="false" src={`assets/images/bonusRate_${bonusRate}.png`} alt="" />
+                        <LazyImage
+                            src={`assets/images/bonusRate_${bonusRate}.png`}
+                            onLoad={handleImageLoad}
+                            className="w-full"
+                        />
                         <div className="flex justify-evenly w-full text-[#FFFFFF]">
                             <div>0~5000$</div>
                             <div className="mx-[-2rem]">5001~10000$</div>
