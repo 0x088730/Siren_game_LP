@@ -96,7 +96,7 @@ export default function Home() {
     <div>
       <I18nextProvider i18n={i18next}>
         <div className={`w-full overflow-hidden Home`}>
-          <div className={`${loadedImages1.loaded === false ? "h-full" : "h-0"} w-full z-20 flex justify-center`}>
+          <div className={`${percent === 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
             <LazyImage
               src="assets/images/backgrounds/loading.jpg"
               className={`background-position-center w-full h-full`}
@@ -107,7 +107,7 @@ export default function Home() {
             />
             <div className="absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{percent}%</div>
           </div>
-          <div className={`absolute w-full h-24 ${loadedImages1.loaded === true ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
+          <div className={`absolute w-full h-24 ${percent === 100 ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
             <Suspense fallback={<div>...</div>}>
               <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
             </Suspense>
