@@ -23,6 +23,7 @@ export default function Home() {
   const [loadedImages5, setLoadedImages5] = useState({ count: 0, loaded: false });
   const [loadedImages6, setLoadedImages6] = useState({ count: 0, loaded: false });
   const [percent, setPercent] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (loadedImages1.count >= 3 && !loadedImages1.loaded) {
@@ -62,6 +63,12 @@ export default function Home() {
 
   useEffect(() => {
     setPercent(Math.floor((loadedImages1.count + loadedImages2.count + loadedImages3.count + loadedImages4.count + loadedImages5.count + loadedImages6.count) * 100 / 45))
+    if ((loadedImages1.count + loadedImages2.count + loadedImages3.count + loadedImages4.count + loadedImages5.count + loadedImages6.count) >= 43) {
+      const timeout = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+      return () => clearTimeout(timeout);
+    }
   }, [loadedImages1.count, loadedImages2.count, loadedImages3.count, loadedImages4.count, loadedImages5.count, loadedImages6.count])
 
   const handleImageLoad1 = () => {
@@ -84,6 +91,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    setLoading(true)
     i18n.changeLanguage('en');
     counterUser().then(res => {
       if (res.count === false) {
@@ -96,24 +104,24 @@ export default function Home() {
     <div>
       <I18nextProvider i18n={i18next}>
         <div className={`w-full overflow-hidden Home`}>
-          <div className={`${percent === 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
+          <div className={`${loading === false ? "h-0 hidden z-0" : "h-full flex z-30"} w-full justify-center`}>
             <LazyImage
               src="assets/images/backgrounds/loading.jpg"
-              className={`background-position-center w-full h-full`}
+              className={`background-position-center w-full h-full ${loading === true ? "z-10" : ""}`}
             />
             <LazyImage
               src="assets/images/spinner.svg"
-              className="absolute bottom-16 w-40"
+              className={`absolute bottom-16 w-40 ${loading === true ? "z-10" : ""}`}
             />
-            <div className="absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{percent}%</div>
+            <div className={`absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold ${loading === true ? "z-10" : ""}`}>{percent}%</div>
           </div>
-          <div className={`absolute w-full h-24 ${percent === 100 ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
+          <div className={`absolute w-full h-24 ${loading === false ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
             <Suspense fallback={<div>...</div>}>
               <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
             </Suspense>
           </div>
           <div id="Home" className="w-full">
-            <div className="relative font-skranji text-white">
+            <div className="relative font-skranji text-white z-0">
               <Suspense fallback={<div></div>}>
                 <MainPage handleImageLoad={handleImageLoad1} loadedImages={loadedImages1} />
               </Suspense>

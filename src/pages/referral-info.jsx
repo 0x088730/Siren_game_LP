@@ -27,7 +27,6 @@ export default function ReferralInfo() {
   useEffect(() => {
     if (loadedImages >= 8) {
       const timeout = setTimeout(() => {
-        console.log(loadedImages);
         setLoading(false);
       }, 1000);
       return () => clearTimeout(timeout);

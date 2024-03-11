@@ -166,7 +166,6 @@ export default function PresaleAdmin() {
   }, [])
 
   useEffect(() => {
-    console.log(loadedImages);
     if (loadedImages >= 7) {
       const timeout = setTimeout(() => {
         setLoading(false);
