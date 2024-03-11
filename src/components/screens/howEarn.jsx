@@ -29,12 +29,12 @@ const HowEarn = (props) => {
             <LazyImage
                 src="assets/images/rock4.png"
                 onLoad={() => props.handleImageLoad("earn")}
-                className="absolute left-0 top-[-25rem] w-[30%] hidden sm:block"
+                className="absolute left-0 top-[-25rem] w-0 sm:w-[30%]"
             />
             <LazyImage
                 src="assets/images/rock5.png"
                 onLoad={() => props.handleImageLoad("earn")}
-                className="absolute right-0 top-[-22rem] w-[30%] hidden sm:block"
+                className="absolute right-0 top-[-22rem] w-0 sm:w-[30%]"
             />
             <div className="main-bg absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-81rem] sm:top-[-57rem] md:top-[-52rem] lg:top-[-26rem] xl:top-[-33rem] flex flex-col-reverse sm:flex-row justify-center items-center">
                 <div className="absolute w-[75%] h-[70%] sm:h-[65%] me-6">
