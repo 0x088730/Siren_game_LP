@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import LazyImage from "../lazyImage";
 
-const HowEarn = () => {
+const HowEarn = (props) => {
     const { t, i18n } = useTranslation();
     const characterList = [1, 2, 3, 4];
     const [currentCharacter, setCurrentCharacter] = useState(1)
@@ -14,20 +15,56 @@ const HowEarn = () => {
     ]
 
     return (
-        <div className="relative md:w-full xl:h-[1280px] flex justify-center mt-[76rem] sm:mt-[52em] md:mt-[61rem] lg:mt-[31rem] xl:mt-0">
-            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/backgrounds/howEarn.jpg" className="background-position-center-absolute w-[1920px] h-[1280px] 2xl:w-full 2xl:h-full" />
-            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/characters/character-3.png" alt="" className="absolute left-0 top-[-99rem] sm:top-[-74rem] md:top-[-67rem] lg:top-[-42rem] xl:top-[-42rem] w-[73%] sm:w-[45%] md:w-[35%] lg:w-[27%]" />
-            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/rock4.png" alt="" className="absolute left-0 top-[-25rem] w-[30%] hidden sm:block" />
-            <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/rock5.png" alt="" className="absolute right-0 top-[-22rem] w-[30%] hidden sm:block" />
+        <div className={`relative md:w-full ${props.loadedImages.loaded === true ? "xl:h-[1280px]" : "h-0"} flex justify-center mt-[76rem] sm:mt-[52em] md:mt-[61rem] lg:mt-[31rem] xl:mt-0`}>
+            <LazyImage
+                src="assets/images/backgrounds/howEarn.jpg"
+                onLoad={() => props.handleImageLoad("earn")}
+                className="background-position-center-absolute w-[1920px] h-[1280px] 2xl:w-full 2xl:h-full"
+            />
+            <LazyImage
+                src="assets/images/characters/character-3.png"
+                onLoad={() => props.handleImageLoad("earn")}
+                className="absolute left-0 top-[-99rem] sm:top-[-74rem] md:top-[-67rem] lg:top-[-42rem] xl:top-[-42rem] w-[73%] sm:w-[45%] md:w-[35%] lg:w-[27%]"
+            />
+            <LazyImage
+                src="assets/images/rock4.png"
+                onLoad={() => props.handleImageLoad("earn")}
+                className="absolute left-0 top-[-25rem] w-[30%] hidden sm:block"
+            />
+            <LazyImage
+                src="assets/images/rock5.png"
+                onLoad={() => props.handleImageLoad("earn")}
+                className="absolute right-0 top-[-22rem] w-[30%] hidden sm:block"
+            />
             <div className="main-bg absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-81rem] sm:top-[-57rem] md:top-[-52rem] lg:top-[-26rem] xl:top-[-33rem] flex flex-col-reverse sm:flex-row justify-center items-center">
                 <div className="absolute w-[75%] h-[70%] sm:h-[65%] me-6">
-                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/earn-center.png" alt="" className="w-full h-full" />
+                    <LazyImage
+                        src="assets/images/earn-center.png"
+                        onLoad={() => props.handleImageLoad("earn")}
+                        className="w-full h-full"
+                    />
                 </div>
                 <div className={`relative object-cover ${currentCharacter === 2 ? "w-44 sm:w-48" : "w-56 sm:w-56"} ${currentCharacter === 3 ? "h-72" : "h-80"}  me-0 sm:me-16 z-10`}>
-                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/1.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 1 ? "block": "hidden"} top-0 w-full h-full`} />
-                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/2.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 2 ? "block": "hidden"} top-0 w-full h-full`} />
-                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/3.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 3 ? "block": "hidden"} top-0 w-full h-full`} />
-                    <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src={`assets/images/characters/idle/4.gif`} alt="GIF Image" className={`absolute ${currentCharacter === 4 ? "block": "hidden"} top-0 w-full h-full`} />
+                    <LazyImage
+                        src="assets/images/characters/idle/1.gif"
+                        onLoad={() => props.handleImageLoad("earn")}
+                        className={`absolute ${currentCharacter === 1 ? "block" : "hidden"} top-0 w-full h-full`}
+                    />
+                    <LazyImage
+                        src="assets/images/characters/idle/2.gif"
+                        onLoad={() => props.handleImageLoad("earn")}
+                        className={`absolute ${currentCharacter === 2 ? "block" : "hidden"} top-0 w-full h-full`}
+                    />
+                    <LazyImage
+                        src="assets/images/characters/idle/3.gif"
+                        onLoad={() => props.handleImageLoad("earn")}
+                        className={`absolute ${currentCharacter === 3 ? "block" : "hidden"} top-0 w-full h-full`}
+                    />
+                    <LazyImage
+                        src="assets/images/characters/idle/4.gif"
+                        onLoad={() => props.handleImageLoad("earn")}
+                        className={`absolute ${currentCharacter === 4 ? "block" : "hidden"} top-0 w-full h-full`}
+                    />
                 </div>
                 <div className={`relative text-bg ${currentCharacter === 3 || currentCharacter === 4 ? "w-[365px] sm:w-[380px] h-[370px] sm:h-[370px]" : ""} w-[280px] sm:w-[300px] h-[320px] sm:h-[350px] ml-0 sm:ml-16 z-10 p-4 sm:p-6 flex justify-center items-center`}>
                     <div className="absolute top-6 text-[25px]">{characterData[currentCharacter - 1].header}</div>
@@ -35,13 +72,14 @@ const HowEarn = () => {
                 </div>
                 <div className="absolute bottom-16 flex justify-between z-10">
                     {characterList.map((item, index) => (
-                        <LazyLoadImage effect="black-and-white" draggable="false"
-                            key={index}
-                            src={`assets/images/characters/avatar${item}.png`}
-                            alt=""
-                            className={`${item !== currentCharacter ? "grayscale" : ""} object-cover w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 mx-2 sm:mx-4 md:mx-6 lg:mx-8 z-10 cursor-pointer`}
-                            onClick={() => setCurrentCharacter(item)}
-                        />
+                        <div key={index}>
+                            <LazyImage
+                                src={`assets/images/characters/avatar${item}.png`}
+                                onLoad={() => props.handleImageLoad("earn")}
+                                className={`${item !== currentCharacter ? "grayscale" : ""} object-cover w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 mx-2 sm:mx-4 md:mx-6 lg:mx-8 z-10 cursor-pointer`}
+                                onClick={() => setCurrentCharacter(item)}
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
@@ -50,7 +88,11 @@ const HowEarn = () => {
                 <div className="flex flex-col md:flex-row my-16 gap-y-16 sm:gap-y-12 md:gap-x-4 xl:gap-x-12">
                     <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                         <div className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]">
-                            <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/helmit.png" alt="" className="w-full h-full" />
+                            <LazyImage
+                                src="assets/images/helmit.png"
+                                onLoad={() => props.handleImageLoad("earn")}
+                                className="w-full h-full"
+                            />
                         </div>
                         <div className="w-full h-full p-4 flex flex-col justify-end items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #005DB27a, transparent)" }}>
                             <div className="text-[22px]">{t("CHARACTERS")}</div>
@@ -59,7 +101,11 @@ const HowEarn = () => {
                     </div>
                     <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                         <div className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]">
-                            <LazyLoadImage effect="black-and-white" draggable="false" width={"100%"} height={"100%"} src="assets/images/playImg2.png" alt="" className="w-full h-full" />
+                            <LazyImage
+                                src="assets/images/playImg2.png"
+                                onLoad={() => props.handleImageLoad("earn")}
+                                className="w-full h-full"
+                            />
                         </div>
                         <div className="w-full h-full p-4 flex flex-col justify-end items-center rounded-lg" style={{ backgroundImage: "linear-gradient(340deg, #005DB27a, transparent)" }}>
                             <div className="text-[22px]">{t("LAND")}</div>
