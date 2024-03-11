@@ -70,7 +70,6 @@ export default function Home() {
       return () => clearTimeout(timeout);
     }
   }, [loadedImages1.count, loadedImages2.count, loadedImages3.count, loadedImages4.count, loadedImages5.count, loadedImages6.count])
-  console.log(loadedImages1.count, loadedImages2.count, loadedImages3.count, loadedImages4.count, loadedImages5.count, loadedImages6.count)
 
   const handleImageLoad1 = () => {
     setLoadedImages1(prevState => ({ ...prevState, count: prevState.count + 1 }));
