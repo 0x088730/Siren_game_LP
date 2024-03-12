@@ -38,15 +38,10 @@ export default function Home() {
   }, [loaded1, loaded2, loaded3, loaded4, loaded5, loaded6]);
 
   useEffect(() => {
-    const newPercent = Math.floor((
-      loadedImages1 +
-      loadedImages2 +
-      loadedImages3 +
-      loadedImages4 +
-      loadedImages5 +
-      loadedImages6
-    ) * 100 / 35);
-    setPercent(newPercent);
+    setPercent(Math.floor(
+      (loadedImages1 + loadedImages2 + loadedImages3 + loadedImages4 + loadedImages5 + loadedImages6)
+      * 100 / 35
+    ));
   }, [loadedImages1, loadedImages2, loadedImages3, loadedImages4, loadedImages5, loadedImages6]);
 
   useEffect(() => {
@@ -94,44 +89,64 @@ export default function Home() {
                 />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <HowPlay
-                  loadedImages={loadedImages2}
-                  setLoadedImages={setLoadedImages2}
-                  loaded={!loading}
-                  setLoaded={setLoaded2}
-                />
+                {
+                  loaded1 === true ?
+                    <HowPlay
+                      loadedImages={loadedImages2}
+                      setLoadedImages={setLoadedImages2}
+                      loaded={!loading}
+                      setLoaded={setLoaded2}
+                    />
+                    : null
+                }
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <WhitePaper
-                  loadedImages={loadedImages3}
-                  setLoadedImages={setLoadedImages3}
-                  loaded={!loading}
-                  setLoaded={setLoaded3}
-                />
+                {
+                  loaded2 === true ?
+                    <WhitePaper
+                      loadedImages={loadedImages3}
+                      setLoadedImages={setLoadedImages3}
+                      loaded={!loading}
+                      setLoaded={setLoaded3}
+                    />
+                    : null
+                }
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <GemDescription
-                  loadedImages={loadedImages4}
-                  setLoadedImages={setLoadedImages4}
-                  loaded={!loading}
-                  setLoaded={setLoaded4}
-                />
+                {
+                  loaded3 === true ?
+                    <GemDescription
+                      loadedImages={loadedImages4}
+                      setLoadedImages={setLoadedImages4}
+                      loaded={!loading}
+                      setLoaded={setLoaded4}
+                    />
+                    : null
+                }
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <HowEarn
-                  loadedImages={loadedImages5}
-                  setLoadedImages={setLoadedImages5}
-                  loaded={!loading}
-                  setLoaded={setLoaded5}
-                />
+                {
+                  loaded4 === true ?
+                    <HowEarn
+                      loadedImages={loadedImages5}
+                      setLoadedImages={setLoadedImages5}
+                      loaded={!loading}
+                      setLoaded={setLoaded5}
+                    />
+                    : null
+                }
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <ContactUs
-                  loadedImages={loadedImages6}
-                  setLoadedImages={setLoadedImages6}
-                  loaded={!loading}
-                  setLoaded={setLoaded6}
-                />
+                {
+                  loaded5 === true ?
+                    <ContactUs
+                      loadedImages={loadedImages6}
+                      setLoadedImages={setLoadedImages6}
+                      loaded={!loading}
+                      setLoaded={setLoaded6}
+                    />
+                    : null
+                }
               </Suspense>
             </div>
           </div>
