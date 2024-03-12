@@ -49,6 +49,7 @@ export default function Home() {
   console.log(loadedImages);
 
   useEffect(() => {
+    document.body.style.overflowY = "hidden"
     i18n.changeLanguage('en');
     counterUser().then(res => {
       if (res.count === false) {
@@ -56,6 +57,10 @@ export default function Home() {
       }
     });
   }, []);
+  useEffect(() => {
+    if (percent === 100)
+      document.body.style.overflowY = "auto"
+  }, [percent]);
 
   return (
     <div>
@@ -77,7 +82,7 @@ export default function Home() {
               <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
             </Suspense>
           </div>
-          <div id="Home" className="w-full">
+          <div id="Home" className={`w-full ${percent === 100 ? "" : "h-0"}`}>
             <div className="relative font-skranji text-white z-0">
               <Suspense fallback={<div></div>}>
                 <MainPage handleImageLoad={imageLoadHandlers[0]} loadedImages={loadedImages[0]} />
