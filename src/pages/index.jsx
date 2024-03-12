@@ -53,8 +53,6 @@ export default function Home() {
 
   const imageLoadHandlers = loadedImages.map((_, index) => () => handleImageLoad(index));
 
-  console.log(loadedImages);
-
   useEffect(() => {
     document.body.style.overflowY = "hidden"
     i18n.changeLanguage('en');
