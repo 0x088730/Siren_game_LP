@@ -76,7 +76,7 @@ export default function Home() {
           <div className={`${percent === 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
             <LazyImage
               src="assets/images/backgrounds/loading.jpg"
-              className={`background-position-center w-full h-full`}
+              className={`background-position-center w-full min-w-[1600px] h-full`}
             />
             <LazyImage
               src="assets/images/spinner.svg"
