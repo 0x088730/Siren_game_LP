@@ -5,13 +5,20 @@ import i18next from "~/global/i18n";
 import Image from 'next/image';
 import LazyImage from "~/components/lazyImage";
 
-const Header = React.lazy(() => import('~/components/screens/header'));
-const MainPage = React.lazy(() => import('~/components/screens/mainPage'));
-const HowPlay = React.lazy(() => import('~/components/screens/howPlay'));
-const WhitePaper = React.lazy(() => import('~/components/screens/whitePaper'));
-const GemDescription = React.lazy(() => import('~/components/screens/gemDescription'));
-const HowEarn = React.lazy(() => import('~/components/screens/howEarn'));
-const ContactUs = React.lazy(() => import('~/components/screens/contactUs'));
+// const Header = React.lazy(() => import('~/components/screens/header'));
+// const MainPage = React.lazy(() => import('~/components/screens/mainPage'));
+// const HowPlay = React.lazy(() => import('~/components/screens/howPlay'));
+// const WhitePaper = React.lazy(() => import('~/components/screens/whitePaper'));
+// const GemDescription = React.lazy(() => import('~/components/screens/gemDescription'));
+// const HowEarn = React.lazy(() => import('~/components/screens/howEarn'));
+// const ContactUs = React.lazy(() => import('~/components/screens/contactUs'));
+import Header from "~/components/screens/header";
+import MainPage from "~/components/screens/mainPage";
+import HowPlay from "~/components/screens/howPlay";
+import WhitePaper from "~/components/screens/whitePaper";
+import GemDescription from "~/components/screens/gemDescription";
+import HowEarn from "~/components/screens/howEarn";
+import ContactUs from "~/components/screens/contactUs";
 
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState("Home");
@@ -27,8 +34,6 @@ export default function Home() {
   const [percent, setPercent] = useState(0);
 
   useEffect(() => {
-    const totalCount = loadedImages.reduce((total, image) => total + image.count, 0);
-    const loadedCount = loadedImages.filter(image => image.loaded).length;
     const newPercent = Math.floor((
       loadedImages[0].count +
       loadedImages[1].count +
@@ -83,30 +88,30 @@ export default function Home() {
             <div className="absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{percent > 100 ? 100 : percent}%</div>
           </div>
           <div className={`absolute w-full h-24 ${percent >= 100 ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
-            <Suspense fallback={<div>...</div>}>
+            {/* <Suspense fallback={<div>...</div>}> */}
               <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
-            </Suspense>
+            {/* </Suspense> */}
           </div>
           <div id="Home" className={`w-full ${percent >= 100 ? "" : "h-0"}`}>
             <div className="relative font-skranji text-white z-0">
-              <Suspense fallback={<div></div>}>
+              {/* <Suspense fallback={<div></div>}> */}
                 <MainPage handleImageLoad={imageLoadHandlers[0]} loadedImages={loadedImages[0]} />
-              </Suspense>
-              <Suspense fallback={<div></div>}>
+              {/* </Suspense>
+              <Suspense fallback={<div></div>}> */}
                 <HowPlay handleImageLoad={imageLoadHandlers[1]} loadedImages={loadedImages[1]} />
-              </Suspense>
-              <Suspense fallback={<div></div>}>
+              {/* </Suspense>
+              <Suspense fallback={<div></div>}> */}
                 <WhitePaper handleImageLoad={imageLoadHandlers[2]} loadedImages={loadedImages[2]} />
-              </Suspense>
-              <Suspense fallback={<div></div>}>
+              {/* </Suspense>
+              <Suspense fallback={<div></div>}> */}
                 <GemDescription handleImageLoad={imageLoadHandlers[3]} loadedImages={loadedImages[3]} />
-              </Suspense>
-              <Suspense fallback={<div></div>}>
+              {/* </Suspense>
+              <Suspense fallback={<div></div>}> */}
                 <HowEarn handleImageLoad={imageLoadHandlers[4]} loadedImages={loadedImages[4]} />
-              </Suspense>
-              <Suspense fallback={<div></div>}>
+              {/* </Suspense>
+              <Suspense fallback={<div></div>}> */}
                 <ContactUs handleImageLoad={imageLoadHandlers[5]} loadedImages={loadedImages[5]} />
-              </Suspense>
+              {/* </Suspense> */}
             </div>
           </div>
         </div>
