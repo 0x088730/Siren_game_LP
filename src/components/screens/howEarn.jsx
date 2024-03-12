@@ -4,6 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import LazyImage from "../lazyImage";
 
 const HowEarn = (props) => {
+    let imagesCount = 6;
     const { t, i18n } = useTranslation();
     const characterList = [1, 2, 3, 4];
     const [currentCharacter, setCurrentCharacter] = useState(1)
@@ -14,16 +15,27 @@ const HowEarn = (props) => {
         { header: "Hayate", detail: t("Hayate is a wood element character. The huge castle of Altdream, more like a city, was once home to thousands of people. One day, one of the guards discovered the ability to control wooden objects and then the earth. One day, while practicing with the elements, not far from the castle, the knight sent the entire castle underground, destroying everyone in it. He became maddened by his own power and now constantly seeks out creatures to destroy. His strength is periodic damage. His weakness is fighting creatures with the element of fire, especially if those") }
     ]
 
+    useEffect(() => {
+        if (props.loadedImages >= imagesCount) {
+            console.log(props.loadedImages)
+            props.setLoaded(true)
+        }
+    }, [props.loadedImages]);
+
+    const handleImageLoad = () => {
+        props.setLoadedImages(prevState => prevState + 1);
+    };
+
     return (
-        <div className={`relative md:w-full ${props.loadedImages.loaded === true ? "xl:h-[1710px]" : "h-0"} flex justify-center mt-[64rem] sm:mt-[38rem] md:mt-[47rem] lg:mt-28 xl:mt-[-27rem]`}>
+        <div className={`relative md:w-full ${props.loaded === true ? "xl:h-[1710px]" : "h-0"} flex justify-center mt-[64rem] sm:mt-[38rem] md:mt-[47rem] lg:mt-28 xl:mt-[-27rem]`}>
             <LazyImage
                 src="assets/images/backgrounds/howEarn.png"
-                onLoad={props.handleImageLoad}
+                onLoad={handleImageLoad}
                 className="background-position-center-absolute w-[1920px] h-[1710px] 2xl:w-full 2xl:h-full"
             />
             <LazyImage
                 src="assets/images/characters/character3.png"
-                onLoad={props.handleImageLoad}
+                onLoad={handleImageLoad}
                 className="absolute left-0 mt-40 sm:mt-0 top-[-99rem] sm:top-[-65rem] md:top-[-58rem] lg:top-[-22rem] xl:top-[-18rem] w-[66%] sm:w-[45%] md:w-[35%] lg:w-[33%] xl:w-[27%]"
             />
             <div className="main-bg-test absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-70rem] sm:top-[-45rem] md:top-[-38rem] lg:top-[-6rem] xl:-top-16 flex flex-col-reverse sm:flex-row justify-center items-center">
@@ -46,7 +58,7 @@ const HowEarn = (props) => {
                         <div key={index}>
                             <LazyImage
                                 src={`assets/images/characters/avatar${item}.png`}
-                                onLoad={props.handleImageLoad}
+                                onLoad={handleImageLoad}
                                 className={`${item !== currentCharacter ? "grayscale" : ""} object-cover w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 mx-2 sm:mx-4 md:mx-6 lg:mx-8 z-10 cursor-pointer`}
                                 onClick={() => setCurrentCharacter(item)}
                             />
@@ -61,7 +73,7 @@ const HowEarn = (props) => {
                         <div className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]">
                             <LazyImage
                                 src="assets/images/helmit.png"
-                                onLoad={props.handleImageLoad}
+                                onLoad={handleImageLoad}
                                 className="w-full h-full"
                             />
                         </div>
@@ -74,7 +86,7 @@ const HowEarn = (props) => {
                         <div className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]">
                             <LazyImage
                                 src="assets/images/playImg2.png"
-                                onLoad={props.handleImageLoad}
+                                onLoad={handleImageLoad}
                                 className="w-full h-full"
                             />
                         </div>

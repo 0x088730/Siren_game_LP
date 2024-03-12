@@ -3,15 +3,28 @@ import { goUrl } from "../utils";
 import { useTranslation } from "react-i18next";
 import LazyImage from "../lazyImage";
 import Character1 from "../character/character1";
+import { useEffect, useState } from "react";
 
 const MainPage = (props) => {
+    let imagesCount = 3;
     const { t, i18n } = useTranslation();
 
+    useEffect(() => {
+        if (props.loadedImages >= imagesCount) {
+            console.log(props.loadedImages)
+            props.setLoaded(true)
+        }
+    }, [props.loadedImages]);
+
+    const handleImageLoad = () => {
+        props.setLoadedImages(prevState => prevState + 1);
+    };
+
     return (
-        <div className="relative overflow-hidden h-[750px] md:w-full xl:h-screen flex justify-center">
+        <div className={`relative overflow-hidden md:w-full ${props.loaded === true ? "h-[750px] xl:h-screen" : "h-0"} flex justify-center`}>
             <LazyImage
                 src="assets/images/backgrounds/home.jpg"
-                onLoad={props.handleImageLoad}
+                onLoad={handleImageLoad}
                 className={`background-position-center-absolute w-[1300px] sm:w-[1920px] 2xl:w-full h-[935px] sm:h-[1270px] 2xl:h-full`}
             />
             <div className="flex flex-col items-center w-[22rem] sm:w-[24rem] md:w-[26rem] lg:w-[26rem] xl:w-[30rem] translate-y-40">
@@ -21,12 +34,12 @@ const MainPage = (props) => {
             </div>
             <LazyImage
                 src="assets/images/characters/character-1.gif"
-                onLoad={props.handleImageLoad}
+                onLoad={handleImageLoad}
                 className="absolute left-0 bottom-[50px] w-[55%] sm:w-[40%]"
             />
             <LazyImage
                 src="assets/images/characters/character-2.gif"
-                onLoad={props.handleImageLoad}
+                onLoad={handleImageLoad}
                 className="absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%]"
             />
             {/* <Character1 /> */}

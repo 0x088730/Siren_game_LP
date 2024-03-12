@@ -16,40 +16,31 @@ const ContactUs = React.lazy(() => import('~/components/screens/contactUs'));
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState("Home");
   const { t, i18n } = useTranslation();
-  const [loadedImages, setLoadedImages] = useState([
-    { count: 0, loaded: false, imgCount: 3 },
-    { count: 0, loaded: false, imgCount: 6 },
-    { count: 0, loaded: false, imgCount: 3 },
-    { count: 0, loaded: false, imgCount: 8 },
-    { count: 0, loaded: false, imgCount: 6 },
-    { count: 0, loaded: false, imgCount: 6 },
-  ]);
+  const [loadedImages1, setLoadedImages1] = useState(0);
+  const [loadedImages2, setLoadedImages2] = useState(0);
+  const [loadedImages3, setLoadedImages3] = useState(0);
+  const [loadedImages4, setLoadedImages4] = useState(0);
+  const [loadedImages5, setLoadedImages5] = useState(0);
+  const [loadedImages6, setLoadedImages6] = useState(0);
+  const [loaded1, setLoaded1] = useState(false);
+  const [loaded2, setLoaded2] = useState(false);
+  const [loaded3, setLoaded3] = useState(false);
+  const [loaded4, setLoaded4] = useState(false);
+  const [loaded5, setLoaded5] = useState(false);
+  const [loaded6, setLoaded6] = useState(false);
   const [percent, setPercent] = useState(0);
 
   useEffect(() => {
     const newPercent = Math.floor((
-      loadedImages[0].count +
-      loadedImages[1].count +
-      loadedImages[2].count +
-      loadedImages[3].count +
-      loadedImages[4].count +
-      loadedImages[5].count
-      ) * 100 / 26);
+      loadedImages1 +
+      loadedImages2 +
+      loadedImages3 +
+      loadedImages4 +
+      loadedImages5 +
+      loadedImages6
+    ) * 100 / 35);
     setPercent(newPercent);
-  }, [loadedImages]);
-
-  const handleImageLoad = (index) => {
-    setLoadedImages(prevState => {
-      const newState = [...prevState];
-      newState[index] = { ...newState[index], count: newState[index].count + 1 };
-      if (newState[index].count >= newState[index].imgCount && !newState[index].loaded) {
-        newState[index] = { ...newState[index], loaded: true };
-      }
-      return newState;
-    });
-  };
-  console.log(loadedImages)
-  const imageLoadHandlers = loadedImages.map((_, index) => () => handleImageLoad(index));
+  }, [loadedImages1, loadedImages2, loadedImages3, loadedImages4, loadedImages5, loadedImages6]);
 
   useEffect(() => {
     document.body.style.overflowY = "hidden"
@@ -88,22 +79,52 @@ export default function Home() {
           <div id="Home" className={`w-full ${percent >= 100 ? "" : "h-0"}`}>
             <div className="relative font-skranji text-white z-0">
               <Suspense fallback={<div></div>}>
-                <MainPage handleImageLoad={imageLoadHandlers[0]} loadedImages={loadedImages[0]} />
+                <MainPage
+                  loadedImages={loadedImages1}
+                  setLoadedImages={setLoadedImages1}
+                  loaded={loaded1}
+                  setLoaded={setLoaded1}
+                />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <HowPlay handleImageLoad={imageLoadHandlers[1]} loadedImages={loadedImages[1]} />
+                <HowPlay
+                  loadedImages={loadedImages2}
+                  setLoadedImages={setLoadedImages2}
+                  loaded={loaded2}
+                  setLoaded={setLoaded2}
+                />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <WhitePaper handleImageLoad={imageLoadHandlers[2]} loadedImages={loadedImages[2]} />
+                <WhitePaper
+                  loadedImages={loadedImages3}
+                  setLoadedImages={setLoadedImages3}
+                  loaded={loaded3}
+                  setLoaded={setLoaded3}
+                />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <GemDescription handleImageLoad={imageLoadHandlers[3]} loadedImages={loadedImages[3]} />
+                <GemDescription
+                  loadedImages={loadedImages4}
+                  setLoadedImages={setLoadedImages4}
+                  loaded={loaded4}
+                  setLoaded={setLoaded4}
+                />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <HowEarn handleImageLoad={imageLoadHandlers[4]} loadedImages={loadedImages[4]} />
+                <HowEarn
+                  loadedImages={loadedImages5}
+                  setLoadedImages={setLoadedImages5}
+                  loaded={loaded5}
+                  setLoaded={setLoaded5}
+                />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                <ContactUs handleImageLoad={imageLoadHandlers[5]} loadedImages={loadedImages[5]} />
+                <ContactUs
+                  loadedImages={loadedImages6}
+                  setLoadedImages={setLoadedImages6}
+                  loaded={loaded6}
+                  setLoaded={setLoaded6}
+                />
               </Suspense>
             </div>
           </div>

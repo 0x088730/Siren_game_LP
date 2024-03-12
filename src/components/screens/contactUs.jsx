@@ -5,20 +5,22 @@ import LazyImage from "../lazyImage";
 import { useEffect, useState } from "react";
 
 const ContactUs = (props) => {
+    let imagesCount = 9;
     const { t, i18n } = useTranslation();
-    const [loadedImages, setLoadedImages] = useState(0);
 
     useEffect(() => {
-        if (loadedImages >= 9) {
-            console.log(loadedImages)
+        if (props.loadedImages >= imagesCount) {
+            console.log(props.loadedImages)
+            props.setLoaded(true)
         }
-    }, [loadedImages]);
+    }, [props.loadedImages]);
 
     const handleImageLoad = () => {
-        setLoadedImages(prevState => prevState + 1);
+        props.setLoadedImages(prevState => prevState + 1);
     };
+
     return (
-        <div className={`relative md:w-full ${props.loadedImages.loaded === true ? "h-[1100px] sm:h-[1100px] md:h-[1300px] xl:h-[1300px]" : "h-0"} flex flex-col justify-start items-center mt-[-9rem] sm:mt-[-21rem] md:mt-[-28rem] lg:mt-[-32rem] xl:mt-[-50rem] 2xl:mt-[-48rem]`}>
+        <div className={`relative md:w-full ${props.loaded === true ? "h-[1100px] sm:h-[1100px] md:h-[1300px] xl:h-[1300px]" : "h-0"} flex flex-col justify-start items-center mt-[-9rem] sm:mt-[-21rem] md:mt-[-28rem] lg:mt-[-32rem] xl:mt-[-50rem] 2xl:mt-[-48rem]`}>
             <LazyImage
                 src="assets/images/backgrounds/contact.png"
                 onLoad={(handleImageLoad)}
