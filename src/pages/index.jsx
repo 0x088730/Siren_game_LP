@@ -34,7 +34,7 @@ export default function Home() {
       loadedImages[3].count +
       loadedImages[4].count +
       loadedImages[5].count
-      ) * 100 / 32);
+      ) * 100 / 26);
     setPercent(newPercent);
   }, [loadedImages]);
 
