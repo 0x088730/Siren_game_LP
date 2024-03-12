@@ -19,10 +19,10 @@ export default function Home() {
   const [loadedImages, setLoadedImages] = useState([
     { count: 0, loaded: false, imgCount: 3 },
     { count: 0, loaded: false, imgCount: 6 },
-    { count: 0, loaded: false, imgCount: 5 },
+    { count: 0, loaded: false, imgCount: 3 },
     { count: 0, loaded: false, imgCount: 8 },
-    { count: 0, loaded: false, imgCount: 12 },
-    { count: 0, loaded: false, imgCount: 11 },
+    { count: 0, loaded: false, imgCount: 6 },
+    { count: 0, loaded: false, imgCount: 6 },
   ]);
   const [percent, setPercent] = useState(0);
 
@@ -36,7 +36,7 @@ export default function Home() {
       loadedImages[3].count +
       loadedImages[4].count +
       loadedImages[5].count
-      ) * 100 / 45);
+      ) * 100 / 32);
     setPercent(newPercent);
   }, [loadedImages]);
 
@@ -50,7 +50,7 @@ export default function Home() {
       return newState;
     });
   };
-
+  console.log(loadedImages)
   const imageLoadHandlers = loadedImages.map((_, index) => () => handleImageLoad(index));
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function Home() {
     });
   }, []);
   useEffect(() => {
-    if (percent === 100)
+    if (percent >= 100)
       document.body.style.overflowY = "auto"
   }, [percent]);
 
