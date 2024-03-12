@@ -69,11 +69,11 @@ export default function Home() {
         <div className={`w-full overflow-hidden Home`}>
           <div className={`${percent >= 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
             <LazyImage
-              src="/assets/images/backgrounds/loading.jpg"
+              src="assets/images/backgrounds/loading.jpg"
               className={`background-position-center w-full min-w-[1600px] h-full`}
             />
             <LazyImage
-              src="/assets/images/spinner.svg"
+              src="assets/images/spinner.svg"
               className="absolute bottom-16 w-40"
             />
             <div className="absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{percent > 100 ? 100 : percent}%</div>
