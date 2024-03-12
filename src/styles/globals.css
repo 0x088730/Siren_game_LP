@@ -400,10 +400,6 @@ body {
   background-image: url("../../public/assets/images/backgrounds/home.jpg") !important;
   background-size: 100% 100%;
 }
-.white-bg-test {
-  background-image: url("../../public/assets/images/backgrounds/white-test.png") !important;
-  background-size: 100% 100%;
-}
 
 .gem-bg-test {
   background-image: url("../../public/assets/images/backgrounds/gemdes.png") !important;
