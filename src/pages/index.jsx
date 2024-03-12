@@ -29,7 +29,14 @@ export default function Home() {
   useEffect(() => {
     const totalCount = loadedImages.reduce((total, image) => total + image.count, 0);
     const loadedCount = loadedImages.filter(image => image.loaded).length;
-    const newPercent = Math.floor((loadedCount * 100) / (loadedImages.length * 3));
+    const newPercent = Math.floor((
+      loadedImages[0].count +
+      loadedImages[1].count +
+      loadedImages[2].count +
+      loadedImages[3].count +
+      loadedImages[4].count +
+      loadedImages[5].count
+      ) * 100 / 45);
     setPercent(newPercent);
   }, [loadedImages]);
 
