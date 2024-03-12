@@ -29,6 +29,13 @@ export default function Home() {
   const [loaded5, setLoaded5] = useState(false);
   const [loaded6, setLoaded6] = useState(false);
   const [percent, setPercent] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loaded1 && loaded2 && loaded3 && loaded4 && loaded5 && loaded6) {
+      setLoading(false);
+    }
+  }, [loaded1, loaded2, loaded3, loaded4, loaded5, loaded6]);
 
   useEffect(() => {
     const newPercent = Math.floor((
@@ -82,7 +89,7 @@ export default function Home() {
                 <MainPage
                   loadedImages={loadedImages1}
                   setLoadedImages={setLoadedImages1}
-                  loaded={loaded1}
+                  loaded={!loading}
                   setLoaded={setLoaded1}
                 />
               </Suspense>
@@ -90,7 +97,7 @@ export default function Home() {
                 <HowPlay
                   loadedImages={loadedImages2}
                   setLoadedImages={setLoadedImages2}
-                  loaded={loaded2}
+                  loaded={!loading}
                   setLoaded={setLoaded2}
                 />
               </Suspense>
@@ -98,7 +105,7 @@ export default function Home() {
                 <WhitePaper
                   loadedImages={loadedImages3}
                   setLoadedImages={setLoadedImages3}
-                  loaded={loaded3}
+                  loaded={!loading}
                   setLoaded={setLoaded3}
                 />
               </Suspense>
@@ -106,7 +113,7 @@ export default function Home() {
                 <GemDescription
                   loadedImages={loadedImages4}
                   setLoadedImages={setLoadedImages4}
-                  loaded={loaded4}
+                  loaded={!loading}
                   setLoaded={setLoaded4}
                 />
               </Suspense>
@@ -114,7 +121,7 @@ export default function Home() {
                 <HowEarn
                   loadedImages={loadedImages5}
                   setLoadedImages={setLoadedImages5}
-                  loaded={loaded5}
+                  loaded={!loading}
                   setLoaded={setLoaded5}
                 />
               </Suspense>
@@ -122,7 +129,7 @@ export default function Home() {
                 <ContactUs
                   loadedImages={loadedImages6}
                   setLoadedImages={setLoadedImages6}
-                  loaded={loaded6}
+                  loaded={!loading}
                   setLoaded={setLoaded6}
                 />
               </Suspense>
