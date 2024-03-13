@@ -33,7 +33,7 @@ const WhitePaper = (props) => {
                 // onLoad={handleImageLoad}
                 className="absolute left-0 top-[-29rem] sm:top-[-26rem] md:top-[-23rem] xl:-top-20 w-full h-full sm:h-[40rem] xl:h-[unset]"
             />
-            <div className="relative w-[70rem] flex flex-col justify-start items-center translate-y-[-15rem] sm:translate-y-[-17rem] xl:translate-y-0">
+            <div className="relative w-[70rem] flex flex-col justify-start items-center translate-y-[-15rem] sm:translate-y-[-17rem] xl:translate-y-0 z-20">
                 <LazyImage
                     src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/book-test-8fcrMTaURCFjDFPyYiI9Olf0E6pKmf.png"
                     // onLoad={handleImageLoad}
