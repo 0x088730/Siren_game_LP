@@ -161,40 +161,11 @@ export default function PresaleAdmin() {
     }
   }
 
-  // useEffect(() => {
-  //   setLoading(true);
-  // }, [])
-
-  // useEffect(() => {
-  //   if (loadedImages >= 7) {
-  //     const timeout = setTimeout(() => {
-  //       setLoading(false);
-  //     }, 1000);
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, [loadedImages]);
-
-  // const handleImageLoad = () => {
-  //   setLoadedImages(prevState => prevState + 1);
-  // };
-
   return (
     <I18nextProvider i18n={i18next}>
       <div className="relative flex justify-center font-skranji">
-        {/* <div className={`${loading === false ? "h-0 z-0" : "h-full z-30"} w-full flex justify-center`}>
-          <LazyImage
-            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/loading-WGHzpbP6BMyWPUpYMIgZFdV43W9XoW.jpg"
-            className={`background-position-center w-full min-w-[1600px] h-full`}
-          />
-          <LazyImage
-            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/spinner-KchMqW2myVLGxijjVL93hLIeJOCf68.svg"
-            className="fixed bottom-16 w-40"
-          />
-          <div className="fixed bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{Math.floor(loadedImages >= 7 ? 100 : loadedImages * 100 / 7)}%</div>
-        </div> */}
         <Header currentMenu="Presale Admin" />
         <div className={`fixed overflow-y-auto overflow-x-hidden flex-col h-full w-full space-y-2 flex items-center justify-center`}>
-        {/* <div className={`fixed overflow-y-auto overflow-x-hidden flex-col ${loading === true ? "h-0" : "h-full"} w-full space-y-2 flex items-center justify-center`}> */}
           <LazyImage
             src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/presale-bg-u4EFgcXo7qKyfX4PdqgLyQp25bI55c.jpg"
             // onLoad={handleImageLoad}
