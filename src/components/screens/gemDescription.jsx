@@ -25,14 +25,14 @@ const GemDescription = (props) => {
         <>
             <div className={`relative md:hidden md:w-full ${props.loaded === true ? "xl:h-[1428px] mt-[47rem] sm:mt-[43rem] md:mt-[-22rem]" : "h-0 mt-0"} flex flex-col justify-center items-center`}>
                 <LazyImage
-                    src="assets/images/backgrounds/gemdescription.png"
+                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/gemdes-U1JlEkvxiaDwj98aBkGqjGYYLhSBKR.png"
                     onLoad={handleImageLoad}
                     className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
                 />
             </div>
             <div className={`relative md:w-full ${props.loaded === true ? "xl:h-[1428px] mt-0 sm:mt-4 md:mt-[12rem] lg:mt-[10rem] xl:mt-[-22rem]" : "h-0 mt-0"} flex flex-col justify-center items-center`}>
                 <LazyImage
-                    src="assets/images/backgrounds/gemdescription.png"
+                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/gemdes-U1JlEkvxiaDwj98aBkGqjGYYLhSBKR.png"
                     onLoad={handleImageLoad}
                     className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
                 />

@@ -29,7 +29,7 @@ const HowEarn = (props) => {
     return (
         <div className={`relative md:w-full ${props.loaded === true ? "xl:h-[1710px] mt-[64rem] sm:mt-[38rem] md:mt-[47rem] lg:mt-28 xl:mt-[-27rem]" : "h-0 mt-0"} flex justify-center`}>
             <LazyImage
-                src="assets/images/backgrounds/howEarn.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/howEarn-sU6HwrUqVfGvh6rSUC7WUPjyxhgQOD.png"
                 onLoad={handleImageLoad}
                 className="background-position-center-absolute w-[1920px] h-[1710px] 2xl:w-full 2xl:h-full"
             />

@@ -22,7 +22,7 @@ const ContactUs = (props) => {
     return (
         <div className={`relative md:w-full ${props.loaded === true ? "h-[1100px] sm:h-[1100px] md:h-[1300px] xl:h-[1300px] mt-[-9rem] sm:mt-[-21rem] md:mt-[-28rem] lg:mt-[-32rem] xl:mt-[-50rem] 2xl:mt-[-48rem]" : "h-0 mt-0"} flex flex-col justify-start items-center`}>
             <LazyImage
-                src="assets/images/backgrounds/contact.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/contact-cMWZ0LdqHEmrcDRJ4Kkk45YA7AviG4.png"
                 onLoad={(handleImageLoad)}
                 className="background-position-center-absolute w-[1920px] h-[1300px] md:h-[1300px] lg:h-[1300px] 2xl:w-full 2xl:h-full"
             />

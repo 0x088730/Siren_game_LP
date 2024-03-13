@@ -23,7 +23,7 @@ const MainPage = (props) => {
     return (
         <div className={`relative overflow-hidden md:w-full ${props.loaded === true ? "h-[750px] xl:h-screen" : "h-0"} flex justify-center`}>
             <LazyImage
-                src="assets/images/backgrounds/home.jpg"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/home-5TA4eddqon86bEN8VagTWBlrHcdciz.jpg"
                 onLoad={handleImageLoad}
                 className={`background-position-center-absolute w-[1300px] sm:w-[1920px] 2xl:w-full h-[935px] sm:h-[1270px] 2xl:h-full`}
             />

@@ -42,7 +42,7 @@ export default function ReferralInfo() {
       <div className="flex justify-center">
         <div className={`${loading === false ? "h-0 z-0" : "h-full z-30"} w-full flex justify-center`}>
           <LazyImage
-            src="assets/images/backgrounds/loading.jpg"
+            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/loading-WGHzpbP6BMyWPUpYMIgZFdV43W9XoW.jpg"
             className={`background-position-center w-full min-w-[1600px] h-full`}
           />
           <LazyImage
@@ -54,7 +54,7 @@ export default function ReferralInfo() {
         <Header currentMenu="Referral Info" />
         <div className={`fixed overflow-y-auto overflow-x-hidden ${loading === true ? "h-0" : "h-full"} w-full flex justify-center items-center text-white font-skranji text-[16px]`}>
           <LazyImage
-            src="assets/images/htp_bg.jpg"
+            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/htp_bg-v50uIH6CxPVeEo0sqo14CY3wYDLClN.jpg"
             onLoad={handleImageLoad}
             className="background-position-center w-[1920px] h-[1200px] 2xl:w-full 2xl:h-full"
           />

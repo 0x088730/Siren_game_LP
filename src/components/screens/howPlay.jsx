@@ -21,7 +21,7 @@ const HowPlay = (props) => {
     return (
         <div className={`relative flex flex-col items-center justify-start w-full ${props.loaded === true ? "h-[1519px]" : "h-0"} mt-[-18rem] sm:mt-[-15rem]`}>
             <LazyImage
-                src="assets/images/backgrounds/howPlay.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/howPlay-Dht71eqpuRFBhRXoikRe6dp5wLd0Cu.png"
                 onLoad={handleImageLoad}
                 className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-full 2xl:h-full"
             />

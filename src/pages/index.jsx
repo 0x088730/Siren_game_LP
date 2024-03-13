@@ -48,8 +48,6 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await list();
-        console.log(res);
         document.body.style.overflowY = "hidden";
         i18n.changeLanguage('en');
         const counterResponse = await counterUser();
@@ -74,7 +72,7 @@ export default function Home() {
         <div className={`w-full overflow-hidden Home`}>
           <div className={`${percent >= 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
             <LazyImage
-              src="assets/images/backgrounds/loading.jpg"
+              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/loading-WGHzpbP6BMyWPUpYMIgZFdV43W9XoW.jpg"
               className={`background-position-center w-full min-w-[1600px] h-full`}
             />
             <LazyImage

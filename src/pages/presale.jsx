@@ -183,7 +183,7 @@ export default function PresaleAdmin() {
       <div className="relative flex justify-center font-skranji">
         <div className={`${loading === false ? "h-0 z-0" : "h-full z-30"} w-full flex justify-center`}>
           <LazyImage
-            src="assets/images/backgrounds/loading.jpg"
+            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/loading-WGHzpbP6BMyWPUpYMIgZFdV43W9XoW.jpg"
             className={`background-position-center w-full min-w-[1600px] h-full`}
           />
           <LazyImage
@@ -195,7 +195,7 @@ export default function PresaleAdmin() {
         <Header currentMenu="Presale Admin" />
         <div className={`fixed overflow-y-auto overflow-x-hidden flex-col ${loading === true ? "h-0" : "h-full"} w-full space-y-2 flex items-center justify-center`}>
           <LazyImage
-            src="assets/images/backgrounds/presale-bg.jpg"
+            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/presale-bg-u4EFgcXo7qKyfX4PdqgLyQp25bI55c.jpg"
             onLoad={handleImageLoad}
             className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full"
           />
