@@ -33,12 +33,12 @@ const MainPage = (props) => {
                 <ClickButton title={t("GET START")} className="w-60 sm:w-52 lg:w-[60%] h-20" onClick={() => goUrl("https://play.cryptoshowdown.io/")} />
             </div>
             <LazyImage
-                src="assets/images/characters/character-1.gif"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character-1-CfW928DZTahdIfD1MmQ2oQfbrcwxIq.gif"
                 onLoad={handleImageLoad}
                 className="absolute left-0 bottom-[50px] w-[55%] sm:w-[40%]"
             />
             <LazyImage
-                src="assets/images/characters/character-2.gif"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character-2-4foCzwU07QLYHpA2lqwR3TzNoivnkS.gif"
                 onLoad={handleImageLoad}
                 className="absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%]"
             />

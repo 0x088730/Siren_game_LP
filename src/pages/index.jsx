@@ -4,6 +4,7 @@ import { counterUser } from "~/common/api";
 import i18next from "~/global/i18n";
 import Image from 'next/image';
 import LazyImage from "~/components/lazyImage";
+import { list } from "@vercel/blob"
 
 const Header = React.lazy(() => import('~/components/screens/header'));
 const MainPage = React.lazy(() => import('~/components/screens/mainPage'));
@@ -45,14 +46,23 @@ export default function Home() {
   }, [loadedImages1, loadedImages2, loadedImages3, loadedImages4, loadedImages5, loadedImages6]);
 
   useEffect(() => {
-    document.body.style.overflowY = "hidden"
-    i18n.changeLanguage('en');
-    counterUser().then(res => {
-      if (res.count === false) {
-        // alert(res.message);
+    async function fetchData() {
+      try {
+        const res = await list();
+        console.log(res);
+        document.body.style.overflowY = "hidden";
+        i18n.changeLanguage('en');
+        const counterResponse = await counterUser();
+        if (counterResponse.count === false) {
+          // alert(counterResponse.message);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    });
+    }
+    fetchData();
   }, []);
+
   useEffect(() => {
     if (percent >= 100)
       document.body.style.overflowY = "auto"
