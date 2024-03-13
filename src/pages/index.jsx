@@ -17,38 +17,38 @@ const ContactUs = React.lazy(() => import('~/components/screens/contactUs'));
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState("Home");
   const { t, i18n } = useTranslation();
-  const [loadedImages1, setLoadedImages1] = useState(0);
-  const [loadedImages2, setLoadedImages2] = useState(0);
-  const [loadedImages3, setLoadedImages3] = useState(0);
-  const [loadedImages4, setLoadedImages4] = useState(0);
-  const [loadedImages5, setLoadedImages5] = useState(0);
-  const [loadedImages6, setLoadedImages6] = useState(0);
-  const [loaded1, setLoaded1] = useState(false);
-  const [loaded2, setLoaded2] = useState(false);
-  const [loaded3, setLoaded3] = useState(false);
-  const [loaded4, setLoaded4] = useState(false);
-  const [loaded5, setLoaded5] = useState(false);
-  const [loaded6, setLoaded6] = useState(false);
-  const [percent, setPercent] = useState(0);
-  const [loading, setLoading] = useState(true);
+  // const [loadedImages1, setLoadedImages1] = useState(0);
+  // const [loadedImages2, setLoadedImages2] = useState(0);
+  // const [loadedImages3, setLoadedImages3] = useState(0);
+  // const [loadedImages4, setLoadedImages4] = useState(0);
+  // const [loadedImages5, setLoadedImages5] = useState(0);
+  // const [loadedImages6, setLoadedImages6] = useState(0);
+  // const [loaded1, setLoaded1] = useState(false);
+  // const [loaded2, setLoaded2] = useState(false);
+  // const [loaded3, setLoaded3] = useState(false);
+  // const [loaded4, setLoaded4] = useState(false);
+  // const [loaded5, setLoaded5] = useState(false);
+  // const [loaded6, setLoaded6] = useState(false);
+  // const [percent, setPercent] = useState(0);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (loaded1 && loaded2 && loaded3 && loaded4 && loaded5 && loaded6) {
-      setLoading(false);
-    }
-  }, [loaded1, loaded2, loaded3, loaded4, loaded5, loaded6]);
+  // useEffect(() => {
+  //   if (loaded1 && loaded2 && loaded3 && loaded4 && loaded5 && loaded6) {
+  //     setLoading(false);
+  //   }
+  // }, [loaded1, loaded2, loaded3, loaded4, loaded5, loaded6]);
 
-  useEffect(() => {
-    setPercent(Math.floor(
-      (loadedImages1 + loadedImages2 + loadedImages3 + loadedImages4 + loadedImages5 + loadedImages6)
-      * 100 / 35
-    ));
-  }, [loadedImages1, loadedImages2, loadedImages3, loadedImages4, loadedImages5, loadedImages6]);
+  // useEffect(() => {
+  //   setPercent(Math.floor(
+  //     (loadedImages1 + loadedImages2 + loadedImages3 + loadedImages4 + loadedImages5 + loadedImages6)
+  //     * 100 / 35
+  //   ));
+  // }, [loadedImages1, loadedImages2, loadedImages3, loadedImages4, loadedImages5, loadedImages6]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        document.body.style.overflowY = "hidden";
+        // document.body.style.overflowY = "hidden";
         i18n.changeLanguage('en');
         const counterResponse = await counterUser();
         if (counterResponse.count === false) {
@@ -61,16 +61,16 @@ export default function Home() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (percent >= 100)
-      document.body.style.overflowY = "auto"
-  }, [percent]);
+  // useEffect(() => {
+  //   if (percent >= 100)
+  //     document.body.style.overflowY = "auto"
+  // }, [percent]);
 
   return (
     <div>
       <I18nextProvider i18n={i18next}>
         <div className={`w-full overflow-hidden Home`}>
-          <div className={`${percent >= 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
+          {/* <div className={`${percent >= 100 ? "h-0" : "h-full"} w-full z-30 flex justify-center`}>
             <LazyImage
               src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/loading-WGHzpbP6BMyWPUpYMIgZFdV43W9XoW.jpg"
               className={`background-position-center w-full min-w-[1600px] h-full`}
@@ -80,81 +80,83 @@ export default function Home() {
               className="absolute bottom-16 w-40"
             />
             <div className="absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{percent > 100 ? 100 : percent}%</div>
-          </div>
-          <div className={`absolute w-full h-24 ${percent >= 100 ? "flex" : "hidden"} z-10 flex justify-center items-center`}>
+          </div> */}
+          {/* <div className={`absolute w-full h-24 ${percent >= 100 ? "flex" : "hidden"} z-10 justify-center items-center`}> */}
+          <div className={`absolute w-full h-24 flex z-10 justify-center items-center`}>
             <Suspense fallback={<div>...</div>}>
               <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
             </Suspense>
           </div>
-          <div id="Home" className={`w-full ${percent >= 100 ? "" : "h-0"}`}>
+          {/* <div id="Home" className={`w-full ${percent >= 100 ? "" : "h-0"}`}> */}
+          <div id="Home" className={`w-full`}>
             <div className="relative font-skranji text-white z-0">
               <Suspense fallback={<div></div>}>
                 <MainPage
-                  loadedImages={loadedImages1}
-                  setLoadedImages={setLoadedImages1}
-                  loaded={!loading}
-                  setLoaded={setLoaded1}
+                  // loadedImages={loadedImages1}
+                  // setLoadedImages={setLoadedImages1}
+                  // loaded={!loading}
+                  // setLoaded={setLoaded1}
                 />
               </Suspense>
               <Suspense fallback={<div></div>}>
-                {
-                  loaded1 === true ?
+                {/* {
+                  loaded1 === true ? */}
                     <HowPlay
-                      loadedImages={loadedImages2}
-                      setLoadedImages={setLoadedImages2}
-                      loaded={!loading}
-                      setLoaded={setLoaded2}
+                      // loadedImages={loadedImages2}
+                      // setLoadedImages={setLoadedImages2}
+                      // loaded={!loading}
+                      // setLoaded={setLoaded2}
                     />
-                    : null
-                }
+                    {/* : null
+                } */}
               </Suspense>
               <Suspense fallback={<div></div>}>
-                {
-                  loaded2 === true ?
+                {/* {
+                  loaded2 === true ? */}
                     <WhitePaper
-                      loadedImages={loadedImages3}
-                      setLoadedImages={setLoadedImages3}
-                      loaded={!loading}
-                      setLoaded={setLoaded3}
+                      // loadedImages={loadedImages3}
+                      // setLoadedImages={setLoadedImages3}
+                      // loaded={!loading}
+                      // setLoaded={setLoaded3}
                     />
-                    : null
-                }
+                    {/* : null
+                } */}
               </Suspense>
               <Suspense fallback={<div></div>}>
-                {
-                  loaded3 === true ?
+                {/* {
+                  loaded3 === true ? */}
                     <GemDescription
-                      loadedImages={loadedImages4}
-                      setLoadedImages={setLoadedImages4}
-                      loaded={!loading}
-                      setLoaded={setLoaded4}
+                      // loadedImages={loadedImages4}
+                      // setLoadedImages={setLoadedImages4}
+                      // loaded={!loading}
+                      // setLoaded={setLoaded4}
                     />
-                    : null
-                }
+                    {/* : null
+                } */}
               </Suspense>
               <Suspense fallback={<div></div>}>
-                {
-                  loaded4 === true ?
+                {/* {
+                  loaded4 === true ? */}
                     <HowEarn
-                      loadedImages={loadedImages5}
-                      setLoadedImages={setLoadedImages5}
-                      loaded={!loading}
-                      setLoaded={setLoaded5}
+                      // loadedImages={loadedImages5}
+                      // setLoadedImages={setLoadedImages5}
+                      // loaded={!loading}
+                      // setLoaded={setLoaded5}
                     />
-                    : null
-                }
+                    {/* : null
+                } */}
               </Suspense>
               <Suspense fallback={<div></div>}>
-                {
-                  loaded5 === true ?
+                {/* {
+                  loaded5 === true ? */}
                     <ContactUs
-                      loadedImages={loadedImages6}
-                      setLoadedImages={setLoadedImages6}
-                      loaded={!loading}
-                      setLoaded={setLoaded6}
+                      // loadedImages={loadedImages6}
+                      // setLoadedImages={setLoadedImages6}
+                      // loaded={!loading}
+                      // setLoaded={setLoaded6}
                     />
-                    : null
-                }
+                    {/* : null
+                } */}
               </Suspense>
             </div>
           </div>
