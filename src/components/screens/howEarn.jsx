@@ -34,7 +34,7 @@ const HowEarn = (props) => {
                 className="background-position-center-absolute w-[1920px] h-[1710px] 2xl:w-full 2xl:h-full"
             />
             <LazyImage
-                src="assets/images/characters/character3.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character3-slhlUUKxZ1yT3rVA72qm8Z2DbVaSxX.png"
                 onLoad={handleImageLoad}
                 className="absolute left-0 mt-40 sm:mt-0 top-[-99rem] sm:top-[-65rem] md:top-[-58rem] lg:top-[-22rem] xl:top-[-18rem] w-[66%] sm:w-[45%] md:w-[35%] lg:w-[33%] xl:w-[27%]"
             />
@@ -80,7 +80,7 @@ const HowEarn = (props) => {
                     <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                         <div className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]">
                             <LazyImage
-                                src="assets/images/helmit.png"
+                                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/helmit-FiEHuxH7xY6FA4NfY6P8ylBVXjNMkc.png"
                                 onLoad={handleImageLoad}
                                 className="w-full h-full"
                             />
@@ -93,7 +93,7 @@ const HowEarn = (props) => {
                     <div className="relative w-[350px] sm:w-[350px] lg:w-[500px] h-[160px] sm:h-[180px] md:h-[170px] lg:h-[200px] flex flex-col justify-end items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                         <div className="absolute -top-16 sm:-top-20 w-[45%] md:w-[50%]">
                             <LazyImage
-                                src="assets/images/playImg2.png"
+                                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/playImg2-mLqyhAT8Ridvp3Uvl9Iw1srhm5ipHp.png"
                                 onLoad={handleImageLoad}
                                 className="w-full h-full"
                             />

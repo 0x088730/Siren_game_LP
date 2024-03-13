@@ -76,7 +76,7 @@ export default function Home() {
               className={`background-position-center w-full min-w-[1600px] h-full`}
             />
             <LazyImage
-              src="assets/images/spinner.svg"
+              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/spinner-KchMqW2myVLGxijjVL93hLIeJOCf68.svg"
               className="absolute bottom-16 w-40"
             />
             <div className="absolute bottom-[6.5rem] font-skranji text-white text-[3rem] font-bold">{percent > 100 ? 100 : percent}%</div>
