@@ -31,11 +31,10 @@ const MainPage = (props) => {
     };
 
     return (
-        <div className={`relative overflow-hidden md:w-full ${props.loaded === true ? "h-[750px] xl:h-screen" : "h-0"} flex justify-center`}>
+        <div className={`relative overflow-hidden md:w-full h-[750px] xl:h-screen flex justify-center`}>
             {/* <div className={`relative overflow-hidden md:w-full h-[750px] xl:h-screen flex justify-center`}> */}
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/home-5TA4eddqon86bEN8VagTWBlrHcdciz.jpg"
-                onLoad={handleImageLoad}
                 className={`background-position-center-absolute w-[1300px] sm:w-[1920px] 2xl:w-full h-[935px] sm:h-[1270px] 2xl:h-full`}
             />
             <div className="flex flex-col items-center w-[22rem] sm:w-[24rem] md:w-[26rem] lg:w-[26rem] xl:w-[30rem] translate-y-40 z-10">
@@ -45,7 +44,6 @@ const MainPage = (props) => {
             </div>
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character-1-NNBBHbqHNMYgAmWCZTdHZdfaYH7FgK.png"
-                onLoad={handleImageLoad}
                 className={`absolute left-0 bottom-[50px] w-[55%] sm:w-[40%] ${gifStatus === false ? "h-[unset]" : "h-0"}`}
             />
             <LazyImage
@@ -55,7 +53,6 @@ const MainPage = (props) => {
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character-2-91owFICdJMrpDiLv98npBPMxUJKG31.png"
-                onLoad={handleImageLoad}
                 className={`absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%] ${gifStatus === false ? "h-[unset]" : "h-0"}`}
             />
             <LazyImage

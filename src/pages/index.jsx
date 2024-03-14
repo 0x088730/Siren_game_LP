@@ -41,18 +41,18 @@ export default function Home() {
         <div className={`w-full overflow-hidden Home`}>
           <div className={`absolute w-full h-24 flex z-10 justify-center items-center`}>
             {/* <Suspense fallback={<div>Loading Header...</div>}> */}
-            {loaded1 === true ? <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} /> : null}
+            <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
             {/* </Suspense> */}
           </div>
           <div id="Home" className={`w-full`}>
             <div className="relative font-skranji text-white z-0">
               {/* <Suspense fallback={<div>Loading...</div>}> */}
                 <MainPage loaded={loaded1} setLoaded={setLoaded1} />
-                {loaded1 === true ? <HowPlay loaded={loaded2} setLoaded={setLoaded2} /> : null}
-                {loaded2 === true ? <WhitePaper loaded={loaded3} setLoaded={setLoaded3} /> : null}
-                {loaded3 === true ? <GemDescription loaded={loaded4} setLoaded={setLoaded4} /> : null}
-                {loaded4 === true ? <HowEarn loaded={loaded5} setLoaded={setLoaded5} /> : null}
-                {loaded5 === true ? <ContactUs loaded={loaded6} setLoaded={setLoaded6} /> : null}
+                <HowPlay loaded={loaded2} setLoaded={setLoaded2} />
+                <WhitePaper loaded={loaded3} setLoaded={setLoaded3} />
+                <GemDescription loaded={loaded4} setLoaded={setLoaded4} />
+                <HowEarn loaded={loaded5} setLoaded={setLoaded5} />
+                <ContactUs loaded={loaded6} setLoaded={setLoaded6} />
               {/* </Suspense> */}
             </div>
           </div>
