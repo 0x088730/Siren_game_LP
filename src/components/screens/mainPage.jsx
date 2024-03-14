@@ -44,21 +44,21 @@ const MainPage = (props) => {
             </div>
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character-1-NNBBHbqHNMYgAmWCZTdHZdfaYH7FgK.png"
-                className={`absolute left-0 bottom-[50px] w-[55%] sm:w-[40%] ${gifStatus === false ? "h-[unset]" : "h-0"}`}
+                className={`absolute left-0 bottom-[50px] w-[55%] sm:w-[40%] ${gifStatus === false ? "z-0" : "-z-10"}`}
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character-1-CfW928DZTahdIfD1MmQ2oQfbrcwxIq.gif"
                 onLoad={handleGifLoad}
-                className={`absolute left-0 bottom-[50px] w-[55%] sm:w-[40%] ${gifStatus === false ? "h-0" : "h-[unset]"}`}
+                className={`absolute left-0 bottom-[50px] w-[55%] sm:w-[40%] ${gifStatus === false ? "-z-10" : "z-0"}`}
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character-2-91owFICdJMrpDiLv98npBPMxUJKG31.png"
-                className={`absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%] ${gifStatus === false ? "h-[unset]" : "h-0"}`}
+                className={`absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%] ${gifStatus === false ? "z-0" : "-z-10"}`}
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character-2-4foCzwU07QLYHpA2lqwR3TzNoivnkS.gif"
                 onLoad={handleGifLoad}
-                className={`absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%] ${gifStatus === false ? "h-0" : "h-[unset]"}`}
+                className={`absolute -right-4 bottom-[50px] w-[45%] sm:w-[33%] ${gifStatus === false ? "-z-10" : "z-0"}`}
             />
             {/* <Character1 /> */}
         </div >
