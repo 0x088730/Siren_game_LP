@@ -21,6 +21,12 @@ import ContactUs from "~/components/screens/contactUs";
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState("Home");
   const { t, i18n } = useTranslation();
+  const [loaded1, setLoaded1] = useState(false);
+  const [loaded2, setLoaded2] = useState(false);
+  const [loaded3, setLoaded3] = useState(false);
+  const [loaded4, setLoaded4] = useState(false);
+  const [loaded5, setLoaded5] = useState(false);
+  const [loaded6, setLoaded6] = useState(false);
 
   useEffect(() => {
     i18n.changeLanguage('en');
@@ -35,18 +41,18 @@ export default function Home() {
         <div className={`w-full overflow-hidden Home`}>
           <div className={`absolute w-full h-24 flex z-10 justify-center items-center`}>
             {/* <Suspense fallback={<div>Loading Header...</div>}> */}
-              <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
+            {loaded1 === true ? <Header currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} /> : null}
             {/* </Suspense> */}
           </div>
           <div id="Home" className={`w-full`}>
             <div className="relative font-skranji text-white z-0">
               {/* <Suspense fallback={<div>Loading...</div>}> */}
-                <MainPage />
-                <HowPlay />
-                <WhitePaper />
-                <GemDescription />
-                <HowEarn />
-                <ContactUs />
+                <MainPage loaded={loaded1} setLoaded={setLoaded1} />
+                {loaded1 === true ? <HowPlay loaded={loaded2} setLoaded={setLoaded2} /> : null}
+                {loaded2 === true ? <WhitePaper loaded={loaded3} setLoaded={setLoaded3} /> : null}
+                {loaded3 === true ? <GemDescription loaded={loaded4} setLoaded={setLoaded4} /> : null}
+                {loaded4 === true ? <HowEarn loaded={loaded5} setLoaded={setLoaded5} /> : null}
+                {loaded5 === true ? <ContactUs loaded={loaded6} setLoaded={setLoaded6} /> : null}
               {/* </Suspense> */}
             </div>
           </div>
