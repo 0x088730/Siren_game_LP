@@ -36,7 +36,7 @@ const HowEarn = (props) => {
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character3-slhlUUKxZ1yT3rVA72qm8Z2DbVaSxX.png"
                 onLoad={handleImageLoad}
-                className="absolute left-0 mt-40 sm:mt-0 top-[-99rem] sm:top-[-65rem] md:top-[-58rem] lg:top-[-22rem] xl:top-[-18rem] w-[66%] sm:w-[45%] md:w-[35%] lg:w-[33%] xl:w-[27%]"
+                className="absolute left-0 mt-40 sm:mt-0 top-[-99rem] sm:top-[-65rem] md:top-[-58rem] lg:top-[-22rem] xl:top-[-21rem] 2xl:top-[-22rem] w-[66%] sm:w-[45%] md:w-[35%] lg:w-[33%] xl:w-[39%] 2xl:w-[33%]"
             />
             <div className="main-bg-test absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-70rem] sm:top-[-45rem] md:top-[-38rem] lg:top-[-6rem] xl:-top-16 flex flex-col-reverse sm:flex-row justify-center items-center">
                 <div className={`relative object-cover ${currentCharacter === 2 ? "w-44 sm:w-48" : "w-56 sm:w-56"} ${currentCharacter === 3 ? "h-72" : "h-80"}  me-0 sm:me-16 z-10`}>
