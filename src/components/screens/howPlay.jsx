@@ -69,7 +69,7 @@ const HowPlay = (props) => {
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/rock3-csuqFwnPAA1RCbPw4v3EXtcQlGnBed.webp"
-                className="absolute right-0 -bottom-24 sm:-bottom-20 xl:-bottom-40 w-[90%] sm:w-1/2"
+                className="absolute right-0 -bottom-24 sm:bottom-[-11rem] xl:-bottom-40 w-[90%] sm:w-1/2 md:w-[50rem]"
             />
         </div>
     );

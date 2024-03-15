@@ -30,10 +30,10 @@ const MainPage = (props) => {
     };
 
     return (
-        <div className={`relative overflow-hidden md:w-full h-[750px] xl:h-screen flex justify-center`}>
+        <div className={`video-size relative overflow-hidden md:w-full flex justify-center`}>
             <video
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/main-tX1scCmyaCXaLdhVrhXvWvYLXCW8Ou.mp4"
-                className="background-position-center-absolute w-full min-w-[1600px]"
+                className="background-position-center-absolute Video"
                 autoPlay
                 loop
                 muted
