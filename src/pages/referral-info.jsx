@@ -55,7 +55,7 @@ export default function ReferralInfo() {
         <div className={`fixed overflow-y-auto overflow-x-hidden h-full w-full flex justify-center items-center text-white font-skranji text-[16px]`}>
         {/* <div className={`fixed overflow-y-auto overflow-x-hidden ${loading === true ? "h-0" : "h-full"} w-full flex justify-center items-center text-white font-skranji text-[16px]`}> */}
           <LazyImage
-            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/htp_bg-v50uIH6CxPVeEo0sqo14CY3wYDLClN.jpg"
+            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/htp_bg-yPmatejPOpSn9JPX3Ib43FnvGCoBIR.webp"
             // onLoad={handleImageLoad}
             className="background-position-center w-[1920px] h-[1200px] 2xl:w-full 2xl:h-full"
           />
@@ -66,7 +66,7 @@ export default function ReferralInfo() {
                 <div className="w-full md:w-[420px] h-[200px] md:h-[330px] lg:h-[300px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md relative flex justify-center items-center">
                   <div className="absolute -top-[5.5rem] md:-top-[7.5rem] w-[300px] md:w-[383px]">
                     <LazyImage
-                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/infoImg1-uhtqNfxPtKQXhAH2jdAAfCDJs8SqSj.png"
+                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/infoImg1-CiXCssL14m2xe58djbdKkby2KcOyQm.webp"
                       // onLoad={handleImageLoad}
                       className="w-full h-full"
                     />
@@ -76,7 +76,7 @@ export default function ReferralInfo() {
                 <div className="mt-32 md:mt-0 px-8 w-full md:w-[860px] h-[490px] md:h-[330px] lg:h-[300px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md relative flex justify-center items-center">
                   <div className="absolute -top-[7.5rem] md:right-12 w-[220px] sm:w-[250px]">
                     <LazyImage
-                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/infoImg2-OzLjjaqyTiExb7LILXH9oJGbIAvQGt.png"
+                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/infoImg2-4CIJfmjZp5hkw9T45t5QEUoSCDbhT0.webp"
                       // onLoad={handleImageLoad}
                       className="w-full h-full" />
                   </div>
@@ -100,7 +100,7 @@ export default function ReferralInfo() {
                   <div className="w-full h-full rounded-lg flex justify-center items-end sm:items-center p-3 sm:p-0" style={{ backgroundImage: "linear-gradient(45deg, #e49115 1%, transparent)" }}>
                     <div className="absolute sm:left-6 md:-left-6 lg:left-6 -top-16 sm:-top-5 w-[180px] sm:w-[91px] h-[150px] sm:h-[87px]">
                       <LazyImage
-                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/skewIcon-ymxXvS9fa0wz8LdvOrnpGEFt42L8sf.png"
+                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/skewIcon-xOQ7EXhW6BbGrcFc1BObjIgu5wkWtG.webp"
                         // onLoad={handleImageLoad}
                         className="w-full h-full"
                       />
@@ -121,25 +121,25 @@ export default function ReferralInfo() {
               <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>
               <div className="flex items-center my-8 sm:my-0">
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/sms-LJXM15DJNsH4YVQcKG4j9K7mHLa2na.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/sms-3mFi2ZKDELVJqgrqesbg87Ah0MuXtI.webp"
                   // onLoad={handleImageLoad}
                   className="me-2 w-6" />ADM@SOURCE-CODE.WORK
               </div>
               <div className="flex gap-x-4 items-center">
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/tw-mqQsv2bjdytKljsS9ozhLRHgFM1tQB.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tw-OjuqOzP32WDdmiOryG0c77oCmB8qqz.webp"
                   // onLoad={handleImageLoad}
                   className="cursor-pointer w-10"
                   onClick={() => goUrl("https://twitter.com/Crypto_Showdown")}
                 />
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/tg-7826BkbDTIHjIqbypPhborZ38rvT90.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tg-Rfs0u6rn3Mn7JjBgV7LYEpXaSwT3Zg.webp"
                   // onLoad={handleImageLoad}
                   className="cursor-pointer w-10"
                   onClick={() => goUrl("https://t.me/cryptoshowdown")}
                 />
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/discord-WVqr4Tnb05DTTWVIxEDCbHy5E7HLoT.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/discord-J89J3d9FsZrfJVjYkp0fsDQ5UlIuQr.webp"
                   // onLoad={handleImageLoad}
                   className="cursor-pointer w-10"
                   onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")}

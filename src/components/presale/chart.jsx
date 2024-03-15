@@ -14,12 +14,12 @@ export default function Chart(props) {
                 </div>
                 <div className="flex flex-row-reverse sm:flex-row">
                     <LazyImage
-                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/chart1-5knb3gE9adPDfdSc7V48ugJmloEkTe.png`}
+                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/chart1-a9JEwotItDWY9xQojj7JcVZmwkOrfL.webp`}
                         // onLoad={() => props.handleImageLoad()}
                         className="hidden sm:block w-[35rem] md:w-[45rem] lg:w-[50rem]"
                     />
                     <LazyImage
-                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/chart2-JsFGhEu2jG0TuBhivQtSKCOIRwH0lT.png`}
+                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/chart2-Jd3dmPIgzGW1PthaBc8xVaBIJe3uNS.webp`}
                         // onLoad={() => props.handleImageLoad()}
                         className="block sm:hidden w-[20rem]"
                     />
@@ -31,7 +31,7 @@ export default function Chart(props) {
                     </div>
                 </div>
             </div>
-            <img effect="black-and-white" draggable="false" src={`assets/images/characters/character-3.png`} alt="" className="absolute scale-x-[-1] sm:scale-100 bottom-0 sm:-bottom-20 left-[33rem] sm:left-[-23rem] w-[25rem] sm:w-[28rem]" />
+            <img effect="black-and-white" draggable="false" src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/character-3-h2ibM9ks44m3DsyJUciGgE2I0QDPVy.webp`} alt="" className="absolute scale-x-[-1] sm:scale-100 bottom-0 sm:-bottom-20 left-[33rem] sm:left-[-23rem] w-[25rem] sm:w-[28rem]" />
         </>
     )
 }

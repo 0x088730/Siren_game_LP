@@ -25,18 +25,18 @@ const GemDescription = (props) => {
             <div className={`relative md:hidden md:w-full xl:h-[1428px] mt-[47rem] sm:mt-[43rem] md:mt-[-22rem] flex flex-col justify-center items-center`}>
                 {/* <div className={`relative md:hidden md:w-full xl:h-[1428px] mt-[47rem] sm:mt-[43rem] md:mt-[-22rem] flex flex-col justify-center items-center`}> */}
                 <LazyImage
-                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/gemdes-U1JlEkvxiaDwj98aBkGqjGYYLhSBKR.png"
+                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/gemdes-cgBw4ZcvATKIrhix3RjbCDFeE8K4Qn.webp"
                     className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
                 />
             </div>
             <div className={`relative md:w-full xl:h-[1428px] mt-0 sm:mt-4 md:mt-[12rem] lg:mt-[10rem] xl:mt-[-22rem] flex flex-col justify-center items-center`}>
                 {/* <div className={`relative md:w-full xl:h-[1428px] mt-0 sm:mt-4 md:mt-[12rem] lg:mt-[10rem] xl:mt-[-22rem] flex flex-col justify-center items-center`}> */}
                 <LazyImage
-                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/gemdes-U1JlEkvxiaDwj98aBkGqjGYYLhSBKR.png"
+                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/gemdes-cgBw4ZcvATKIrhix3RjbCDFeE8K4Qn.webp"
                     className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
                 />
                 <LazyImage
-                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/rock6-Wn6QEXryZUWS5LdJep5ZEQWavakbGo.png"
+                    src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/rock6-l4uvYf6UdFPi6hIur0YDti515kmhMU.webp"
                     className="absolute right-0 top-[-50rem] sm:top-[-60rem] md:top-[-30rem] lg:top-[-35rem] xl:top-[-22rem] 2xl:top-[-30rem] w-[90%] md:w-[55%] lg:w-[55%] 2xl:w-[60%]"
                 />
                 <div className="w-[1300px] flex flex-col justify-start items-center translate-y-[-27rem] md:translate-y-[-5rem] xl:translate-y-[-20rem]">
@@ -46,7 +46,7 @@ const GemDescription = (props) => {
                             <div className="relative w-[350px] md:w-[310px] h-[270px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]">
                                     <LazyImage
-                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/items/gem-1-TbKfNpUspL3ph137AhTKvn809MORrl.png"
+                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/gem-1-trMWHjHhqnGIJ1EbpPwCbOoogWaQ4A.webp"
                                         className="w-full h-full"
                                     />
                                 </div>
@@ -68,7 +68,7 @@ const GemDescription = (props) => {
                             <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]">
                                     <LazyImage
-                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/items/gem-2-roHnt7lYXNGbPqtllvznjSzACRHKf4.png"
+                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/gem-2-aYyd5RNu4SzqJ8EtbVDz1r4xGzKakI.webp"
                                         className="w-full h-full"
                                     />
                                 </div>
@@ -88,7 +88,7 @@ const GemDescription = (props) => {
                             <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="absolute -top-10 md:-top-12 w-[19%] md:w-[30%]">
                                     <LazyImage
-                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/items/gem-3-wxMy5DtqUXBot8btNFRVQ6NHMncwa2.png"
+                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/gem-3-RBA7EZr3hDF6zHbhT7UWtQHvbwSht5.webp"
                                         className="w-full h-full"
                                     />
                                 </div>
@@ -106,7 +106,7 @@ const GemDescription = (props) => {
                             <div className="relative w-[350px] md:w-[310px] h-[250px] md:h-[340px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="absolute -top-16 md:-top-12 w-[25%] md:w-[30%]">
                                     <LazyImage
-                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/items/gem-4-id8GbpoB9rrKbtejyI0uyTi8NP4A1K.png"
+                                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/gem-4-qQf7td1abGmPpHLGPbfGXhAsvtFQIm.webp"
                                         className="w-full h-full"
                                     />
                                 </div>
@@ -115,7 +115,7 @@ const GemDescription = (props) => {
                                     <div className="text-center text-[13px] md:text-[15px]">{t("Crystals can only be obtained from chests. Crystals drop from chests randomly and have 3 types of rarity")}</div>
                                     <div className="cursor-pointer mt-6 md:mt-[3.5rem] w-[55%] md:w-[65%]">
                                         <LazyImage
-                                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/test-btn-39WvlNb7V0axFyLPHtU8SDehQtYQZy.png"
+                                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/test-btn-45xzWEj2LQw2mFK1qnShwuRZnkb3lY.webp"
                                             className="w-full h-full"
                                             onClick={() => {
                                                 setShowClaimWindowFlag(true);

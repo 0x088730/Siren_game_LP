@@ -61,13 +61,13 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           })}
         </div>
       </div>
-      <LazyLoadImage effect="black-and-white" draggable="false" src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/logo-CmOSU4sZckrxinDYHAlI2AXVyfFUaz.png" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:mx-32" onClick={() => handleMenuClick("Home")} />
+      <LazyLoadImage effect="black-and-white" draggable="false" src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/logo-u5FRk3RW7YRJE09CpG6vYDb72FsuD2.webp" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:mx-32" onClick={() => handleMenuClick("Home")} />
 
       <div className="items-center hidden h-full space-x-5 xl:flex xl:justify-between w-[30%]">
         <div className="flex gap-x-4">
           <div className="h-1/3">
             <LazyLoadImage effect="black-and-white" draggable="false"
-              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/tg-7826BkbDTIHjIqbypPhborZ38rvT90.png"
+              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tg-Rfs0u6rn3Mn7JjBgV7LYEpXaSwT3Zg.webp"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
               onClick={() => goUrl('https://t.me/cryptoshowdown')}
@@ -75,7 +75,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           </div>
           <div className="h-1/3">
             <LazyLoadImage effect="black-and-white" draggable="false"
-              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/tw-mqQsv2bjdytKljsS9ozhLRHgFM1tQB.png"
+              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tw-OjuqOzP32WDdmiOryG0c77oCmB8qqz.webp"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
               onClick={() => goUrl('https://twitter.com/Crypto_Showdown')}
@@ -83,7 +83,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           </div>
           <div className="h-1/3">
             <LazyLoadImage effect="black-and-white" draggable="false"
-              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/discord-WVqr4Tnb05DTTWVIxEDCbHy5E7HLoT.png"
+              src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/discord-J89J3d9FsZrfJVjYkp0fsDQ5UlIuQr.webp"
               alt=""
               className="object-cover w-full cursor-pointer hover:scale-125 duration-700"
               onClick={() => goUrl('https://discord.gg/9FRAyNg9Qh ')}
@@ -92,7 +92,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
         </div>
         <div className="flex space-x-2 text-white cursor-pointer " onClick={handleLangClick}>
 
-          <LazyLoadImage effect="black-and-white" draggable="false" alt='' className="lang-image mx-2" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.png`} />
+          <LazyLoadImage effect="black-and-white" draggable="false" alt='' className="lang-image mx-2" src={`assets/images/la_${i18n.language === 'en' ? 'en' : 'ru'}.webp`} />
           {i18n.language === 'en' ? t('En') : t('En')}
           <svg
             xmlns="http://www.w3.org/2000/svg"

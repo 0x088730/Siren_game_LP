@@ -113,74 +113,74 @@ body {
 }
 
 .waterpaper {
-  background-image: url("../../public/assets/images/backgrounds/whitepaper.jpg") !important;
+  background-image: url("../../public/assets/images/backgrounds/whitepaper.webp") !important;
   background-size: 100% 100%;
 }
 
 .wallet-connect {
-  background-image: url("../../public/assets/images/wallet-bg.png");
+  background-image: url("../../public/assets/images/wallet-bg.webp");
   background-size: 100% 100%;
 }
 
 
 .presale-bg {
-  background-image: url("../../public/assets/images/backgrounds/presale-bg.jpg") !important;
+  background-image: url("../../public/assets/images/backgrounds/presale-bg.webp") !important;
   background-size: 100% 100%;
   min-height: 800px;
 }
 
 .main-bg {
-  background-image: url("../../public/assets/images/main-bg.png") !important;
+  background-image: url("../../public/assets/images/main-bg.webp") !important;
   background-size: 100% 100%;
 }
 
 .center-bg {
-  background-image: url("../../public/assets/images/main-center.png") !important;
+  background-image: url("../../public/assets/images/main-center.webp") !important;
   background-size: 100% 100%;
 }
 
 .center-bg-blur {
-  background-image: url("../../public/assets/images/center-bg-blur.png") !important;
+  background-image: url("../../public/assets/images/center-bg-blur.webp") !important;
   background-size: 100% 100%;
 }
 
 .ref-btn {
-  background-image: url("../../public/assets/images/referral-btn.png") !important;
+  background-image: url("../../public/assets/images/referral-btn.webp") !important;
   background-size: 100% 100%;
 }
 
 .green-btn {
-  background-image: url("../../public/assets/images/green-btn.png") !important;
+  background-image: url("../../public/assets/images/green-btn.webp") !important;
   background-size: 100% 100%;
 }
 
 .inactive-btn {
-  background-image: url("../../public/assets/images/presale-in-btn.png") !important;
+  background-image: url("../../public/assets/images/presale-in-btn.webp") !important;
   background-size: 100% 100%;
 }
 
 .cryptoIcon {
-  background-image: url("../../public/assets/images/cryptoIcon.png") !important;
+  background-image: url("../../public/assets/images/cryptoIcon.webp") !important;
   background-size: 100% 100%;
 }
 
 .progress-bg {
-  background-image: url("../../public/assets/images/progress-bg.png") !important;
+  background-image: url("../../public/assets/images/progress-bg.webp") !important;
   background-size: 100% 100%;
 }
 
 .chart-bg {
-  background-image: url("../../public/assets/images/chart-bg.png") !important;
+  background-image: url("../../public/assets/images/chart-bg.webp") !important;
   background-size: 100% 100%;
 }
 
 .text-bg {
-  background-image: url("../../public/assets/images/text-bg.png") !important;
+  background-image: url("../../public/assets/images/text-bg.webp") !important;
   background-size: 100% 100%;
 }
 
 .btn-bg {
-  background-image: url("../../public/assets/images/button.png") !important;
+  background-image: url("../../public/assets/images/button.webp") !important;
   background-size: 100% 100%;
 }
 
@@ -366,6 +366,6 @@ body {
 }
 
 .main-bg-test {
-  background-image: url("../../public/assets/images/main-bg-test.png") !important;
+  background-image: url("../../public/assets/images/main-bg-test.webp") !important;
   background-size: 100% 100%;
 }

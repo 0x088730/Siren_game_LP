@@ -167,7 +167,7 @@ export default function PresaleAdmin() {
         <Header currentMenu="Presale Admin" />
         <div className={`fixed overflow-y-auto overflow-x-hidden flex-col h-full w-full space-y-2 flex items-center justify-center`}>
           <LazyImage
-            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/presale-bg-u4EFgcXo7qKyfX4PdqgLyQp25bI55c.jpg"
+            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/presale-bg-IqjLMVGRp4n18rpJolXY7mP8jGA9Jf.webp"
             // onLoad={handleImageLoad}
             className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full"
           />
@@ -182,7 +182,7 @@ export default function PresaleAdmin() {
                 {btnType === "Connect" ?
                   <>
                     <LazyImage
-                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/metamask-GJy3L7UgrilOQ3MTosZsImpweQ9qW0.png"
+                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/metamask-kxsxGGOp8FlhLwcgMUbN9bL9hlRNRZ.webp"
                       // onLoad={handleImageLoad}
                       className="w-6 inline me-1"
                     />{t("CONNECT METAMASK")}
@@ -190,7 +190,7 @@ export default function PresaleAdmin() {
                   :
                   <>
                     <LazyImage
-                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/metamask-GJy3L7UgrilOQ3MTosZsImpweQ9qW0.png"
+                      src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/metamask-kxsxGGOp8FlhLwcgMUbN9bL9hlRNRZ.webp"
                       // onLoad={handleImageLoad}
                       className="w-6 inline me-1"
                     />{address}
@@ -273,25 +273,25 @@ export default function PresaleAdmin() {
               <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>
               <div className="flex items-center my-8 sm:my-0">
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/sms-LJXM15DJNsH4YVQcKG4j9K7mHLa2na.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/sms-3mFi2ZKDELVJqgrqesbg87Ah0MuXtI.webp"
                   // onLoad={handleImageLoad}
                   className="me-2 w-6" />ADM@SOURCE-CODE.WORK
               </div>
               <div className="flex gap-x-4 items-center">
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/tw-mqQsv2bjdytKljsS9ozhLRHgFM1tQB.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tw-OjuqOzP32WDdmiOryG0c77oCmB8qqz.webp"
                   // onLoad={handleImageLoad}
                   className="cursor-pointer w-10"
                   onClick={() => goUrl("https://twitter.com/Crypto_Showdown")}
                 />
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/tg-7826BkbDTIHjIqbypPhborZ38rvT90.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tg-Rfs0u6rn3Mn7JjBgV7LYEpXaSwT3Zg.webp"
                   // onLoad={handleImageLoad}
                   className="cursor-pointer w-10"
                   onClick={() => goUrl("https://t.me/cryptoshowdown")}
                 />
                 <LazyImage
-                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/discord-WVqr4Tnb05DTTWVIxEDCbHy5E7HLoT.png"
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/discord-J89J3d9FsZrfJVjYkp0fsDQ5UlIuQr.webp"
                   // onLoad={handleImageLoad}
                   className="cursor-pointer w-10"
                   onClick={() => goUrl("https://discord.gg/9FRAyNg9Qh")}

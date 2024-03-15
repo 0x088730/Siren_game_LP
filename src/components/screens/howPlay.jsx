@@ -21,7 +21,7 @@ const HowPlay = (props) => {
         <div className={`relative flex flex-col items-center justify-start w-full h-[1519px] mt-[-18rem] sm:mt-[-15rem]`}>
             {/* <div className={`relative flex flex-col items-center justify-start w-full h-[1519px] mt-[-18rem] sm:mt-[-15rem]`}></div> */}
             <LazyImage
-                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/howPlay-Dht71eqpuRFBhRXoikRe6dp5wLd0Cu.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/howPlay-889oqEGHkyKeUbPwgmAGDYvV1lKehA.webp"
                 className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-full 2xl:h-full"
             />
             <div className="font-oi translate-y-[25rem] text-[#FF9B00] text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>{t("How to")}</span>{t(" play")}</div>
@@ -29,7 +29,7 @@ const HowPlay = (props) => {
                 <div className="relative w-[350px] sm:w-[330px] xl:w-[420px] h-[200px] sm:h-[230px] xl:h-[300px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                     <div className="absolute top-[-3.5rem] sm:top-[-3.5rem] xl:top-[-5rem] w-[55%] sm:w-[66%] flex-center">
                         <LazyImage
-                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/playImg1-MFd5rdbouKbglkqjrIZtxMKFVMHdaz.png"
+                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/playImg1-8InwJ0Oga6GOBy9TQCUjC0PRij9FOw.webp"
                             className="w-full h-full"
                         />
                     </div>
@@ -41,7 +41,7 @@ const HowPlay = (props) => {
                 <div className="relative w-[350px] sm:w-[330px] xl:w-[420px] h-[200px] sm:h-[230px] xl:h-[300px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                     <div className="absolute top-[-3.5rem] sm:top-[-3.5rem] xl:top-[-5rem] w-[55%] sm:w-[66%] flex-center">
                         <LazyImage
-                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/playImg2-mLqyhAT8Ridvp3Uvl9Iw1srhm5ipHp.png"
+                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/playImg2-lP2rQabiPJaxoUvapJT5LSpvSUGTCp.webp"
                             className="w-full h-full"
                         />
                     </div>
@@ -53,7 +53,7 @@ const HowPlay = (props) => {
                 <div className="relative w-[350px] sm:w-[330px] xl:w-[420px] h-[200px] sm:h-[230px] xl:h-[300px] flex flex-col justify-start items-center border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                     <div className="absolute top-[-3.5rem] sm:top-[-3.5rem] xl:top-[-5rem] w-[55%] sm:w-[66%] flex-center">
                         <LazyImage
-                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/playImg3-NyCWc8VqwJHGTZtPDxWLA0s3tZ8gui.png"
+                            src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/playImg3-aCCKUyOYAYdCzkL7nkSuIYZoPPoIJj.webp"
                             className="w-full h-full"
                         />
                     </div>
@@ -64,11 +64,11 @@ const HowPlay = (props) => {
                 </div>
             </div>
             <LazyImage
-                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/character/character-5-9y8QjjeRKa8bUH3w0pbFuNIw3TjCIF.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/character-5-XWmiFalUrTqCL7ssNymQEqPAgyzjZV.webp"
                 className="absolute left-16 sm:-left-16 md:left-[-9rem] xl:-left-64 -bottom-8 sm:bottom-0 xl:-bottom-24 w-full sm:w-[60%]"
             />
             <LazyImage
-                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/others/rock3-pUVBnvKPr9ruoaSckr02kKRkol0aGo.png"
+                src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/rock3-csuqFwnPAA1RCbPw4v3EXtcQlGnBed.webp"
                 className="absolute right-0 -bottom-24 sm:-bottom-20 xl:-bottom-40 w-[90%] sm:w-1/2"
             />
         </div>

@@ -125,7 +125,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md mt-8">
                         <div className="text-[#FFFFFF] mx-4">{t("Your Current Referral Bonus")} - {bonusRate}%</div>
                         <LazyImage
-                            src={`assets/images/bonusRate_${bonusRate}.png`}
+                            src={`assets/images/bonusRate_${bonusRate}.webp`}
                             // onLoad={handleImageLoad}
                             className="w-full"
                         />
@@ -137,7 +137,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                     </div>
                 </div>
             </div>
-            <img effect="black-and-white" draggable="false" src={`assets/images/characters/character-4.png`} alt="" className="absolute bottom-0 sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
+            <img effect="black-and-white" draggable="false" src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/character-4-ejjxajVp77FKJR3UdOfqw8d3leNnLt.webp`} alt="" className="absolute bottom-0 sm:-bottom-24 right-56 sm:right-[-20rem] w-[25rem] sm:w-[33rem]" />
         </>
     )
 }
