@@ -70,7 +70,7 @@ const ContactUs = (props) => {
                 <div className="flex items-center my-8 sm:my-0">
                     <LazyImage
                         src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/sms-3mFi2ZKDELVJqgrqesbg87Ah0MuXtI.webp"
-                        className="me-2 w-6" />ADM@SOURCE-CODE.WORK
+                        className="me-2 w-6" />source.code.inf@gmail.com
                 </div>
                 <div className="flex gap-x-4 items-center">
                     <LazyImage

@@ -123,7 +123,7 @@ export default function ReferralInfo() {
                 <LazyImage
                   src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/sms-3mFi2ZKDELVJqgrqesbg87Ah0MuXtI.webp"
                   // onLoad={handleImageLoad}
-                  className="me-2 w-6" />ADM@SOURCE-CODE.WORK
+                  className="me-2 w-6" />source.code.inf@gmail.com
               </div>
               <div className="flex gap-x-4 items-center">
                 <LazyImage

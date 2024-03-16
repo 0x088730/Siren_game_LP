@@ -252,7 +252,7 @@ export default function Presale() {
           </div>
           <div className="absolute left-12 pb-12 translate-y-[45rem] sm:hidden flex flex-col sm:flex-row justify-around w-full mb-12 z-30 text-white">
             <div>{t("©SOURCECODE")}<br />{("ALL RIGHTS RESERVERD")}</div>
-            <div className="flex items-center my-8 sm:my-0"><LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/sms.png" alt="" className="me-2" />ADM@SOURCE-CODE.WORK</div>
+            <div className="flex items-center my-8 sm:my-0"><LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/sms.png" alt="" className="me-2" />source.code.inf@gmail.com</div>
             <div className="flex gap-x-4 items-center">
               <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/tw.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://twitter.com/Crypto_Showdown")} />
               <LazyLoadImage effect="black-and-white" draggable="false" src="assets/images/tg.png" alt="" className="cursor-pointer" onClick={() => goUrl("https://t.me/cryptoshowdown")} />
