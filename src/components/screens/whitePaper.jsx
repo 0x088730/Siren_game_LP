@@ -24,7 +24,7 @@ const WhitePaper = (props) => {
             {/* <div id={t("WhitePaper")} className={`relative md:w-full xl:h-[1202px] mt-[22rem] sm:mt-[17rem] md:mt-[16rem] lg:mt-[16rem] xl:mt-0 flex justify-center overflow-visible`}> */}
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/whitepaper-vF9hFLjB6uOMPGiTASzVYuLRms76YP.webp"
-                className="background-position-center-absolute w-[1920px] h-[1200px] 2xl:w-full 2xl:h-full"
+                className="background-position-center-absolute w-[1920px] h-[1200px] 2xl:w-screen 2xl:h-full"
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/tree-SA3bi272pY67NvtOwxsaco0W0k5aS7.webp"

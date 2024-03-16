@@ -22,7 +22,7 @@ const HowPlay = (props) => {
             {/* <div className={`relative flex flex-col items-center justify-start w-full h-[1519px] mt-[-18rem] sm:mt-[-15rem]`}></div> */}
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/howPlay-889oqEGHkyKeUbPwgmAGDYvV1lKehA.webp"
-                className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-full 2xl:h-full"
+                className="background-position-center-absolute translate-x-[6%] sm:translate-x-0 w-[1920px] h-[1519px] 2xl:w-screen 2xl:h-full"
             />
             <div className="font-oi translate-y-[25rem] text-[#FF9B00] text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>{t("How to")}</span>{t(" play")}</div>
             <div className="translate-y-[28rem] md:translate-y-[30rem] flex flex-col lg:flex-row gap-y-[3.5rem] md:gap-x-4">

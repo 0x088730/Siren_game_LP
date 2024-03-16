@@ -376,13 +376,13 @@ body {
 
 @media screen and (min-width: 1536px) {
   .video-size {
-    height: 1080px;
+    height: 1076px;
   }
 }
 
 @media screen and (min-width: 1920px) {
   .video-size {
-    height: 1080px;
+    height: 1076px;
   }
 }
 

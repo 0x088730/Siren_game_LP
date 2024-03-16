@@ -23,7 +23,7 @@ const ContactUs = (props) => {
             {/* <div className={`relative md:w-full h-[1100px] sm:h-[1100px] md:h-[1300px] xl:h-[1300px] mt-[-9rem] sm:mt-[-21rem] md:mt-[-28rem] lg:mt-[-32rem] xl:mt-[-50rem] 2xl:mt-[-48rem] flex flex-col justify-start items-center`}> */}
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/contact-d7A1qTZJvMFw7YpBTCJ9w0uXcIRMfR.webp"
-                className="background-position-center-absolute w-[1920px] h-[1300px] md:h-[1300px] lg:h-[1300px] 2xl:w-full 2xl:h-full"
+                className="background-position-center-absolute w-[1920px] h-[1300px] md:h-[1300px] lg:h-[1300px] 2xl:w-screen 2xl:h-full"
             />
             <div className="flex flex-col justify-center items-center mt-64 sm:mt-0 md:mt-[24rem] lg:mt-[20rem] xl:mt-[35rem] 2xl:mt-[20rem] translate-y-[-6rem] sm:translate-y-[8rem] md:translate-y-[-18rem] lg:translate-y-[13rem] xl:translate-y-[-14rem] 2xl:translate-y-0">
                 <div className="font-oi text-[#FF9B00] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[55px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>{t("Main")}</span>{t(" team")}</div>

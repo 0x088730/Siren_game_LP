@@ -26,14 +26,14 @@ const GemDescription = (props) => {
                 {/* <div className={`relative md:hidden md:w-full xl:h-[1428px] mt-[47rem] sm:mt-[43rem] md:mt-[-22rem] flex flex-col justify-center items-center`}> */}
                 <LazyImage
                     src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/gemdes-cgBw4ZcvATKIrhix3RjbCDFeE8K4Qn.webp"
-                    className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
+                    className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-screen 2xl:h-full"
                 />
             </div>
             <div className={`relative md:w-full xl:h-[1428px] mt-0 sm:mt-4 md:mt-[12rem] lg:mt-[10rem] xl:mt-[-22rem] flex flex-col justify-center items-center`}>
                 {/* <div className={`relative md:w-full xl:h-[1428px] mt-0 sm:mt-4 md:mt-[12rem] lg:mt-[10rem] xl:mt-[-22rem] flex flex-col justify-center items-center`}> */}
                 <LazyImage
                     src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/gemdes-cgBw4ZcvATKIrhix3RjbCDFeE8K4Qn.webp"
-                    className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-full 2xl:h-full"
+                    className="background-position-center-absolute w-[1920px] h-[1428px] 2xl:w-screen 2xl:h-full"
                 />
                 <LazyImage
                     src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/rock6-l4uvYf6UdFPi6hIur0YDti515kmhMU.webp"

@@ -30,7 +30,7 @@ const HowEarn = (props) => {
             {/* <div className={`relative md:w-full xl:h-[1710px] mt-[64rem] sm:mt-[38rem] md:mt-[47rem] lg:mt-28 xl:mt-[-27rem] flex justify-center`}> */}
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/howEarn-DrCmVlp8auYPOcOMCHSq9JMPsNK48c.webp"
-                className="background-position-center-absolute w-[1920px] h-[1710px] 2xl:w-full 2xl:h-full"
+                className="background-position-center-absolute w-[1920px] h-[1710px] 2xl:w-screen 2xl:h-full"
             />
             <LazyImage
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/character3-tglHZCKtShHsIV8SlUBXTzlVyEAIkp.webp"
