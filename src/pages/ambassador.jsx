@@ -23,7 +23,7 @@ export default function Ambassador() {
     },
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba2-CGWBBINfTjzQKqHc349KghVsnplgNA.webp",
-      name: "REDIO NFT",
+      name: "REIDO NFT",
     },
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba3-8gLogfqbrvcfuK2myJOOA2zVXJI1su.webp",
