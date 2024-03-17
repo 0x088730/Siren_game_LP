@@ -401,3 +401,19 @@ body {
     width: 100%;
   }
 }
+
+.main_bg {
+  top: 14rem;
+}
+
+@media screen and (min-width: 400px) {
+  .main_bg {
+    top: 12rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main_bg {
+    top: 11rem;
+  }
+}
