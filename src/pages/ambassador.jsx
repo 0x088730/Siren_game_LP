@@ -16,19 +16,40 @@ import LazyImage from "~/components/lazyImage";
 
 export default function Ambassador() {
   const { t, i18n } = useTranslation();
-  const ambaData = [
+  const ambaData1 = [
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba1-XRRNUGjMcRDD6ATvKK9WLMVUQV4V5T.webp",
       name: "CLAM",
+      yutube: "https://www.youtube.com/@ClemFF",
+      telegram: "https://t.me/+iYQNojPNQzwyNmIx"
     },
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba2-CGWBBINfTjzQKqHc349KghVsnplgNA.webp",
       name: "REIDO NFT",
+      yutube: "https://www.youtube.com/@ReidoNFT",
+      telegram: "https://t.me/ReidoNFTs"
     },
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba3-8gLogfqbrvcfuK2myJOOA2zVXJI1su.webp",
       name: "BERKSUN CRYPTO",
+      yutube: "https://www.youtube.com/@BerkayBerksun",
+      telegram: "https://t.me/BBTRD"
     }
+  ]
+
+  const ambaData2 = [
+    {
+      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba4-mH9Tn0yrcAmRCqFjSw8rkR0JH0CPCU.webp",
+      name: "SALLE SRJ",
+      yutube: "https://www.youtube.com/@SalleSRJnaWeb3",
+      telegram: "https://t.me/+S9OAZijBav8yNzNh"
+    },
+    {
+      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba5-H4NgftYACuo35sfBAgSNrVB6lldcTL.webp",
+      name: "BRUELGAMES",
+      yutube: "https://www.youtube.com/@bruelgames",
+      telegram: "https://t.me/BruelGames"
+    },
   ]
 
   return (
@@ -53,24 +74,49 @@ export default function Ambassador() {
               </div>
             </div>
           </div>
-          <div className="main_bg absolute pb-8 text-white text-[1rem] md:text-[1.5rem]">
+          <div className="main_bg absolute pb-8 text-white text-[0.8rem] md:text-[1.5rem]">
             <div className="main-bg w-[1100px] h-[700px] flex flex-col items-center z-[1]">
-              <div className="w-[95vw] md:w-[800px] mt-36 md:mt-28 flex justify-center items-center">
-                {ambaData.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-center items-center gap-y-1">
+              <div className="w-[95vw] md:w-[700px] mt-36 md:mt-28 flex justify-center items-center">
+                {ambaData1.map((item, index) => (
+                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/3">
                     <LazyImage
                       src={item.avatar}
                       className="cursor-pointer w-full"
                     />
-                    <div className="flex items-center justify-center h-12 text-center">{item.name}</div>
+                    <div className="flex items-center justify-center h-8 text-center">{item.name}</div>
                     <div className="flex gap-x-1">
                       <LazyImage
                         src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/yutube-icon-gyTH5ccbNvSDYURygYxnpWbyZYsWz8.webp"
-                        className="cursor-pointer w-10 md:w-16"
+                        className="cursor-pointer w-8 md:w-12"
+                        onClick={() => goUrl(item.yutube)}
                       />
                       <LazyImage
                         src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/telegram-icon-nACOErk3nWPNEBdAmAjVXlzw5WPmvC.webp"
-                        className="cursor-pointer w-10 md:w-16"
+                        className="cursor-pointer w-8 md:w-12"
+                        onClick={() => goUrl(item.telegram)}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="w-[95vw] md:w-[700px] flex justify-center items-center mt-16 sm:mt-8 md:mt-4">
+                {ambaData2.map((item, index) => (
+                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/3">
+                    <LazyImage
+                      src={item.avatar}
+                      className="cursor-pointer w-full"
+                    />
+                    <div className="flex items-center justify-center h-8 text-center">{item.name}</div>
+                    <div className="flex gap-x-1">
+                      <LazyImage
+                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/yutube-icon-gyTH5ccbNvSDYURygYxnpWbyZYsWz8.webp"
+                        className="cursor-pointer w-8 md:w-12"
+                        onClick={() => goUrl(item.yutube)}
+                      />
+                      <LazyImage
+                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/telegram-icon-nACOErk3nWPNEBdAmAjVXlzw5WPmvC.webp"
+                        className="cursor-pointer w-8 md:w-12"
+                        onClick={() => goUrl(item.telegram)}
                       />
                     </div>
                   </div>
