@@ -14,6 +14,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     t("WhitePaper"),
     t("Presale"),
     t("Referral Info"),
+    t("Ambassador"),
   ];
 
   const handleMenuClick = (menu) => {
@@ -24,6 +25,9 @@ export default function Header({ currentMenu, setCurrentMenu }) {
     }
     else if (menu === t("Referral Info")) {
       router.push('/referral-info')
+    }
+    else if (menu === t("Ambassador")) {
+      router.push('/ambassador')
     }
     else {
       router.push('/')
@@ -40,8 +44,8 @@ export default function Header({ currentMenu, setCurrentMenu }) {
 
   return (
     <div className="w-[80%] absolute h-24 z-10 flex items-center justify-center font-skranji text-white">
-      <div className="hidden xl:flex items-center justify-between h-full w-[30%]">
-        <div className="justify-between hidden h-full w-full lg:text-lg px-30 xl:flex">
+      <div className="hidden xl:flex items-center justify-between h-full w-[35%]">
+        <div className="justify-between hidden h-full w-full lg:text-base xl:text-base px-30 xl:flex">
           {menuList.map((menu) => {
             return (
               <Link
@@ -51,7 +55,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={`px-4 hover:text-orange-300 text-lg duration-700 h-full flex items-center cursor-pointer 
+                className={`px-4 hover:text-orange-300 text-base 2xl:text-lg duration-700 h-full flex items-center cursor-pointer 
                              hover:scale-125 border-0 border-b-4 border-transparent text-white`}
                 onClick={() => handleMenuClick(menu)}
               >
@@ -61,7 +65,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
           })}
         </div>
       </div>
-      <LazyLoadImage effect="black-and-white" draggable="false" src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/logo-u5FRk3RW7YRJE09CpG6vYDb72FsuD2.webp" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:mx-32" onClick={() => handleMenuClick("Home")} />
+      <LazyLoadImage effect="black-and-white" draggable="false" src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/logo-u5FRk3RW7YRJE09CpG6vYDb72FsuD2.webp" alt="" className="cursor-pointer w-[250px] sm:w-[350px] mx-8 lg:me-32 lg:ml-6" onClick={() => handleMenuClick("Home")} />
 
       <div className="items-center hidden h-full space-x-5 xl:flex xl:justify-between w-[30%]">
         <div className="flex gap-x-4">
