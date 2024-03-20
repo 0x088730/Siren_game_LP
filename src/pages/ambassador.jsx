@@ -19,7 +19,7 @@ export default function Ambassador() {
   const ambaData1 = [
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba1-XRRNUGjMcRDD6ATvKK9WLMVUQV4V5T.webp",
-      name: "CLAM",
+      name: "CLEM",
       yutube: "https://www.youtube.com/@ClemFF",
       telegram: "https://t.me/+iYQNojPNQzwyNmIx"
     },
