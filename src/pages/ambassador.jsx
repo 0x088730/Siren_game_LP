@@ -1,17 +1,7 @@
-import { useEffect, useState } from "react";
-import Web3 from 'web3'
 import { I18nextProvider, useTranslation } from "react-i18next";
-import LabelButton from "~/components/labelButton";
 import Header from "~/components/screens/header";
-import Account from "~/components/presale/account";
-import { global } from "~/common/global";
-import { addRefer, createProfile, getProfile, getRefCodeList, getWalletStatus } from "~/common/api";
-import MainPresale from "~/components/presale/main1";
-import Chart from "~/components/presale/chart";
-import MainPresaleAdmin from "~/components/presale/main";
 import { goUrl } from "~/components/utils";
 import i18next from "~/global/i18n";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import LazyImage from "~/components/lazyImage";
 
 export default function Ambassador() {
@@ -25,7 +15,7 @@ export default function Ambassador() {
     },
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba2-CGWBBINfTjzQKqHc349KghVsnplgNA.webp",
-      name: "REIDO NFT",
+      name: "REI DO NFT",
       yutube: "https://www.youtube.com/@ReidoNFT",
       telegram: "https://t.me/ReidoNFTs"
     },
@@ -34,21 +24,33 @@ export default function Ambassador() {
       name: "BERKSUN CRYPTO",
       yutube: "https://www.youtube.com/@BerkayBerksun",
       telegram: "https://t.me/BBTRD"
-    }
-  ]
-
-  const ambaData2 = [
+    },
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba4-mH9Tn0yrcAmRCqFjSw8rkR0JH0CPCU.webp",
       name: "SALLE SRJ",
       yutube: "https://www.youtube.com/@SalleSRJnaWeb3",
       telegram: "https://t.me/+S9OAZijBav8yNzNh"
     },
+  ]
+
+  const ambaData2 = [
     {
       avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba5-H4NgftYACuo35sfBAgSNrVB6lldcTL.webp",
       name: "BRUELGAMES",
       yutube: "https://www.youtube.com/@bruelgames",
       telegram: "https://t.me/BruelGames"
+    },
+    {
+      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba6-wrxcvWPHBmRugYwEdOvwBlBF45SQJo.webp",
+      name: "Мутим На Крипте",
+      yutube: "https://youtube.com/@mutim_na_crypte?si=rqnwdBvWC9yHI7AW",
+      telegram: "https://t.me/investhai5"
+    },
+    {
+      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba7-qoyBWYiv1jcLoAZoCzHarFcT4l6Xgj.webp",
+      name: "DiegolaYT",
+      yutube: "https://www.youtube.com/@DIEGOLAYT",
+      telegram: "https://t.me/DiegolaNftCrypto"
     },
   ]
 
@@ -76,9 +78,9 @@ export default function Ambassador() {
           </div>
           <div className="main_bg absolute pb-8 text-white text-[0.8rem] md:text-[1.5rem]">
             <div className="main-bg w-[1100px] h-[700px] flex flex-col items-center z-[1]">
-              <div className="w-[95vw] md:w-[700px] mt-36 md:mt-28 flex justify-center items-center">
+              <div className="w-[95vw] md:w-[800px] mt-36 md:mt-28 flex justify-center items-center">
                 {ambaData1.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/3">
+                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/4">
                     <LazyImage
                       src={item.avatar}
                       className="cursor-pointer w-full"
@@ -99,9 +101,9 @@ export default function Ambassador() {
                   </div>
                 ))}
               </div>
-              <div className="w-[95vw] md:w-[700px] flex justify-center items-center mt-16 sm:mt-8 md:mt-4">
+              <div className="w-[95vw] md:w-[800px] flex justify-center items-center mt-16 sm:mt-8 md:mt-8">
                 {ambaData2.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/3">
+                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/4">
                     <LazyImage
                       src={item.avatar}
                       className="cursor-pointer w-full"
