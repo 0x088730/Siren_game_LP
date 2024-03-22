@@ -154,7 +154,8 @@ export default function MainPresaleAdmin({
                 }
                 <LabelButton title={t("YOU RECEIVE")} buyStatus={buyStatus} color="text-yellow-500" img="assets/images/cryptoIcon.png" receiveAmount={receiveAmount} />
                 <LabelButton title={t("ENTER CODE")} buyStatus={buyStatus} onChange={(e) => getEnterCode(e)} />
-                <ClickButton title={t("BUY")} className="w-60 h-12 text-white" onClick={() => onBtnClick("Buy")} />
+                {/* <ClickButton title={t("BUY")} className="w-60 h-12 text-white" onClick={() => onBtnClick("Buy")} /> */}
+                <ClickButton title={t("CLOSED")} className="w-60 h-12 text-white" />
                 <div className="font-bold text-white">
                     <span className="text-[#ff0000] text-2xl">{t("! ")}</span>
                     <span className="text-[#dcc90a] text-1xl">{t("UNLOCK 15% ON TOKEN RELEASE AND EVERY 14 DAYS +21.25%")}</span>
