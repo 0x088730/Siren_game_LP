@@ -60,3 +60,15 @@ export const addWithdraw = async (walletAddress) => {
 export const checkWithdrawDaily = async (walletAddress) => {
     return (await axios.post(`checkWithdrawDaily`, { walletAddress })).data;
 }
+
+export const addCSCWithdraw = async (walletAddress) => {
+    return (await axios.post(`addCSCWithdraw`, {
+        walletAddress,
+    })).data;
+}
+
+export const checkTokenCoolDown = async (walletAddress) => {
+    return (await axios.post(`checkTokenCoolDown`, {
+        walletAddress,
+    })).data;
+}

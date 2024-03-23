@@ -131,7 +131,7 @@ export default function MainPresaleAdmin({
                 {!buyStatus ?
                     !pendingStatus ?
                         <>
-                            <LabelButton title={t("YOU PAY")} class="mt-8" buyStatus={buyStatus} color="text-green-500" img="assets/images/usdt.png" onChange={(e) => onAmountClick(e)} />
+                            <LabelButton title={t("YOU PAY")} class="mt-8" buyStatus={buyStatus} color="text-green-500" img="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/usdt-MDujcYyTYtYUqfbqRwuSi2A06JKY12.webp" onChange={(e) => onAmountClick(e)} />
                         </>
                         :
                         <div className="w-[32rem] h-[8rem] border-[3px] border-[#222222] bg-[#ffffff] rounded-3xl flex justify-center items-center text-[1rem] font-bold tracking-[-1.2px] relative">
@@ -152,7 +152,7 @@ export default function MainPresaleAdmin({
                         <button className="absolute right-[1rem] bottom-[1rem] font-[600] text-[#111111] text-[15px] bg-[#a1a1a1] w-fit px-[10px] rounded-full border-[2px] border-[#111111] shadow-[3px_3px_5px_#111111]" onClick={() => buyOkay()}>OKAY</button>
                     </div>
                 }
-                <LabelButton title={t("YOU RECEIVE")} buyStatus={buyStatus} color="text-yellow-500" img="assets/images/cryptoIcon.png" receiveAmount={receiveAmount} />
+                <LabelButton title={t("YOU RECEIVE")} buyStatus={buyStatus} color="text-yellow-500" img="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/cryptoIcon-4IsVnFKViglhLbhrD7EpgBOzujqxjU.webp" receiveAmount={receiveAmount} />
                 <LabelButton title={t("ENTER CODE")} buyStatus={buyStatus} onChange={(e) => getEnterCode(e)} />
                 {/* <ClickButton title={t("BUY")} className="w-60 h-12 text-white" onClick={() => onBtnClick("Buy")} /> */}
                 <ClickButton title={t("SOLD OUT")} className="w-60 h-12 text-white" />

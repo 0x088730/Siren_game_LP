@@ -46,6 +46,16 @@ export default function PresaleAdmin() {
         setGlobalValue({ totalAmount: Number(res.globalValue.totalAmount).toFixed(2), transaction: res.globalValue.transaction });
         setRefCodeList(res.refCodeList)
       })
+    if (global.walletAddress !== "") {
+      setBtnType("Buy");
+      createProfile(global.walletAddress)
+        .then(res => {
+          setUserData(res.user);
+          global.userRef = res.user.userRef;
+          setTokenAmount(res.user.tokenAmount)
+        })
+      setAddress(global.walletAddress.slice(0, 4) + " ... " + global.walletAddress.slice(-4));
+    }
   }, [])
   useEffect(() => {
     getRefCodeList(global.walletAddress)
@@ -253,7 +263,7 @@ export default function PresaleAdmin() {
                   pendingStatus={pendingStatus}
                   globalValue={globalValue}
                   setGlobalValue={setGlobalValue}
-                  // handleImageLoad={handleImageLoad}
+                // handleImageLoad={handleImageLoad}
                 />
                 :
                 page === "chart" ?
@@ -265,7 +275,7 @@ export default function PresaleAdmin() {
                     btnType={btnType}
                     bonusRate={bonusRate}
                     setBonusRate={setBonusRate}
-                    // handleImageLoad={handleImageLoad}
+                  // handleImageLoad={handleImageLoad}
                   />
               }
             </div>

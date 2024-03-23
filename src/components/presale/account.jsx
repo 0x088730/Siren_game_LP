@@ -1,18 +1,63 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { addWithdraw, checkWithdrawDaily, createRefCode } from "~/common/api";
+import { addCSCWithdraw, addWithdraw, checkTokenCoolDown, checkWithdrawDaily, createRefCode } from "~/common/api";
 import { global } from "~/common/global";
 import { useRouter } from "next/router";
 import Web3 from 'web3'
 import { ClaimButton } from "../clickButton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import LazyImage from "../lazyImage";
+import { convertSecToHMS } from "../utils";
 
 export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
     const [withdrawDaily, setWithdrawDaily] = useState(true);
     const router = useRouter()
+    const [remainedTime, setRemainedTime] = useState(0);
+    const [isCooldownStarted, setIsCooldownStarted] = useState(false)
+    const [claimAvailable, setClaimAvailable] = useState(false);
+
+    useEffect(() => {
+        if (global.walletAddress !== "") {
+            checkTokenCoolDown(global.walletAddress).then(res => {
+                let cooldownSec = res.data.time
+                if (cooldownSec === 999999) {
+                    setClaimAvailable(true);
+                }
+                else if (cooldownSec <= 0) {
+                    setClaimAvailable(true);
+                }
+                else {
+                    setClaimAvailable(false);
+                    setRemainedTime(cooldownSec)
+                    setIsCooldownStarted(true)
+                }
+            })
+        }
+    }, [global.walletAddress])
+
+    useEffect(() => {
+        if (isCooldownStarted) {
+            var cooldownInterval = setInterval(() => {
+                setRemainedTime((prevTime) => {
+                    if (prevTime === 1) {
+                        setClaimAvailable(true);
+                        checkTokenCoolDown(global.walletAddress).then(res => {
+                        })
+                    }
+                    if (prevTime === 0) {
+                        clearInterval(cooldownInterval)
+                        setIsCooldownStarted(false)
+                        return 0
+                    }
+                    return prevTime - 1
+                })
+            }, 1000)
+        }
+
+        return () => clearInterval(cooldownInterval)
+    }, [isCooldownStarted])
 
     useEffect(() => {
         if (tokenAmount.usdt <= 5000) {
@@ -73,6 +118,27 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
         })
     }
 
+    const claimCSC = async () => {
+        if (!claimAvailable) {
+            alert("please wait...")
+            return;
+        }
+        if (tokenAmount.csc <= 0) {
+            alert("CSC token not enough!")
+            return;
+        }
+        addCSCWithdraw(global.walletAddress).then(res => {
+            if (!res.data) {
+                alert(res.message);
+                return;
+            }
+            setTokenAmount({ ...tokenAmount, csc: res.data.csc });
+            setRemainedTime(res.data.time);
+            setClaimAvailable(false);
+            setIsCooldownStarted(true)
+        })
+    }
+
     return (
         <>
             <div className="w-[1020px] h-[540px] me-[13px] flex flex-col items-center font-skranji text-white mt-8 sm:mt-0">
@@ -87,9 +153,9 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                                 </div>
                             </div>
                             <div className="flex justify-center cursor-pointer mt-2">
-                                <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" />
+                                <ClaimButton title="CLAIM" className={`w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16 ${claimAvailable ? "" : "grayscale"}`} onClick={claimAvailable ? claimCSC : null} />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("Next token unlock in:")}<br className="block sm:hidden" /> <span className="text-[#f6b135]">none</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("Next token unlock in:")}<br className="block sm:hidden" /> <span className="text-[#f6b135]">{convertSecToHMS(remainedTime)}</span></div>
                         </div>
                         <div className="text-center">
                             <div className="text-[#FFFFFF] text-lg">USDT {t("Token")}</div>
