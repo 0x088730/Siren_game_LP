@@ -22,7 +22,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
         if (global.walletAddress !== "") {
             checkTokenCoolDown(global.walletAddress).then(res => {
                 let cooldownSec = res.data.time
-                if (cooldownSec === 999999) {
+                if (cooldownSec === 99999999) {
                     setClaimAvailable(true);
                 }
                 else if (cooldownSec <= 0) {
@@ -155,7 +155,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                             <div className="flex justify-center cursor-pointer mt-2">
                                 <ClaimButton title="CLAIM" className={`w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16 ${claimAvailable ? "" : "grayscale"}`} onClick={claimAvailable ? claimCSC : null} />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("Next token unlock in:")}<br className="block sm:hidden" /> <span className="text-[#f6b135]">{convertSecToHMS(remainedTime)}</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("Next token unlock in:")}<br /> <span className="text-[#f6b135]">{convertSecToHMS(remainedTime)}</span></div>
                         </div>
                         <div className="text-center">
                             <div className="text-[#FFFFFF] text-lg">USDT {t("Token")}</div>
@@ -167,7 +167,7 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                             <div className="flex justify-center mt-2">
                                 <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" onClick={claimUSDT} />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("More about ref system:")}<br className="block sm:hidden" /> <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("More about ref system:")}<br /> <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
                         </div>
                     </div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md">

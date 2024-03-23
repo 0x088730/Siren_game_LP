@@ -3,56 +3,87 @@ import Header from "~/components/screens/header";
 import { goUrl } from "~/components/utils";
 import i18next from "~/global/i18n";
 import LazyImage from "~/components/lazyImage";
+import { useState } from "react";
+
+const ambaData = [
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba1-XRRNUGjMcRDD6ATvKK9WLMVUQV4V5T.webp",
+    name: "CLEM",
+    yutube: "https://www.youtube.com/@ClemFF",
+    telegram: "https://t.me/+iYQNojPNQzwyNmIx"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba2-CGWBBINfTjzQKqHc349KghVsnplgNA.webp",
+    name: "REI DO NFT",
+    yutube: "https://www.youtube.com/@ReidoNFT",
+    telegram: "https://t.me/ReidoNFTs"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba3-8gLogfqbrvcfuK2myJOOA2zVXJI1su.webp",
+    name: "BERKSUN CRYPTO",
+    yutube: "https://www.youtube.com/@BerkayBerksun",
+    telegram: "https://t.me/BBTRD"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba4-mH9Tn0yrcAmRCqFjSw8rkR0JH0CPCU.webp",
+    name: "SALLE SRJ",
+    yutube: "https://www.youtube.com/@SalleSRJnaWeb3",
+    telegram: "https://t.me/+S9OAZijBav8yNzNh"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba5-H4NgftYACuo35sfBAgSNrVB6lldcTL.webp",
+    name: "BRUELGAMES",
+    yutube: "https://www.youtube.com/@bruelgames",
+    telegram: "https://t.me/BruelGames"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba6-wrxcvWPHBmRugYwEdOvwBlBF45SQJo.webp",
+    name: "Мутим На Крипте",
+    yutube: "https://youtube.com/@mutim_na_crypte?si=rqnwdBvWC9yHI7AW",
+    telegram: "https://t.me/investhai5"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba7-qoyBWYiv1jcLoAZoCzHarFcT4l6Xgj.webp",
+    name: "DiegolaYT",
+    yutube: "https://www.youtube.com/@DIEGOLAYT",
+    telegram: "https://t.me/DiegolaNftCrypto"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba8-0z3CJqKnbCPBDZxWjykAzxodRlEqUh.webp",
+    name: "NFT Gamer",
+    yutube: "https://youtube.com/c/NFTGame",
+    telegram: "https://t.me/nftgame9"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba9-wyyJYB6V07iJgLbXY9vbQV9r2usnsj.webp",
+    name: "Sakata",
+    yutube: "https://www.youtube.com/channel/UCV8654Rqxch7JMUAF5SEv2g",
+    telegram: "https://t.me/SakataPobrenosnft"
+  },
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba10-fJfeIujHFRYaOiiAkmQFIz8tBWL0Om.webp",
+    name: "QUOCBAOMMO",
+    yutube: "https://www.youtube.com/channel/UCFU8LnLfrvUIjbI1OPjw0Ng",
+    telegram: "https://t.me/agcryptovnchat"
+  },
+]
 
 export default function Ambassador() {
   const { t, i18n } = useTranslation();
-  const ambaData1 = [
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba1-XRRNUGjMcRDD6ATvKK9WLMVUQV4V5T.webp",
-      name: "CLEM",
-      yutube: "https://www.youtube.com/@ClemFF",
-      telegram: "https://t.me/+iYQNojPNQzwyNmIx"
-    },
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba2-CGWBBINfTjzQKqHc349KghVsnplgNA.webp",
-      name: "REI DO NFT",
-      yutube: "https://www.youtube.com/@ReidoNFT",
-      telegram: "https://t.me/ReidoNFTs"
-    },
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba3-8gLogfqbrvcfuK2myJOOA2zVXJI1su.webp",
-      name: "BERKSUN CRYPTO",
-      yutube: "https://www.youtube.com/@BerkayBerksun",
-      telegram: "https://t.me/BBTRD"
-    },
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba4-mH9Tn0yrcAmRCqFjSw8rkR0JH0CPCU.webp",
-      name: "SALLE SRJ",
-      yutube: "https://www.youtube.com/@SalleSRJnaWeb3",
-      telegram: "https://t.me/+S9OAZijBav8yNzNh"
-    },
-  ]
+  const [presentData, setPresentData] = useState(ambaData.slice(0, 5))
+  const [listIndex, setListIndex] = useState({ first: 0, last: 5 });
 
-  const ambaData2 = [
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba5-H4NgftYACuo35sfBAgSNrVB6lldcTL.webp",
-      name: "BRUELGAMES",
-      yutube: "https://www.youtube.com/@bruelgames",
-      telegram: "https://t.me/BruelGames"
-    },
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba6-wrxcvWPHBmRugYwEdOvwBlBF45SQJo.webp",
-      name: "Мутим На Крипте",
-      yutube: "https://youtube.com/@mutim_na_crypte?si=rqnwdBvWC9yHI7AW",
-      telegram: "https://t.me/investhai5"
-    },
-    {
-      avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba7-qoyBWYiv1jcLoAZoCzHarFcT4l6Xgj.webp",
-      name: "DiegolaYT",
-      yutube: "https://www.youtube.com/@DIEGOLAYT",
-      telegram: "https://t.me/DiegolaNftCrypto"
-    },
-  ]
+  const onPrevious = () => {
+    if (listIndex.first <= 0) return;
+    setListIndex({ first: listIndex.first - 5, last: listIndex.last - 5 });
+    setPresentData(ambaData.slice(listIndex.first - 5, listIndex.last - 5))
+  }
+
+  const onNext = () => {
+    if (listIndex.last >= 10) return;
+    setListIndex({ first: listIndex.first + 5, last: listIndex.last + 5 });
+    setPresentData(ambaData.slice(listIndex.first + 5, listIndex.last + 5))
+  }
 
   return (
     <I18nextProvider i18n={i18next}>
@@ -77,10 +108,10 @@ export default function Ambassador() {
             </div>
           </div>
           <div className="main_bg absolute pb-8 text-white text-[0.8rem] md:text-[1.5rem]">
-            <div className="main-bg w-[1100px] h-[700px] flex flex-col items-center z-[1]">
-              <div className="w-[95vw] md:w-[800px] mt-36 md:mt-28 flex justify-center items-center">
-                {ambaData1.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/4">
+            <div className="relative main-bg w-[1100px] h-[700px] flex flex-col items-center z-[1]">
+              <div className="w-[95vw] md:w-[700px] mt-28 md:mt-24 flex justify-center items-center flex-wrap gap-y-8 md:gap-y-0 me-4">
+                {presentData.map((item, index) => (
+                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/3">
                     <LazyImage
                       src={item.avatar}
                       className="cursor-pointer w-full"
@@ -101,28 +132,18 @@ export default function Ambassador() {
                   </div>
                 ))}
               </div>
-              <div className="w-[95vw] md:w-[800px] flex justify-center items-center mt-16 sm:mt-8 md:mt-8">
-                {ambaData2.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-center items-center gap-y-1 w-1/4">
-                    <LazyImage
-                      src={item.avatar}
-                      className="cursor-pointer w-full"
-                    />
-                    <div className="flex items-center justify-center h-8 text-center">{item.name}</div>
-                    <div className="flex gap-x-1">
-                      <LazyImage
-                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/yutube-icon-gyTH5ccbNvSDYURygYxnpWbyZYsWz8.webp"
-                        className="cursor-pointer w-8 md:w-12"
-                        onClick={() => goUrl(item.yutube)}
-                      />
-                      <LazyImage
-                        src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/telegram-icon-nACOErk3nWPNEBdAmAjVXlzw5WPmvC.webp"
-                        className="cursor-pointer w-8 md:w-12"
-                        onClick={() => goUrl(item.telegram)}
-                      />
-                    </div>
-                  </div>
-                ))}
+              <div className="absolute bottom-20 flex justify-center items-center gap-x-4 mt-4 me-4">
+                <LazyImage
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/left_purple-lbXN2HqCi3R6t3ZoKo5P4hOujRyoSw.png"
+                  className={` w-[40px] cursor-pointer`}
+                  onClick={onPrevious}
+                />
+                <div className="w-2 text-center">{Math.floor(listIndex.first / 5 + 1)}</div>
+                <LazyImage
+                  src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/other/right_purple-lanaXVC5zrmf6AgLbf7Q94853YqY5s.png"
+                  className={`w-[40px] cursor-pointer`}
+                  onClick={onNext}
+                />
               </div>
             </div>
             <div className="sm:hidden grid flex-col sm:flex-row justify-around w-full ml-[-4%] mb-12 z-30 text-white">
