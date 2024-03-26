@@ -65,6 +65,12 @@ const ambaData = [
     name: "QUOCBAOMMO",
     yutube: "https://www.youtube.com/channel/UCFU8LnLfrvUIjbI1OPjw0Ng",
     telegram: "https://t.me/agcryptovnchat"
+  },  
+  {
+    avatar: "https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/member/amba11-ED0684jKYM1nXFGFQvpEM1hL4Bd85B.webp",
+    name: "NFTGAMER",
+    yutube: "https://www.youtube.com/100nftgamer",
+    telegram: "https://t.me/+lzXMpnE7lDhlN2Fh"
   },
 ]
 
@@ -80,7 +86,7 @@ export default function Ambassador() {
   }
 
   const onNext = () => {
-    if (listIndex.last >= 10) return;
+    if (listIndex.last >= 11) return;
     setListIndex({ first: listIndex.first + 5, last: listIndex.last + 5 });
     setPresentData(ambaData.slice(listIndex.first + 5, listIndex.last + 5))
   }
