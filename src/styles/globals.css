@@ -370,6 +370,11 @@ body {
   background-size: 100% 100%;
 }
 
+.chart-container {
+  background-image: url("../../public/assets/images/chart-bg.webp") !important;
+  background-size: 100% 100%;
+}
+
 .video-size {
   height: 750px;
 }

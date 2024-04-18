@@ -22,6 +22,7 @@
     "next": "13.4.19",
     "postcss": "8.4.29",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.2.2",
     "react-language-selector": "^1.1.0",

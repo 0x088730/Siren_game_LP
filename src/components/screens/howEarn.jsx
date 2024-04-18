@@ -2,8 +2,17 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import LazyImage from "../lazyImage";
+import dynamic from 'next/dynamic';
+import { options, series } from "~/interfaces/chartOptions";
+
+const DynamicReactApexChart = dynamic(() => import('react-apexcharts'), {
+    ssr: false
+});
+
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const HowEarn = (props) => {
+    console.log(props.tokenList)
     let imagesCount = 6;
     const { t, i18n } = useTranslation();
     const characterList = [1, 2, 3, 4];
@@ -15,11 +24,32 @@ const HowEarn = (props) => {
         { header: "Hayate", detail: t("Hayate is a wood element character. The huge castle of Altdream, more like a city, was once home to thousands of people. One day, one of the guards discovered the ability to control wooden objects and then the earth. One day, while practicing with the elements, not far from the castle, the knight sent the entire castle underground, destroying everyone in it. He became maddened by his own power and now constantly seeks out creatures to destroy. His strength is periodic damage. His weakness is fighting creatures with the element of fire, especially if those") }
     ]
     const [loadedImages, setLoadedImages] = useState(0);
+    const [page, setPage] = useState("chart");
+    const [xAxis, setXAxis] = useState([]);
+    const [yAxis, setYAxis] = useState([]);
+
     useEffect(() => {
         if (loadedImages >= imagesCount) {
             props.setLoaded(true)
         }
     }, [loadedImages]);
+
+    useEffect(() => {
+        let x = [], y = [];
+        for (let i = 0; i < props.tokenList.length; i++) {
+            let d = new Date(props.tokenList[i].createdAt)
+            let year = d.getFullYear() - 2000;
+            let month = months[d.getMonth()];
+            let date = d.getDate() < 9 ? "0" + (d.getDate() + 1) : d.getDate() + 1;
+            let hour = d.getHours() < 10 ? "0" + (d.getHours()) : d.getHours();
+            let min = d.getMinutes() < 10 ? "0" + (d.getMinutes()) : d.getMinutes();
+            let sec = d.getSeconds() < 10 ? "0" + (d.getSeconds()) : d.getSeconds();
+            x.push(date + "." + month + "." + year + " " + hour + ":" + min + ":" + sec);
+            y.push(props.tokenList[i].price);
+        }
+        setXAxis(x);
+        setYAxis(y);
+    }, [props.tokenList])
 
     const handleImageLoad = () => {
         setLoadedImages(prevState => prevState + 1);
@@ -36,40 +66,72 @@ const HowEarn = (props) => {
                 src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/character3-tglHZCKtShHsIV8SlUBXTzlVyEAIkp.webp"
                 className="absolute left-0 mt-40 sm:mt-0 top-[-99rem] sm:top-[-65rem] md:top-[-58rem] lg:top-[-22rem] xl:top-[-21rem] 2xl:top-[-22rem] w-[66%] sm:w-[45%] md:w-[35%] lg:w-[33%] xl:w-[39%] 2xl:w-[33%]"
             />
-            <div className="main-bg-test absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-70rem] sm:top-[-45rem] md:top-[-38rem] lg:top-[-6rem] xl:-top-16 flex flex-col-reverse sm:flex-row justify-center items-center">
-                <div className={`relative object-cover ${currentCharacter === 2 ? "w-44 sm:w-48" : "w-56 sm:w-56"} ${currentCharacter === 3 ? "h-72" : "h-80"}  me-0 sm:me-16 z-10`}>
-                    <LazyImage
-                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/1-7OvWlCiF1VhnBIE1glEgvvXjBJ61kG.gif`}
-                        className={`absolute ${currentCharacter === 1 ? "block" : "hidden"} top-0 w-full h-full`}
-                    />
-                    <LazyImage
-                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/2-VWEjYlLNPBknHRl1PJWIJN0OzYPo89.gif`}
-                        className={`absolute ${currentCharacter === 2 ? "block" : "hidden"} top-0 w-full h-full`}
-                    />
-                    <LazyImage
-                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/3-B1TbChaOPJMU6Xce5EHMXnmEo3kIi7.gif`}
-                        className={`absolute ${currentCharacter === 3 ? "block" : "hidden"} top-0 w-full h-full`}
-                    />
-                    <LazyImage
-                        src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/4-vVmZlNT6ZdKkJlSd6j3ACo20cxffdb.gif`}
-                        className={`absolute ${currentCharacter === 4 ? "block" : "hidden"} top-0 w-full h-full`}
-                    />
+            <div className={`${page === 'chart' ? 'main-bg' : 'main-bg-test'} absolute w-[1200px] h-[1000px] sm:h-[800px] top-[-70rem] sm:top-[-45rem] md:top-[-38rem] lg:top-[-6rem] xl:-top-16 flex flex-col-reverse sm:flex-row justify-center items-center`}>
+                <div className="absolute w-full h-full">
+                    <div
+                        className={`absolute left-[26rem] lg:left-48 top-28 sm:top-20 text-white text-1xl w-36 h-10 cursor-pointer ${page === "chart" ? "green-btn" : "inactive-btn"} z-10`}
+                        onClick={() => { setPage("chart") }}
+                    >
+                        <span
+                            className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
+                            style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                        >
+                            {t("CHART")}
+                        </span>
+                    </div>
+                    <div
+                        className={`absolute left-[38rem] lg:left-[22rem] top-28 sm:top-20 text-white text-1xl w-36 h-10 cursor-pointer ${page === "character" ? "green-btn" : "inactive-btn"} z-10`}
+                        onClick={() => { setPage("character") }}
+                    >
+                        <span
+                            className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
+                            style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
+                        >
+                            {t("CHARACTER")}
+                        </span>
+                    </div>
                 </div>
-                <div className={`relative text-bg ${currentCharacter === 3 || currentCharacter === 4 ? "w-[365px] sm:w-[380px] h-[370px] sm:h-[370px]" : ""} w-[280px] sm:w-[300px] h-[320px] sm:h-[350px] ml-0 sm:ml-16 z-10 p-4 sm:p-6 flex justify-center items-center`}>
-                    <div className="absolute top-6 text-[25px]">{characterData[currentCharacter - 1].header}</div>
-                    <div className="text-center text-[14px] leading-6 mt-6">{characterData[currentCharacter - 1].detail}</div>
-                </div>
-                <div className="absolute bottom-16 flex justify-between z-10">
-                    {characterList.map((item, index) => (
-                        <div key={index}>
+                {page !== "chart" ?
+                    <>
+                        <div className={`relative object-cover ${currentCharacter === 2 ? "w-44 sm:w-48" : "w-56 sm:w-56"} ${currentCharacter === 3 ? "h-72" : "h-80"}  me-0 sm:me-16 z-10`}>
                             <LazyImage
-                                src={`assets/images/characters/avatar${item}.webp`}
-                                className={`${item !== currentCharacter ? "grayscale" : ""} object-cover w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 mx-2 sm:mx-4 md:mx-6 lg:mx-8 z-10 cursor-pointer`}
-                                onClick={() => setCurrentCharacter(item)}
+                                src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/1-7OvWlCiF1VhnBIE1glEgvvXjBJ61kG.gif`}
+                                className={`absolute ${currentCharacter === 1 ? "block" : "hidden"} top-0 w-full h-full`}
+                            />
+                            <LazyImage
+                                src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/2-VWEjYlLNPBknHRl1PJWIJN0OzYPo89.gif`}
+                                className={`absolute ${currentCharacter === 2 ? "block" : "hidden"} top-0 w-full h-full`}
+                            />
+                            <LazyImage
+                                src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/3-B1TbChaOPJMU6Xce5EHMXnmEo3kIi7.gif`}
+                                className={`absolute ${currentCharacter === 3 ? "block" : "hidden"} top-0 w-full h-full`}
+                            />
+                            <LazyImage
+                                src={`https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/characters/4-vVmZlNT6ZdKkJlSd6j3ACo20cxffdb.gif`}
+                                className={`absolute ${currentCharacter === 4 ? "block" : "hidden"} top-0 w-full h-full`}
                             />
                         </div>
-                    ))}
-                </div>
+                        <div className={`relative text-bg ${currentCharacter === 3 || currentCharacter === 4 ? "w-[365px] sm:w-[380px] h-[370px] sm:h-[370px]" : ""} w-[280px] sm:w-[300px] h-[320px] sm:h-[350px] ml-0 sm:ml-16 z-10 p-4 sm:p-6 flex justify-center items-center`}>
+                            <div className="absolute top-6 text-[25px]">{characterData[currentCharacter - 1].header}</div>
+                            <div className="text-center text-[14px] leading-6 mt-6">{characterData[currentCharacter - 1].detail}</div>
+                        </div>
+                        <div className="absolute bottom-16 flex justify-between z-10">
+                            {characterList.map((item, index) => (
+                                <div key={index}>
+                                    <LazyImage
+                                        src={`assets/images/characters/avatar${item}.webp`}
+                                        className={`${item !== currentCharacter ? "grayscale" : ""} object-cover w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 mx-2 sm:mx-4 md:mx-6 lg:mx-8 z-10 cursor-pointer`}
+                                        onClick={() => setCurrentCharacter(item)}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                    :
+                    <>
+                        <DynamicReactApexChart className="chart-container ml-[-1.3rem] mt-8" type="area" options={options(xAxis)} series={series(yAxis)} height={530} width={940} />
+                    </>
+                }
             </div>
             <div className="flex flex-col justify-start items-center translate-y-0 sm:translate-y-[-33%] md:translate-y-[-22rem] lg:translate-y-8 xl:translate-y-0 -mt-20 sm:mt-[20rem] md:mt-[40rem] md:mb-16 lx:mb-0 lg:mt-[47rem] xl:mt-[50rem]">
                 <div className="font-oi text-[#FF9B00] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[55px] xl:text-[60px] text-gradient-shadow-stroke"><span style={{ WebkitTextFillColor: "white" }}>{t("How to")}</span>{t(" earn")}</div>

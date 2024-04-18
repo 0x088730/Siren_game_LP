@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { I18nextProvider, useTranslation } from "react-i18next";
-import { counterUser } from "~/common/api";
+import { addTokenPrice, counterUser, getTokenPrice } from "~/common/api";
 import i18next from "~/global/i18n";
 
 // const Header = React.lazy(() => import('~/components/screens/header'));
@@ -27,13 +27,33 @@ export default function Home() {
   const [loaded4, setLoaded4] = useState(false);
   const [loaded5, setLoaded5] = useState(false);
   const [loaded6, setLoaded6] = useState(false);
+  const [tokenList, setTokenList] = useState([]);
+  const [isCooldownStarted, setIsCooldownStarted] = useState(false);
 
   useEffect(() => {
     i18n.changeLanguage('en');
     counterUser().then(res => {
       // alert(res.message);
     });
+    addTokenPrice().then(res => {
+      getTokenPrice().then(res => {
+        setTokenList(res.data);
+        setIsCooldownStarted(true);
+      })
+    })
   }, []);
+
+  useEffect(() => {
+    if (isCooldownStarted === true) {
+      var cooldownInterval = setInterval(() => {
+        getTokenPrice().then(res => {
+          setTokenList(res.data);
+        })
+      }, 600000)
+    }
+
+    return () => clearInterval(cooldownInterval)
+  }, [isCooldownStarted])
 
   return (
     <div>
@@ -47,12 +67,12 @@ export default function Home() {
           <div id="Home" className={`w-full`}>
             <div className="relative font-skranji text-white z-0">
               {/* <Suspense fallback={<div>Loading...</div>}> */}
-                <MainPage loaded={loaded1} setLoaded={setLoaded1} />
-                <HowPlay loaded={loaded2} setLoaded={setLoaded2} />
-                <WhitePaper loaded={loaded3} setLoaded={setLoaded3} />
-                <GemDescription loaded={loaded4} setLoaded={setLoaded4} />
-                <HowEarn loaded={loaded5} setLoaded={setLoaded5} />
-                <ContactUs loaded={loaded6} setLoaded={setLoaded6} />
+              <MainPage loaded={loaded1} setLoaded={setLoaded1} />
+              <HowPlay loaded={loaded2} setLoaded={setLoaded2} />
+              <WhitePaper loaded={loaded3} setLoaded={setLoaded3} />
+              <GemDescription loaded={loaded4} setLoaded={setLoaded4} />
+              <HowEarn loaded={loaded5} setLoaded={setLoaded5} tokenList={tokenList} />
+              <ContactUs loaded={loaded6} setLoaded={setLoaded6} />
               {/* </Suspense> */}
             </div>
           </div>

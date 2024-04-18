@@ -20,7 +20,7 @@ export default function PresaleAdmin() {
   const [btnType, setBtnType] = useState("Connect");
   const [btnColor, setBtnColor] = useState("grayscale");
   const [usdtamount, setusdtamount] = useState(null);
-  const [page, setPage] = useState("main");
+  const [page, setPage] = useState("account");
   const [receiveAmount, setReceiveAmount] = useState(0);
   const [code, setCode] = useState("");
   const [tokenAmount, setTokenAmount] = useState({
@@ -28,7 +28,7 @@ export default function PresaleAdmin() {
     usdt: 0
   });
   const [buyStatus, setBuyStatus] = useState(false);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({ bonus: { csc: 0, usdt: 0 } });
   const [bonusRate, setBonusRate] = useState(0);
   const [refCodeList, setRefCodeList] = useState([]);
   const [pendingStatus, setPendingStatus] = useState(false);
@@ -212,7 +212,7 @@ export default function PresaleAdmin() {
           <div className="absolute top-0 translate-y-72 sm:translate-y-52 lg:translate-y-40">
             <div className="main-bg w-[1200px] h-[750px]  flex flex-col items-center z-[1]">
               <div className="w-full flex justify-center items-end h-[150px] p-5 -mt-24 sm:mt-0 z-0">
-                <div
+                {/* <div
                   className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
                   onClick={() => {
                     global.pageStatus = "main";
@@ -236,9 +236,9 @@ export default function PresaleAdmin() {
                   >
                     {t("CHART")}
                   </span>
-                </div>
+                </div> */}
                 <div
-                  className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "account" ? "green-btn" : "inactive-btn"}`}
+                  className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative green-btn`}
                   onClick={() => setPage("account")}
                 >
                   <span
@@ -249,35 +249,37 @@ export default function PresaleAdmin() {
                   </span>
                 </div>
               </div>
-              {page === "main" ?
-                <MainPresaleAdmin
-                  usdtamount={usdtamount}
-                  setusdtamount={setusdtamount}
-                  receiveAmount={receiveAmount}
-                  setReceiveAmount={setReceiveAmount}
-                  onBtnClick={onBtnClick}
-                  buyStatus={buyStatus}
-                  setBuyStatus={setBuyStatus}
-                  code={code}
-                  setCode={setCode}
-                  pendingStatus={pendingStatus}
-                  globalValue={globalValue}
-                  setGlobalValue={setGlobalValue}
-                // handleImageLoad={handleImageLoad}
-                />
-                :
+              {/* {page === "account" ? */}
+              <Account
+                tokenAmount={tokenAmount}
+                setTokenAmount={setTokenAmount}
+                btnType={btnType}
+                bonusRate={bonusRate}
+                setBonusRate={setBonusRate}
+                userData={userData}
+                setUserData={setUserData}
+              // handleImageLoad={handleImageLoad}
+              />
+              {/* :
                 page === "chart" ?
                   <Chart />
                   :
-                  <Account
-                    tokenAmount={tokenAmount}
-                    setTokenAmount={setTokenAmount}
-                    btnType={btnType}
-                    bonusRate={bonusRate}
-                    setBonusRate={setBonusRate}
+                  <MainPresaleAdmin
+                    usdtamount={usdtamount}
+                    setusdtamount={setusdtamount}
+                    receiveAmount={receiveAmount}
+                    setReceiveAmount={setReceiveAmount}
+                    onBtnClick={onBtnClick}
+                    buyStatus={buyStatus}
+                    setBuyStatus={setBuyStatus}
+                    code={code}
+                    setCode={setCode}
+                    pendingStatus={pendingStatus}
+                    globalValue={globalValue}
+                    setGlobalValue={setGlobalValue}
                   // handleImageLoad={handleImageLoad}
                   />
-              }
+              } */}
             </div>
             <div className="sm:hidden grid flex-col sm:flex-row justify-around w-full ml-[-4%] mb-12 z-30 text-white">
               <div>{t("©SOURCECODE")}<br />{t("ALL RIGHTS RESERVERD")}</div>

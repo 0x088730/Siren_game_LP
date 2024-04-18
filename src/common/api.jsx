@@ -72,3 +72,18 @@ export const checkTokenCoolDown = async (walletAddress) => {
         walletAddress,
     })).data;
 }
+
+export const addTokenPrice = async () => {
+    return (await axios.post(`addTokenPrice`, {})).data;
+}
+
+export const getTokenPrice = async () => {
+    return (await axios.post(`getTokenPrice`, {})).data;
+}
+
+export const addBonusClaim = async (walletAddress, type) => {
+    return (await axios.post(`addBonusClaim`, {
+        walletAddress,
+        type,
+    })).data;
+}

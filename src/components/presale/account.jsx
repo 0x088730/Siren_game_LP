@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { addCSCWithdraw, addWithdraw, checkTokenCoolDown, checkWithdrawDaily, createRefCode } from "~/common/api";
+import { addBonusClaim, addCSCWithdraw, addWithdraw, checkTokenCoolDown, checkWithdrawDaily, createRefCode } from "~/common/api";
 import { global } from "~/common/global";
 import { useRouter } from "next/router";
 import Web3 from 'web3'
@@ -9,7 +9,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import LazyImage from "../lazyImage";
 import { convertSecToHMS } from "../utils";
 
-export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate }) {
+export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRate, setBonusRate, userData, setUserData }) {
     const { t, i18n } = useTranslation();
     const [ref, setRef] = useState("");
     const [withdrawDaily, setWithdrawDaily] = useState(true);
@@ -139,35 +139,64 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
         })
     }
 
+    const claimBonus = async (type) => {
+        if (global.walletAddress === "") return;
+        if (userData.bonus.usdt <= 0) {
+            alert("Not enough bonus csc!");
+            return;
+        }
+        addBonusClaim(global.walletAddress, type).then(res => {
+            if (res.data === false) {
+                alert(res.message);
+                return;
+            }
+            setUserData(res.data);
+        })
+    }
+
     return (
         <>
             <div className="w-[1020px] h-[540px] me-[13px] flex flex-col items-center font-skranji text-white mt-8 sm:mt-0">
                 <div className="w-full flex flex-col justify-center items-center gap-y-4">
                     <div className="font-oi text-[#FF9B00] text-[30px] text-gradient-shadow-stroke-middle text-center" style={{ WebkitTextFillColor: "white" }}>{t("Total balance:")}</div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] h-[200px] opacity-90 relative flex justify-between items-center p-4">
-                        <div className="text-center">
+                        <div className="text-center w-[130px] sm:w-[150px] md:w-[180px]">
                             <div className="text-[#FFFFFF] text-lg">CSC {t("Token")}</div>
                             <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #C04F0F)" }}>
-                                    <div className="text-lg text-[#dcc90a] w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.csc) ? tokenAmount.csc : Number(tokenAmount.csc).toFixed(2)}</div>
+                                    <div className="text-lg text-[#dcc90a] w-full h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.csc) ? tokenAmount.csc : Number(tokenAmount.csc).toFixed(2)}</div>
                                 </div>
                             </div>
                             <div className="flex justify-center cursor-pointer mt-2">
-                                <ClaimButton title="CLAIM" className={`w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16 ${claimAvailable ? "" : "grayscale"}`} onClick={claimAvailable ? claimCSC : null} />
+                                <ClaimButton title="CLAIM" className={`text-xl sm:text-2xl w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-14 ${claimAvailable ? "" : "grayscale"}`} onClick={claimAvailable ? claimCSC : null} />
                             </div>
                             <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("Next token unlock in:")}<br /> <span className="text-[#f6b135]">{convertSecToHMS(remainedTime)}</span></div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-[#FFFFFF] text-lg">USDT {t("Token")}</div>
+                        <div className="text-center w-[130px] sm:w-[150px] md:w-[180px]">
+                            <div className="text-[#FFFFFF] text-lg">CSC REF</div>
                             <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
                                 <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #5DC00F)" }}>
-                                    <div className="text-lg text-[#00ff00] w-44 h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div>
+                                    {/* <div className="text-lg text-[#00ff00] w-full h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div> */}
+                                    <div className="text-lg text-[#00ff00] w-full h-8 my-1 flex-center cursor-pointer">{userData && userData.bonus.csc}</div>
                                 </div>
                             </div>
                             <div className="flex justify-center mt-2">
-                                <ClaimButton title="CLAIM" className="w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-16" onClick={claimUSDT} />
+                                <ClaimButton title="CLAIM" className="text-xl sm:text-2xl w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-14" onClick={() => claimBonus("csc")} />
                             </div>
-                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("More about ref system:")}<br /> <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("More about ref system:")}<br className="hidden sm:block" /> <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
+                        </div>
+                        <div className="text-center w-[130px] sm:w-[150px] md:w-[180px]">
+                            <div className="text-[#FFFFFF] text-lg">USDT REF</div>
+                            <div className="flex justify-center w-full border-4 border-[#ffffff]/[0.2] rounded-xl backdrop-blur-md">
+                                <div className="w-full h-full rounded-lg" style={{ backgroundImage: "linear-gradient(175deg, transparent, #5DC00F)" }}>
+                                    {/* <div className="text-lg text-[#00ff00] w-full h-8 my-1 flex-center cursor-pointer">{Number.isInteger(tokenAmount.usdt) ? tokenAmount.usdt : Number(tokenAmount.usdt).toFixed(2)}</div> */}
+                                    <div className="text-lg text-[#00ff00] w-full h-8 my-1 flex-center cursor-pointer">{userData && userData.bonus.usdt}</div>
+                                </div>
+                            </div>
+                            <div className="flex justify-center mt-2">
+                                <ClaimButton title="CLAIM" className="text-xl sm:text-2xl w-40 h-10 sm:w-44 sm:h-12 md:w-48 md:h-14" onClick={() => claimBonus("usdt")} />
+                            </div>
+                            <div className="mt-3 text-[#FFFFFF] text-[13px] tracking-tightest">{t("More about ref system:")}<br className="hidden sm:block" /> <span className="text-[#00FFC3] cursor-pointer" onClick={goRefInfo}>here</span></div>
                         </div>
                     </div>
                     <div className="w-[400px] sm:w-[500px] md:w-[600px] text-md">
