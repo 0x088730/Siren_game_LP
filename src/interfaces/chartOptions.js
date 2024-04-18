@@ -59,7 +59,7 @@ export const options = (xAxis) => {
             },
             tickAmount: 5,
             max: xAxis.length,
-            min: xAxis.length - 20,
+            min: xAxis.length - 48,
             position: 'right'
         },
         yaxis: {

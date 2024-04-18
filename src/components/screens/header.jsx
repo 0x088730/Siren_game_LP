@@ -12,7 +12,7 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   const { t, i18n } = useTranslation()
   const menuList = [
     t("WhitePaper"),
-    t("Presale"),
+    t("Account"),
     t("Referral Info"),
     t("Ambassador"),
   ];
@@ -20,8 +20,8 @@ export default function Header({ currentMenu, setCurrentMenu }) {
   const handleMenuClick = (menu) => {
     if (menu === currentMenu) return
     global.pageStatus = "main"
-    if (menu === t("Presale")) {
-      router.push('/presale')
+    if (menu === t("Account")) {
+      router.push('/account')
     }
     else if (menu === t("Referral Info")) {
       router.push('/referral-info')

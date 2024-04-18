@@ -59,20 +59,20 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
         return () => clearInterval(cooldownInterval)
     }, [isCooldownStarted])
 
-    useEffect(() => {
-        if (tokenAmount.usdt <= 5000) {
-            setBonusRate(5);
-            return;
-        }
-        else if (tokenAmount.usdt <= 10000) {
-            setBonusRate(10);
-            return;
-        }
-        else {
-            setBonusRate(15);
-            return;
-        }
-    }, [tokenAmount])
+    // useEffect(() => {
+    //     if (tokenAmount.usdt <= 5000) {
+    //         setBonusRate(5);
+    //         return;
+    //     }
+    //     else if (tokenAmount.usdt <= 10000) {
+    //         setBonusRate(10);
+    //         return;
+    //     }
+    //     else {
+    //         setBonusRate(15);
+    //         return;
+    //     }
+    // }, [tokenAmount])
 
     const createRef = () => {
         if (btnType === "Connect") {
@@ -224,11 +224,11 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
                             // onLoad={handleImageLoad}
                             className="w-full"
                         />
-                        <div className="flex justify-evenly w-full text-[#FFFFFF]">
+                        {/* <div className="flex justify-evenly w-full text-[#FFFFFF]">
                             <div>0~5000$</div>
                             <div className="mx-[-2rem]">5001~10000$</div>
                             <div>10001$+</div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

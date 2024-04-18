@@ -76,7 +76,7 @@ const HowEarn = (props) => {
                             className="flex justify-center items-center text-[18px] text-[#ffffff] font-lightest w-full h-full"
                             style={{ WebkitTextStroke: "0.8px rgb(73, 25, 25, 0.8)", textShadow: "rgb(34, 29, 61, 0.8) 0px 3px 3px" }}
                         >
-                            {t("CHART")}
+                            CSC {t("CHART")}
                         </span>
                     </div>
                     <div

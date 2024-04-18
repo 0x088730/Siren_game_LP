@@ -29,7 +29,7 @@ export default function PresaleAdmin() {
   });
   const [buyStatus, setBuyStatus] = useState(false);
   const [userData, setUserData] = useState({ bonus: { csc: 0, usdt: 0 } });
-  const [bonusRate, setBonusRate] = useState(0);
+  const [bonusRate, setBonusRate] = useState(15);
   const [refCodeList, setRefCodeList] = useState([]);
   const [pendingStatus, setPendingStatus] = useState(false);
   const [globalValue, setGlobalValue] = useState({
@@ -182,7 +182,7 @@ export default function PresaleAdmin() {
             className="background-position-center w-[1920px] h-full 2xl:w-full 2xl:h-full"
           />
           <div className="absolute top-0 w-[300px] sm:w-[500px] lg:w-[1000px] xl:w-[1200px] translate-y-28 flex flex-col lg:flex-row justify-center md:justify-between items-center z-10">
-            <div className="font-oi text-[#FF9B00] text-[2rem] text-center text-gradient-shadow-stroke-middle">csc <span style={{ WebkitTextFillColor: "white" }}>{t("token presale")}</span></div>
+            {/* <div className="font-oi text-[#FF9B00] text-[2rem] text-center text-gradient-shadow-stroke-middle">csc <span style={{ WebkitTextFillColor: "white" }}>{t("token presale")}</span></div> */}
             <div
               className="wallet-connect text-md text-left text-white cursor-pointer w-[450px] h-16 flex items-end justify-end"
               onClick={() => onBtnClick("Connect")}
@@ -209,9 +209,9 @@ export default function PresaleAdmin() {
               </span>
             </div>
           </div>
-          <div className="absolute top-0 translate-y-72 sm:translate-y-52 lg:translate-y-40">
+          <div className="absolute top-0 translate-y-48 lg:translate-y-40">
             <div className="main-bg w-[1200px] h-[750px]  flex flex-col items-center z-[1]">
-              <div className="w-full flex justify-center items-end h-[150px] p-5 -mt-24 sm:mt-0 z-0">
+              <div className="w-full flex justify-center items-end h-[120px] p-5 -mt-8 sm:mt-0 z-0">
                 {/* <div
                   className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative ${page === "main" ? "green-btn" : "inactive-btn"}`}
                   onClick={() => {
@@ -236,7 +236,7 @@ export default function PresaleAdmin() {
                   >
                     {t("CHART")}
                   </span>
-                </div> */}
+                </div>
                 <div
                   className={`text-white text-1xl w-28 h-8 sm:w-36 sm:h-10 cursor-pointer relative green-btn`}
                   onClick={() => setPage("account")}
@@ -247,7 +247,7 @@ export default function PresaleAdmin() {
                   >
                     {t("ACCOUNT")}
                   </span>
-                </div>
+                </div> */}
               </div>
               {/* {page === "account" ? */}
               <Account
