@@ -141,16 +141,13 @@ export default function Account({ tokenAmount, setTokenAmount, btnType, bonusRat
 
     const claimBonus = async (type) => {
         if (global.walletAddress === "") return;
-        if (userData.bonus.usdt <= 0) {
-            alert("Not enough bonus csc!");
-            return;
-        }
         addBonusClaim(global.walletAddress, type).then(res => {
             if (res.data === false) {
                 alert(res.message);
                 return;
             }
             setUserData(res.data);
+            alert("Successful withdrawal, tokens will be sent to your wallet within 24 hours");
         })
     }
 

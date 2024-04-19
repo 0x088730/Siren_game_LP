@@ -13,7 +13,7 @@ export default function ReferralInfo() {
   const router = useRouter()
   const { t, i18n } = useTranslation();
   const goAccount = () => {
-    router.push('/presale');
+    router.push('/account');
     global.pageStatus = "account"
   }
 
@@ -53,7 +53,7 @@ export default function ReferralInfo() {
         </div> */}
         <Header currentMenu="Referral Info" />
         <div className={`fixed overflow-y-auto overflow-x-hidden h-full w-full flex justify-center items-center text-white font-skranji text-[16px]`}>
-        {/* <div className={`fixed overflow-y-auto overflow-x-hidden ${loading === true ? "h-0" : "h-full"} w-full flex justify-center items-center text-white font-skranji text-[16px]`}> */}
+          {/* <div className={`fixed overflow-y-auto overflow-x-hidden ${loading === true ? "h-0" : "h-full"} w-full flex justify-center items-center text-white font-skranji text-[16px]`}> */}
           <LazyImage
             src="https://1oc3hrz1dgaooenq.public.blob.vercel-storage.com/bg/htp_bg-yPmatejPOpSn9JPX3Ib43FnvGCoBIR.webp"
             // onLoad={handleImageLoad}
