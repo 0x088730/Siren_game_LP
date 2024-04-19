@@ -71,7 +71,7 @@ export default function ReferralInfo() {
                       className="w-full h-full"
                     />
                   </div>
-                  <div className="text-center text-[18px] md:text-[24px] px-8 mt-24">{t("Get USDT for invited people who bought a CSC")}</div>
+                  <div className="text-center text-[18px] lg:text-[24px] px-8 mt-24">{t("Get USDT for invited people who bought a CSC, buy premium and battle pass")}</div>
                 </div>
                 <div className="mt-32 md:mt-0 px-8 w-full md:w-[860px] h-[490px] md:h-[330px] lg:h-[300px] border-4 border-[#ffffff]/[0.5] rounded-xl backdrop-blur-md relative flex justify-center items-center">
                   <div className="absolute -top-[7.5rem] md:right-12 w-[220px] sm:w-[250px]">
@@ -83,7 +83,7 @@ export default function ReferralInfo() {
                   <div className="w-full flex flex-col md:flex-row justify-between mt-24 md:mt-0">
                     <div className="flex flex-col justify-between gap-y-1">
                       <div className="text-[#FF9B00] text-[30px]">{t("OUR OFFER:")}</div>
-                      <div>{t("- 5, 10, 15% YOU GET FOR EVERY PURCHASE")}</div>
+                      <div>{t("- 15% YOU GET FOR EVERY PURCHASE")}</div>
                       <div>{t("- BY REFERRING MORE PEOPLE YOU GET MORE MONEY")}</div>
                       <div>{t("- YOU RECEIVE % FOR EVERY THEY PURCHASE, FOREVER")}</div>
                       <div>{t("- NO ONE CAN BUY A TOKEN WITHOUR A REFERRAL CODE")}</div>
@@ -106,7 +106,7 @@ export default function ReferralInfo() {
                       />
                     </div>
                     <div className="w-fit sm:pl-0 md:pl-12 lg:pl-28 xl:pl-0">
-                      {t("You will get USDT for each referral")}<br /> {t("who uses your link to purchase csc")}
+                      {t("You will get USDT and CSC for each referral")}<br /> {t("who uses your link to purchase")}
                     </div>
                   </div>
                 </div>
